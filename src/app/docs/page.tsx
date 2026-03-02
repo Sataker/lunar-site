@@ -5,39 +5,76 @@ import Card from "@/components/Card";
 
 export const metadata: Metadata = {
   title: "Documentation — Lunar",
-  description: "Learn how to use Lunar to create Small Language Models from your production traces.",
+  description: "Learn how to distill, route, and deploy LLMs with Lunar. Connect providers, train models, and ship to production.",
 };
+
+const DOCS_BASE = "https://docs.lunar-sys.com";
 
 const docCategories = [
   {
     title: "Getting Started",
-    description: "Installation, authentication, and your first distillation.",
-    items: ["Quickstart", "Installation", "Authentication", "Your First Model"],
-  },
-  {
-    title: "Distillation",
-    description: "Configure and run distillation pipelines.",
-    items: ["Data Curation", "Training Config", "Hyperparameters", "Custom Losses"],
-  },
-  {
-    title: "Evaluation",
-    description: "Test and validate your models before deployment.",
-    items: ["Test Sets", "Metrics", "A/B Testing", "Quality Reports"],
-  },
-  {
-    title: "Deployments",
-    description: "Deploy models to cloud, edge, or your own infrastructure.",
-    items: ["Cloud Deploy", "Self-Hosting", "Edge Devices", "Scaling"],
-  },
-  {
-    title: "SDK Reference",
-    description: "Complete API reference for Python and TypeScript.",
-    items: ["Python SDK", "TypeScript SDK", "REST API", "Webhooks"],
+    href: `${DOCS_BASE}/lunar/overview`,
+    description: "Install the SDK, authenticate, and make your first request.",
+    items: [
+      { label: "Overview", href: `${DOCS_BASE}/lunar/overview` },
+      { label: "Quickstart", href: `${DOCS_BASE}/lunar/quickstart` },
+      { label: "Installation", href: `${DOCS_BASE}/lunar/installation` },
+      { label: "Authentication", href: `${DOCS_BASE}/lunar/guides/authentication` },
+    ],
   },
   {
     title: "Guides",
-    description: "In-depth tutorials for common use cases.",
-    items: ["Cost Optimization", "Model Routing", "Private Deployment", "CI/CD Integration"],
+    href: `${DOCS_BASE}/lunar/guides/chat-completions`,
+    description: "Learn how to use chat completions, streaming, fallbacks, and more.",
+    items: [
+      { label: "Chat Completions", href: `${DOCS_BASE}/lunar/guides/chat-completions` },
+      { label: "Streaming", href: `${DOCS_BASE}/lunar/guides/streaming` },
+      { label: "Fallbacks", href: `${DOCS_BASE}/lunar/guides/fallbacks` },
+      { label: "Async Usage", href: `${DOCS_BASE}/lunar/guides/async-usage` },
+    ],
+  },
+  {
+    title: "Models & Routing",
+    href: `${DOCS_BASE}/lunar/guides/models-providers`,
+    description: "Smart routing, supported models, and cost tracking.",
+    items: [
+      { label: "Models & Providers", href: `${DOCS_BASE}/lunar/guides/models-providers` },
+      { label: "Supported Models", href: `${DOCS_BASE}/lunar/guides/supported-models` },
+      { label: "Cost Tracking", href: `${DOCS_BASE}/lunar/guides/cost-tracking` },
+      { label: "Text Completions", href: `${DOCS_BASE}/lunar/guides/text-completions` },
+    ],
+  },
+  {
+    title: "Evaluations",
+    href: `${DOCS_BASE}/lunar/evals/introduction`,
+    description: "Evaluate models with built-in, custom, and LLM-as-Judge scorers.",
+    items: [
+      { label: "Introduction", href: `${DOCS_BASE}/lunar/evals/introduction` },
+      { label: "Running Evals", href: `${DOCS_BASE}/lunar/evals/running-evals` },
+      { label: "Built-in Scorers", href: `${DOCS_BASE}/lunar/evals/built-in-scorers` },
+      { label: "LLM Judge", href: `${DOCS_BASE}/lunar/evals/llm-judge` },
+    ],
+  },
+  {
+    title: "API Reference",
+    href: `${DOCS_BASE}/lunar/api/reference`,
+    description: "REST endpoints, error handling, and response formats.",
+    items: [
+      { label: "API Reference", href: `${DOCS_BASE}/lunar/api/reference` },
+      { label: "Exceptions", href: `${DOCS_BASE}/lunar/api/exceptions` },
+      { label: "Custom Scorers", href: `${DOCS_BASE}/lunar/evals/custom-scorers` },
+      { label: "Factory Scorers", href: `${DOCS_BASE}/lunar/evals/factory-scorers` },
+    ],
+  },
+  {
+    title: "GPU & Pricing",
+    href: `${DOCS_BASE}/pricing/overview`,
+    description: "Instance tiers, billing, and deployment options.",
+    items: [
+      { label: "Pricing Overview", href: `${DOCS_BASE}/pricing/overview` },
+      { label: "Instance Tiers", href: `${DOCS_BASE}/pricing/instance-tiers` },
+      { label: "Billing & Credits", href: `${DOCS_BASE}/pricing/billing` },
+    ],
   },
 ];
 
@@ -66,7 +103,7 @@ export default function DocsPage() {
             Documentation
           </h1>
           <p className="mt-4 text-[#888888]">
-            Everything you need to build, test, and deploy Small Language Models with Lunar.
+            Everything you need to distill, route, and deploy LLMs with Lunar.
           </p>
         </div>
 
@@ -125,19 +162,26 @@ export default function DocsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {docCategories.map((category) => (
               <Card key={category.title} className="hover:border-white/30">
-                <h3 className="font-mono text-sm font-bold uppercase tracking-wider">
+                <a
+                  href={category.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-sm font-bold uppercase tracking-wider hover:text-[#f59e0b] transition-colors"
+                >
                   {category.title}
-                </h3>
+                </a>
                 <p className="mt-2 text-sm text-[#888888]">{category.description}</p>
                 <ul className="mt-4 space-y-2">
                   {category.items.map((item) => (
-                    <li key={item}>
+                    <li key={item.label}>
                       <a
-                        href="#"
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-sm text-white hover:text-[#f59e0b] transition-colors flex items-center gap-2"
                       >
                         <span className="text-[#888888]">→</span>
-                        {item}
+                        {item.label}
                       </a>
                     </li>
                   ))}
@@ -155,14 +199,14 @@ export default function DocsPage() {
           </p>
           <div className="mt-4 flex items-center justify-center gap-4">
             <a
-              href="https://discord.gg"
+              href="https://discord.gg/thyZx5GkFV"
               className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
             >
               Discord
             </a>
             <span className="text-[#333333]">|</span>
             <a
-              href="https://github.com"
+              href="https://github.com/lunar-ai"
               className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
             >
               GitHub

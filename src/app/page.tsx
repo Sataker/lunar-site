@@ -27,25 +27,28 @@ const useCases = [
     title: "Cheaper Routing",
     description: "Route simple queries to SLMs, complex ones to large models. Save up to 70% on inference.",
     icon: "┌─┐\n│→│\n└─┘",
+    href: "https://docs.lunar-sys.com/lunar/guides/models-providers",
   },
   {
     title: "Domain SLMs",
     description: "Create specialized models for your exact use case. Better accuracy, lower latency.",
     icon: "┌─┐\n│◈│\n└─┘",
+    href: "https://docs.lunar-sys.com/lunar/overview",
   },
   {
     title: "Private Deployments",
     description: "Run models on your infrastructure. Full data control, no external API calls.",
     icon: "┌─┐\n│⚿│\n└─┘",
+    href: "https://docs.lunar-sys.com/pricing/instance-tiers",
   },
 ];
 
 const devExperience = [
-  { title: "SDK", description: "Python & TypeScript" },
-  { title: "CLI", description: "Full workflow control" },
-  { title: "Templates", description: "Quick start examples" },
-  { title: "Self-host", description: "Your infrastructure" },
-  { title: "Cloud", description: "Managed option" },
+  { title: "SDK", description: "Python & TypeScript", href: "https://docs.lunar-sys.com/lunar/installation" },
+  { title: "CLI", description: "Full workflow control", href: "https://docs.lunar-sys.com/lunar/quickstart" },
+  { title: "Templates", description: "Quick start examples", href: "https://docs.lunar-sys.com/lunar/overview" },
+  { title: "Self-host", description: "Your infrastructure", href: "https://docs.lunar-sys.com/pricing/instance-tiers" },
+  { title: "Cloud", description: "Managed option", href: "https://docs.lunar-sys.com/pricing/overview" },
 ];
 
 const securityFeatures = [
@@ -211,7 +214,7 @@ export default function Home() {
           />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {useCases.map((useCase) => (
-              <Card key={useCase.title} className="text-center">
+              <Card key={useCase.title} href={useCase.href} className="text-center hover:border-white/30">
                 <pre className="ascii-art mb-4 inline-block">{useCase.icon}</pre>
                 <h3 className="font-mono text-lg font-bold uppercase">
                   {useCase.title}
@@ -236,10 +239,16 @@ export default function Home() {
             <CodeBlock code={cliCode} language="bash" />
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {devExperience.map((item) => (
-                <div key={item.title} className="p-4 border border-[#333333]">
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 border border-[#333333] hover:border-white/30 transition-colors"
+                >
                   <div className="font-mono text-sm font-bold">{item.title}</div>
                   <div className="text-xs text-[#888888] mt-1">{item.description}</div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
