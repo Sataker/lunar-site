@@ -45,6 +45,14 @@ export default function Navbar() {
             >
               Security
             </Link>
+            <a
+              href="https://app.lunar-sys.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
+            >
+              Console
+            </a>
             <Button href="/docs" variant="secondary" className="text-xs py-2 px-3">
               Get Started
             </Button>
@@ -90,6 +98,15 @@ export default function Navbar() {
               >
                 Security
               </Link>
+              <a
+                href="https://app.lunar-sys.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm uppercase tracking-wider text-[#888888] hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Console
+              </a>
               <Button href="/docs" variant="secondary" className="text-sm w-fit">
                 Get Started
               </Button>
