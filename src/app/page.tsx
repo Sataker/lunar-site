@@ -103,7 +103,7 @@ export default function Home() {
               Lunar automates curation, distillation, evaluation, and deployment — so you ship faster with predictable latency.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/docs" variant="primary">
+              <Button href="https://app.lunar-sys.com" variant="primary">
                 Get started free
               </Button>
               <Button href="/docs" variant="secondary">
@@ -348,7 +348,7 @@ export default function Home() {
               Start building with Lunar today. Free tier available.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/docs" variant="primary">
+              <Button href="https://app.lunar-sys.com" variant="primary">
                 Get started free
               </Button>
               <Button href="#" variant="secondary">

@@ -161,7 +161,7 @@ export default function PricingPage() {
               </ul>
               <div className="mt-8">
                 <Button
-                  href="/docs"
+                  href="https://app.lunar-sys.com"
                   variant={plan.ctaVariant}
                   className="w-full justify-center"
                 >
@@ -203,7 +203,7 @@ export default function PricingPage() {
             Start free today. No credit card required.
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Button href="/docs" variant="primary">
+            <Button href="https://app.lunar-sys.com" variant="primary">
               Get started free
             </Button>
             <Button href="#" variant="secondary">
