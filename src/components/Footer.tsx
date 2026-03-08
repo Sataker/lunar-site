@@ -18,7 +18,8 @@ const footerLinks = {
     { name: "About", href: "#" },
     { name: "Careers", href: "#" },
     { name: "Contact", href: "#" },
-    { name: "Privacy", href: "#" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
   ],
 };
 
