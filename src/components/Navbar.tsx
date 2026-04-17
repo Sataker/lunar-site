@@ -23,7 +23,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-2.5">
               <LogoMark size={22} />
               <span className="text-sm font-semibold tracking-tight">
-                Lunar Router
+                OpenTracy
               </span>
             </Link>
             <div className="hidden md:flex items-center gap-6">
@@ -39,10 +39,10 @@ export default function Navbar() {
             </div>
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <Button href="https://github.com/lunar-org-ai/lunar-router" variant="ghost" className="text-sm">
+            <Button href="https://github.com/PureAI-Tools/opentracy" variant="ghost" className="text-sm">
               GitHub
             </Button>
-            <Button href="https://app.lunar-sys.com" variant="primary" className="text-sm py-2 px-4">
+            <Button href="https://app.opentracy.com" variant="primary" className="text-sm py-2 px-4">
               Get Started
             </Button>
           </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <Button href="https://app.lunar-sys.com" variant="primary" className="text-sm w-fit mt-2">
+              <Button href="https://app.opentracy.com" variant="primary" className="text-sm w-fit mt-2">
                 Get Started
               </Button>
             </div>

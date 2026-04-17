@@ -15,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lunar-sys.com"),
-  title: "Lunar Router — One API for Every LLM",
+  metadataBase: new URL("https://opentracy.com"),
+  title: "OpenTracy — One API for Every LLM",
   description:
     "Route requests to 13+ LLM providers through a single API. Track costs, measure quality, and optimize your AI infrastructure. Open source.",
   keywords: [
@@ -30,21 +30,21 @@ export const metadata: Metadata = {
     "model evaluation",
   ],
   openGraph: {
-    title: "Lunar Router — One API for Every LLM",
+    title: "OpenTracy — One API for Every LLM",
     description:
       "Route to 13+ providers, track costs, measure quality. Open source AI infrastructure.",
     type: "website",
-    url: "https://lunar-sys.com",
-    siteName: "Lunar Router",
+    url: "https://opentracy.com",
+    siteName: "OpenTracy",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lunar Router — One API for Every LLM",
+    title: "OpenTracy — One API for Every LLM",
     description:
       "Route to 13+ providers, track costs, measure quality. Open source AI infrastructure.",
   },
   alternates: {
-    canonical: "https://lunar-sys.com",
+    canonical: "https://opentracy.com",
   },
 };
 
@@ -66,23 +66,23 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://lunar-sys.com/#organization",
-                  name: "Lunar Router",
-                  url: "https://lunar-sys.com",
+                  "@id": "https://opentracy.com/#organization",
+                  name: "OpenTracy",
+                  url: "https://opentracy.com",
                   description:
                     "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
                   sameAs: [
-                    "https://github.com/lunar-org-ai/lunar-router",
+                    "https://github.com/PureAI-Tools/opentracy",
                     "https://discord.gg/thyZx5GkFV",
                   ],
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://lunar-sys.com/#website",
-                  url: "https://lunar-sys.com",
-                  name: "Lunar Router",
+                  "@id": "https://opentracy.com/#website",
+                  url: "https://opentracy.com",
+                  name: "OpenTracy",
                   publisher: {
-                    "@id": "https://lunar-sys.com/#organization",
+                    "@id": "https://opentracy.com/#organization",
                   },
                 },
               ],

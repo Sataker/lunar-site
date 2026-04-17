@@ -7,7 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 import CodeBlock from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "Lunar Router — One API for Every LLM",
+  title: "OpenTracy — One API for Every LLM",
   description:
     "Route requests to 13+ LLM providers through a single API. Track costs, measure quality, and find the best model for every prompt. Open source.",
   alternates: {
@@ -94,10 +94,10 @@ const providers = [
   { name: "OpenRouter", color: "#8b5cf6" },
 ];
 
-const sdkCode = `import lunar_router as lr
+const sdkCode = `import opentracy as ot
 
 # Call any model — one line
-response = lr.completion(
+response = ot.completion(
     model="openai/gpt-4o-mini",
     messages=[{"role": "user", "content": "Hello!"}],
     fallbacks=["anthropic/claude-3-haiku"]
@@ -125,7 +125,7 @@ export default function Home() {
               Route to 13+ providers, track costs, measure quality, and optimize your AI stack. All through a single endpoint.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Button href="https://app.lunar-sys.com" variant="primary">
+              <Button href="https://app.opentracy.com" variant="primary">
                 Start for free
               </Button>
               <Button href="/lunar-site/docs" variant="secondary">
@@ -144,7 +144,7 @@ export default function Home() {
               <div className="titlebar-dot" style={{ background: "#ff5f57" }} />
               <div className="titlebar-dot" style={{ background: "#febc2e" }} />
               <div className="titlebar-dot" style={{ background: "#28c840" }} />
-              <span className="text-xs text-[#555] ml-2 font-mono">Lunar Router — Dashboard</span>
+              <span className="text-xs text-[#555] ml-2 font-mono">OpenTracy — Dashboard</span>
             </div>
             <div className="dashboard-body">
               <div className="dashboard-stat-row">
@@ -214,7 +214,7 @@ export default function Home() {
         <Container>
           <SectionHeading
             title="How it works"
-            subtitle="Your app talks to Lunar. Lunar talks to every LLM provider."
+            subtitle="Your app talks to OpenTracy. OpenTracy talks to every LLM provider."
           />
           <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 max-w-4xl mx-auto">
             <div className="flow-node">
@@ -224,7 +224,7 @@ export default function Home() {
             <div className="flow-arrow hidden md:block">→</div>
             <div className="flow-arrow md:hidden">↓</div>
             <div className="flow-node flow-node-accent">
-              <div className="text-sm font-semibold" style={{ color: "#0070f3" }}>Lunar Router</div>
+              <div className="text-sm font-semibold" style={{ color: "#0070f3" }}>OpenTracy</div>
               <div className="text-xs text-[#666] mt-1">Route + Trace + Eval</div>
             </div>
             <div className="flow-arrow hidden md:block">→</div>
@@ -307,7 +307,7 @@ export default function Home() {
         <Container>
           <SectionHeading
             title="Simple by design"
-            subtitle="If you've used the OpenAI SDK, you already know Lunar."
+            subtitle="If you've used the OpenAI SDK, you already know OpenTracy."
           />
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <CodeBlock code={sdkCode} language="python" />
@@ -324,7 +324,7 @@ export default function Home() {
                   <div className="w-2 h-2 rounded-full" style={{ background: "#f97316" }} />
                   <h3 className="font-semibold text-sm">Automatic fallbacks</h3>
                 </div>
-                <p className="text-sm text-[#888] pl-5">If a provider goes down, Lunar switches to your backup.</p>
+                <p className="text-sm text-[#888] pl-5">If a provider goes down, OpenTracy switches to your backup.</p>
               </div>
               <div className="p-5 border border-[#1a1a1a] rounded-2xl hover:border-[#333] transition-colors">
                 <div className="flex items-center gap-3 mb-1.5">
@@ -379,10 +379,10 @@ export default function Home() {
               Run on your own infrastructure with full control, or use our managed cloud. MIT licensed, no vendor lock-in.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Button href="https://app.lunar-sys.com" variant="primary">
+              <Button href="https://app.opentracy.com" variant="primary">
                 Start for free
               </Button>
-              <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
+              <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
                 View on GitHub
               </Button>
             </div>

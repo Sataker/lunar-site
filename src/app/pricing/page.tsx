@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import Badge from "@/components/Badge";
 
 export const metadata: Metadata = {
-  title: "Pricing — Lunar Router",
+  title: "Pricing — OpenTracy",
   description: "Start free, scale as you grow. Simple pricing for LLM routing, observability, and optimization.",
 };
 
@@ -66,11 +66,11 @@ const plans = [
 const faqs = [
   {
     question: "What counts as a request?",
-    answer: "Each API call through Lunar counts as one request. Both successful and failed calls are counted.",
+    answer: "Each API call through OpenTracy counts as one request. Both successful and failed calls are counted.",
   },
   {
-    question: "Can I self-host Lunar Router?",
-    answer: "Yes. Lunar Router is open source (MIT). You can self-host the full stack with Docker. Pro and Enterprise plans add managed features on top.",
+    question: "Can I self-host OpenTracy?",
+    answer: "Yes. OpenTracy is open source (MIT). You can self-host the full stack with Docker. Pro and Enterprise plans add managed features on top.",
   },
   {
     question: "Which providers are supported?",
@@ -155,7 +155,7 @@ export default function PricingPage() {
               </ul>
               <div className="mt-8">
                 <Button
-                  href="https://app.lunar-sys.com"
+                  href="https://app.opentracy.com"
                   variant={plan.ctaVariant}
                   className="w-full justify-center"
                 >
@@ -194,10 +194,10 @@ export default function PricingPage() {
             Start free today. No credit card required.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <Button href="https://app.lunar-sys.com" variant="primary">
+            <Button href="https://app.opentracy.com" variant="primary">
               Get started
             </Button>
-            <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
+            <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
               Self-host
             </Button>
           </div>

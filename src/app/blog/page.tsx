@@ -5,8 +5,8 @@ import Badge from "@/components/Badge";
 import { getAllPosts } from "@/data/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Lunar",
-  description: "Updates, tutorials, and insights on LLM distillation, Small Language Models, cost optimization, and AI deployment. Learn how to ship smarter with Lunar.",
+  title: "Blog — OpenTracy",
+  description: "Updates, tutorials, and insights on LLM distillation, Small Language Models, cost optimization, and AI deployment. Learn how to ship smarter with OpenTracy.",
 };
 
 export default function BlogPage() {

@@ -5,26 +5,26 @@ import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Docs — Lunar Router",
-  description: "Get started with Lunar Router. Installation, quickstart guide, and API reference.",
+  title: "Docs — OpenTracy",
+  description: "Get started with OpenTracy. Installation, quickstart guide, and API reference.",
 };
 
 const quickstartCode = `# Install
-pip install lunar-router
+pip install opentracy
 
 # Set your API keys
 export OPENAI_API_KEY=sk-...
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # Or self-host the full stack
-git clone https://github.com/lunar-org-ai/lunar-router.git
-cd lunar-router
+git clone https://github.com/PureAI-Tools/opentracy.git
+cd opentracy
 docker compose up -d`;
 
-const usageCode = `import lunar_router as lr
+const usageCode = `import opentracy as ot
 
-# Call any model through Lunar
-response = lr.completion(
+# Call any model through OpenTracy
+response = ot.completion(
     model="openai/gpt-4o-mini",
     messages=[{"role": "user", "content": "Hello!"}],
     fallbacks=["anthropic/claude-3-haiku"]
@@ -38,33 +38,33 @@ print(f"Latency: {response._latency_ms}ms")`;
 const categories = [
   {
     title: "Getting Started",
-    description: "Install Lunar, set up your first route, and send your first request.",
-    href: "https://docs.lunar-sys.com/lunar/installation",
+    description: "Install OpenTracy, set up your first route, and send your first request.",
+    href: "https://docs.opentracy.com/installation",
   },
   {
     title: "Models & Providers",
     description: "See all 13 providers and 70+ models. Learn how to add your own.",
-    href: "https://docs.lunar-sys.com/lunar/guides/models-providers",
+    href: "https://docs.opentracy.com/guides/models-providers",
   },
   {
     title: "Routing Strategies",
     description: "Load balancing, fallbacks, semantic routing, and cost-based routing.",
-    href: "https://docs.lunar-sys.com/lunar/guides/streaming",
+    href: "https://docs.opentracy.com/guides/streaming",
   },
   {
     title: "Observability",
     description: "ClickHouse traces, cost tracking, latency monitoring, and dashboards.",
-    href: "https://docs.lunar-sys.com/lunar/overview",
+    href: "https://docs.opentracy.com/overview",
   },
   {
     title: "Evaluations",
     description: "Run model comparisons, use AI-as-judge, and track quality over time.",
-    href: "https://docs.lunar-sys.com/lunar/overview",
+    href: "https://docs.opentracy.com/overview",
   },
   {
     title: "Self-Hosting",
     description: "Deploy the full stack with Docker. ClickHouse, Go engine, Python API, and UI.",
-    href: "https://docs.lunar-sys.com/pricing/instance-tiers",
+    href: "https://docs.opentracy.com/pricing/instance-tiers",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function DocsPage() {
             Documentation
           </h1>
           <p className="mt-4 text-[#888888] text-lg">
-            Everything you need to get started with Lunar Router.
+            Everything you need to get started with OpenTracy.
           </p>
         </div>
 

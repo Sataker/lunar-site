@@ -3,9 +3,9 @@ import Container from "@/components/Container";
 import Badge from "@/components/Badge";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Lunar",
+  title: "Privacy Policy — OpenTracy",
   description:
-    "Learn how Lunar collects, uses, and protects your personal data.",
+    "Learn how OpenTracy collects, uses, and protects your personal data.",
 };
 
 export default function PrivacyPage() {
@@ -30,10 +30,10 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <section>
             <p className="text-sm text-[#cccccc] leading-relaxed">
-              This Privacy Policy describes how Lunar (&quot;we,&quot;
+              This Privacy Policy describes how OpenTracy (&quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares
-              your personal information when you use our website (lunar-sys.com),
-              console (app.lunar-sys.com), APIs, documentation, and related
+              your personal information when you use our website (opentracy.com),
+              console (app.opentracy.com), APIs, documentation, and related
               services (collectively, the &quot;Services&quot;). By using our
               Services, you agree to the practices described in this policy.
             </p>
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
                 </a>
                 . No method of transmission or storage is 100% secure. If you
                 have concerns, contact us at{" "}
-                <span className="text-[#f59e0b]">privacy@lunar-sys.com</span>.
+                <span className="text-[#f59e0b]">privacy@opentracy.com</span>.
               </p>
             </div>
           </section>
@@ -251,7 +251,7 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-sm text-[#888888] leading-relaxed mt-4">
                 To exercise any of these rights, contact us at{" "}
-                <span className="text-[#f59e0b]">privacy@lunar-sys.com</span>.
+                <span className="text-[#f59e0b]">privacy@opentracy.com</span>.
                 We will respond within 30 days.
               </p>
             </div>
@@ -287,7 +287,7 @@ export default function PrivacyPage() {
                 children. If we learn we have collected data from a child under
                 16, we will delete it promptly. If you believe a child has
                 provided us with personal data, please contact us at{" "}
-                <span className="text-[#f59e0b]">privacy@lunar-sys.com</span>.
+                <span className="text-[#f59e0b]">privacy@opentracy.com</span>.
               </p>
             </div>
           </section>
@@ -321,11 +321,11 @@ export default function PrivacyPage() {
               <div className="mt-4 space-y-2 font-mono text-sm">
                 <div className="flex items-center gap-3">
                   <span className="text-[#888888]">Email</span>
-                  <span className="text-[#f59e0b]">privacy@lunar-sys.com</span>
+                  <span className="text-[#f59e0b]">privacy@opentracy.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-[#888888]">Web</span>
-                  <span className="text-[#f59e0b]">lunar-sys.com</span>
+                  <span className="text-[#f59e0b]">opentracy.com</span>
                 </div>
               </div>
             </div>

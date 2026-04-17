@@ -3,9 +3,9 @@ import Container from "@/components/Container";
 import Badge from "@/components/Badge";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Lunar",
+  title: "Terms of Service — OpenTracy",
   description:
-    "Terms and conditions governing the use of Lunar's platform and services.",
+    "Terms and conditions governing the use of OpenTracy's platform and services.",
 };
 
 export default function TermsPage() {
@@ -31,9 +31,9 @@ export default function TermsPage() {
           <section>
             <p className="text-sm text-[#cccccc] leading-relaxed">
               These Terms of Service (&quot;Terms&quot;) govern your access to
-              and use of the services provided by Lunar (&quot;we,&quot;
+              and use of the services provided by OpenTracy (&quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;), including our website
-              (lunar-sys.com), console (app.lunar-sys.com), APIs,
+              (opentracy.com), console (app.opentracy.com), APIs,
               documentation, and related services (collectively, the
               &quot;Services&quot;). By accessing or using the Services, you
               agree to be bound by these Terms. If you do not agree, do not use
@@ -207,7 +207,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-sm text-[#cccccc] leading-relaxed">
                   The Services, including all software, algorithms, interfaces,
-                  documentation, and branding, are owned by Lunar and protected
+                  documentation, and branding, are owned by OpenTracy and protected
                   by intellectual property laws. Nothing in these Terms grants
                   you ownership of any part of the Services.
                 </p>
@@ -301,7 +301,7 @@ export default function TermsPage() {
             </h2>
             <div className="border border-[#333333] bg-[#0a0a0a] p-6">
               <p className="text-sm text-[#cccccc] leading-relaxed">
-                You agree to indemnify, defend, and hold harmless Lunar and its
+                You agree to indemnify, defend, and hold harmless OpenTracy and its
                 officers, directors, employees, and agents from any claims,
                 losses, damages, liabilities, and expenses (including legal
                 fees) arising from your use of the Services, violation of these
@@ -339,7 +339,7 @@ export default function TermsPage() {
             <div className="border border-[#333333] bg-[#0a0a0a] p-6">
               <p className="text-sm text-[#cccccc] leading-relaxed">
                 These Terms are governed by and construed in accordance with the
-                laws of the jurisdiction in which Lunar is incorporated, without
+                laws of the jurisdiction in which OpenTracy is incorporated, without
                 regard to conflict of law principles. Any disputes arising from
                 these Terms shall be resolved in the competent courts of that
                 jurisdiction.
@@ -376,11 +376,11 @@ export default function TermsPage() {
               <div className="mt-4 space-y-2 font-mono text-sm">
                 <div className="flex items-center gap-3">
                   <span className="text-[#888888]">Email</span>
-                  <span className="text-[#f59e0b]">legal@lunar-sys.com</span>
+                  <span className="text-[#f59e0b]">legal@opentracy.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-[#888888]">Web</span>
-                  <span className="text-[#f59e0b]">lunar-sys.com</span>
+                  <span className="text-[#f59e0b]">opentracy.com</span>
                 </div>
               </div>
             </div>

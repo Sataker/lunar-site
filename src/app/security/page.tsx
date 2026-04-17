@@ -7,9 +7,9 @@ import SectionHeading from "@/components/SectionHeading";
 import AsciiWindow, { AsciiPanel } from "@/components/AsciiWindow";
 
 export const metadata: Metadata = {
-  title: "Security — Lunar",
+  title: "Security — OpenTracy",
   description:
-    "Learn about Lunar's security architecture, encryption, tenant isolation, and data protection measures.",
+    "Learn about OpenTracy's security architecture, encryption, tenant isolation, and data protection measures.",
 };
 
 const securityStats = [
@@ -41,7 +41,7 @@ const architectureFeatures = [
   {
     title: "Private Deployment",
     description:
-      "Deploy Lunar entirely within your own network. Data never leaves your perimeter. Air-gapped mode available for regulated environments.",
+      "Deploy OpenTracy entirely within your own network. Data never leaves your perimeter. Air-gapped mode available for regulated environments.",
     badge: "ENTERPRISE",
   },
 ];
@@ -132,7 +132,7 @@ export default function SecurityPage() {
           </h1>
           <p className="mt-6 text-lg text-[#888888] max-w-2xl mx-auto">
             Everything is encrypted, isolated, and auditable. Security isn&apos;t
-            a feature we added — it&apos;s how Lunar was built from day one.
+            a feature we added — it&apos;s how OpenTracy was built from day one.
           </p>
         </div>
 
@@ -392,7 +392,7 @@ export default function SecurityPage() {
             </h3>
             <p className="mt-2 text-sm text-[#888888]">
               Found a vulnerability? Email{" "}
-              <span className="text-[#f59e0b]">security@lunar.dev</span>
+              <span className="text-[#f59e0b]">security@opentracy.com</span>
             </p>
           </div>
         </div>

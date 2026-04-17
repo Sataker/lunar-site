@@ -9,16 +9,16 @@ export interface Post {
 
 export const posts: Post[] = [
   {
-    slug: "introducing-lunar-distillation",
-    title: "Introducing Lunar: Automated Distillation for Production LLMs",
+    slug: "introducing-opentracy-distillation",
+    title: "Introducing OpenTracy: Automated Distillation for Production LLMs",
     date: "2024-01-15",
     summary:
-      "Today we're launching Lunar, a platform that automatically creates Small Language Models from your production traces, cutting inference costs by up to 57%.",
+      "Today we're launching OpenTracy, a platform that automatically creates Small Language Models from your production traces, cutting inference costs by up to 57%.",
     tags: ["announcement", "product"],
     content: `
-# Introducing Lunar: Automated Distillation for Production LLMs
+# Introducing OpenTracy: Automated Distillation for Production LLMs
 
-Today we're launching Lunar, a platform that automatically creates Small Language Models from your production traces, cutting inference costs by up to 57%.
+Today we're launching OpenTracy, a platform that automatically creates Small Language Models from your production traces, cutting inference costs by up to 57%.
 
 ## The Problem
 
@@ -30,11 +30,11 @@ Running LLMs in production is expensive. Most teams start with GPT-4 or Claude f
 
 ## Our Solution
 
-Lunar takes a different approach. We analyze your production traces—the actual inputs and outputs from your LLM calls—and use them to train a smaller, specialized model that handles your specific use case.
+OpenTracy takes a different approach. We analyze your production traces—the actual inputs and outputs from your LLM calls—and use them to train a smaller, specialized model that handles your specific use case.
 
 ### How It Works
 
-1. **Connect your traces**: Point Lunar at your production logs
+1. **Connect your traces**: Point OpenTracy at your production logs
 2. **Automated curation**: We filter and prepare high-quality training data
 3. **Distillation**: Train a small model on your specific domain
 4. **Evaluation**: Comprehensive testing against your success criteria
@@ -49,7 +49,7 @@ In our beta, customers saw:
 
 ## Get Started
 
-Lunar is available today. Sign up for free at lunar.dev and start cutting your LLM costs.
+OpenTracy is available today. Sign up for free at opentracy.dev and start cutting your LLM costs.
     `,
   },
   {
@@ -77,7 +77,7 @@ By distilling on your specific use case, we create a model that's:
 - **Focused**: Optimized for your exact domain
 - **Cheaper**: Runs on smaller hardware
 
-## The Lunar Approach
+## The OpenTracy Approach
 
 We've developed several innovations that make distillation practical:
 
@@ -195,9 +195,9 @@ Your test set should represent real production traffic:
 2. **Ignoring edge cases**: Specifically test failure modes
 3. **Optimizing a single metric**: Balance accuracy, latency, and cost
 
-## Lunar's Evaluation Suite
+## OpenTracy's Evaluation Suite
 
-Lunar automates much of this evaluation process, providing comprehensive quality reports before deployment.
+OpenTracy automates much of this evaluation process, providing comprehensive quality reports before deployment.
     `,
   },
   {
@@ -248,22 +248,22 @@ Reuse computed key-value pairs for faster generation.
 ### Speculative Decoding
 Use a smaller draft model to speed up generation.
 
-## Lunar Integration
+## OpenTracy Integration
 
-Lunar exports models in formats compatible with all major serving frameworks. One-click export to GGUF, ONNX, or TensorRT.
+OpenTracy exports models in formats compatible with all major serving frameworks. One-click export to GGUF, ONNX, or TensorRT.
     `,
   },
   {
-    slug: "lunar-sdk-v2",
-    title: "Lunar SDK v2: Fallbacks, Streaming, and Cost Tracking",
+    slug: "opentracy-sdk-v2",
+    title: "OpenTracy SDK v2: Fallbacks, Streaming, and Cost Tracking",
     date: "2023-12-15",
     summary:
-      "Announcing Lunar SDK v2 with automatic fallbacks, streaming support, built-in cost tracking, and async clients for Python and TypeScript.",
+      "Announcing OpenTracy SDK v2 with automatic fallbacks, streaming support, built-in cost tracking, and async clients for Python and TypeScript.",
     tags: ["announcement", "sdk"],
     content: `
-# Lunar SDK v2: Fallbacks, Streaming, and Cost Tracking
+# OpenTracy SDK v2: Fallbacks, Streaming, and Cost Tracking
 
-Today we're releasing Lunar SDK v2, a major update focused on reliability, real-time responses, and cost visibility.
+Today we're releasing OpenTracy SDK v2, a major update focused on reliability, real-time responses, and cost visibility.
 
 ## What's New
 
@@ -272,9 +272,9 @@ Today we're releasing Lunar SDK v2, a major update focused on reliability, real-
 Configure backup models that activate when your primary model fails or is unavailable:
 
 \`\`\`python
-from lunar import Lunar
+from opentracy import OpenTracy
 
-client = Lunar()
+client = OpenTracy()
 response = client.chat.completions.create(
     model="openai/gpt-4o",
     messages=[{"role": "user", "content": "Hello!"}],
@@ -282,7 +282,7 @@ response = client.chat.completions.create(
 )
 \`\`\`
 
-If the primary model fails, Lunar automatically routes to the next available fallback — no retry logic needed.
+If the primary model fails, OpenTracy automatically routes to the next available fallback — no retry logic needed.
 
 ### Streaming Support
 
@@ -314,9 +314,9 @@ print(f"Latency: {response.usage.latency_ms}ms")
 Full async support for high-throughput applications:
 
 \`\`\`python
-from lunar import AsyncLunar
+from opentracy import AsyncOpenTracy
 
-client = AsyncLunar()
+client = AsyncOpenTracy()
 response = await client.chat.completions.create(
     model="openai/gpt-4o-mini",
     messages=[{"role": "user", "content": "Hello!"}]
@@ -328,7 +328,7 @@ response = await client.chat.completions.create(
 Upgrading from v1 is simple:
 
 \`\`\`bash
-pip install --upgrade lunar
+pip install --upgrade opentracy
 \`\`\`
 
 The API is backwards-compatible — your existing code will continue to work.

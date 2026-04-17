@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) {
     return {
-      title: "Post Not Found — Lunar",
+      title: "Post Not Found — OpenTracy",
     };
   }
 
   return {
-    title: `${post.title} — Lunar`,
+    title: `${post.title} — OpenTracy`,
     description: post.summary,
   };
 }
