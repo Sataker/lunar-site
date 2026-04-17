@@ -16,30 +16,32 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lunar-sys.com"),
-  title: "Lunar — Cut LLM Costs by 57% with Small Models",
+  title: "Lunar Router — One API for Every LLM",
   description:
-    "Lunar automates curation, distillation, evaluation, and deployment of Small Language Models from production traces. Ship faster with predictable latency.",
+    "Route requests to 13+ LLM providers through a single API. Track costs, measure quality, and optimize your AI infrastructure. Open source.",
   keywords: [
     "LLM",
-    "Small Language Models",
-    "SLM",
-    "distillation",
-    "inference cost",
+    "LLM router",
+    "AI gateway",
+    "LLM proxy",
+    "OpenAI alternative",
     "AI infrastructure",
+    "LLM observability",
+    "model evaluation",
   ],
   openGraph: {
-    title: "Lunar — Cut LLM Costs by 57% with Small Models",
+    title: "Lunar Router — One API for Every LLM",
     description:
-      "Automate curation, distillation, evaluation, and deployment. Ship faster with predictable latency.",
+      "Route to 13+ providers, track costs, measure quality. Open source AI infrastructure.",
     type: "website",
     url: "https://lunar-sys.com",
-    siteName: "Lunar",
+    siteName: "Lunar Router",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lunar — Cut LLM Costs by 57% with Small Models",
+    title: "Lunar Router — One API for Every LLM",
     description:
-      "Automate curation, distillation, evaluation, and deployment. Ship faster with predictable latency.",
+      "Route to 13+ providers, track costs, measure quality. Open source AI infrastructure.",
   },
   alternates: {
     canonical: "https://lunar-sys.com",
@@ -65,12 +67,12 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://lunar-sys.com/#organization",
-                  name: "Lunar",
+                  name: "Lunar Router",
                   url: "https://lunar-sys.com",
                   description:
-                    "Lunar automates distillation, evaluation, and deployment of Small Language Models from production traces.",
+                    "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
                   sameAs: [
-                    "https://github.com/lunar-ai",
+                    "https://github.com/lunar-org-ai/lunar-router",
                     "https://discord.gg/thyZx5GkFV",
                   ],
                 },
@@ -78,7 +80,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://lunar-sys.com/#website",
                   url: "https://lunar-sys.com",
-                  name: "Lunar",
+                  name: "Lunar Router",
                   publisher: {
                     "@id": "https://lunar-sys.com/#organization",
                   },

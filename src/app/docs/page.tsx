@@ -2,223 +2,106 @@ import { Metadata } from "next";
 import Container from "@/components/Container";
 import CodeBlock from "@/components/CodeBlock";
 import Card from "@/components/Card";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Documentation — Lunar",
-  description: "Learn how to distill, route, and deploy LLMs with Lunar. Quickstart guides, API reference, evaluation tools, and GPU deployment documentation.",
+  title: "Docs — Lunar Router",
+  description: "Get started with Lunar Router. Installation, quickstart guide, and API reference.",
 };
 
-const DOCS_BASE = "https://docs.lunar-sys.com";
+const quickstartCode = `# Install
+pip install lunar-router
 
-const docCategories = [
+# Set your API keys
+export OPENAI_API_KEY=sk-...
+export ANTHROPIC_API_KEY=sk-ant-...
+
+# Or self-host the full stack
+git clone https://github.com/lunar-org-ai/lunar-router.git
+cd lunar-router
+docker compose up -d`;
+
+const usageCode = `import lunar_router as lr
+
+# Call any model through Lunar
+response = lr.completion(
+    model="openai/gpt-4o-mini",
+    messages=[{"role": "user", "content": "Hello!"}],
+    fallbacks=["anthropic/claude-3-haiku"]
+)
+
+# Response includes cost tracking
+print(response.choices[0].message.content)
+print(f"Cost: \${response._cost:.6f}")
+print(f"Latency: {response._latency_ms}ms")`;
+
+const categories = [
   {
     title: "Getting Started",
-    href: `${DOCS_BASE}/lunar/overview`,
-    description: "Install the SDK, authenticate, and make your first request.",
-    items: [
-      { label: "Overview", href: `${DOCS_BASE}/lunar/overview` },
-      { label: "Quickstart", href: `${DOCS_BASE}/lunar/quickstart` },
-      { label: "Installation", href: `${DOCS_BASE}/lunar/installation` },
-      { label: "Authentication", href: `${DOCS_BASE}/lunar/guides/authentication` },
-    ],
+    description: "Install Lunar, set up your first route, and send your first request.",
+    href: "https://docs.lunar-sys.com/lunar/installation",
   },
   {
-    title: "Guides",
-    href: `${DOCS_BASE}/lunar/guides/chat-completions`,
-    description: "Learn how to use chat completions, streaming, fallbacks, and more.",
-    items: [
-      { label: "Chat Completions", href: `${DOCS_BASE}/lunar/guides/chat-completions` },
-      { label: "Streaming", href: `${DOCS_BASE}/lunar/guides/streaming` },
-      { label: "Fallbacks", href: `${DOCS_BASE}/lunar/guides/fallbacks` },
-      { label: "Async Usage", href: `${DOCS_BASE}/lunar/guides/async-usage` },
-    ],
+    title: "Models & Providers",
+    description: "See all 13 providers and 70+ models. Learn how to add your own.",
+    href: "https://docs.lunar-sys.com/lunar/guides/models-providers",
   },
   {
-    title: "Models & Routing",
-    href: `${DOCS_BASE}/lunar/guides/models-providers`,
-    description: "Smart routing, supported models, and cost tracking.",
-    items: [
-      { label: "Models & Providers", href: `${DOCS_BASE}/lunar/guides/models-providers` },
-      { label: "Supported Models", href: `${DOCS_BASE}/lunar/guides/supported-models` },
-      { label: "Cost Tracking", href: `${DOCS_BASE}/lunar/guides/cost-tracking` },
-      { label: "Text Completions", href: `${DOCS_BASE}/lunar/guides/text-completions` },
-    ],
+    title: "Routing Strategies",
+    description: "Load balancing, fallbacks, semantic routing, and cost-based routing.",
+    href: "https://docs.lunar-sys.com/lunar/guides/streaming",
+  },
+  {
+    title: "Observability",
+    description: "ClickHouse traces, cost tracking, latency monitoring, and dashboards.",
+    href: "https://docs.lunar-sys.com/lunar/overview",
   },
   {
     title: "Evaluations",
-    href: `${DOCS_BASE}/lunar/evals/introduction`,
-    description: "Evaluate models with built-in, custom, and LLM-as-Judge scorers.",
-    items: [
-      { label: "Introduction", href: `${DOCS_BASE}/lunar/evals/introduction` },
-      { label: "Running Evals", href: `${DOCS_BASE}/lunar/evals/running-evals` },
-      { label: "Built-in Scorers", href: `${DOCS_BASE}/lunar/evals/built-in-scorers` },
-      { label: "LLM Judge", href: `${DOCS_BASE}/lunar/evals/llm-judge` },
-    ],
+    description: "Run model comparisons, use AI-as-judge, and track quality over time.",
+    href: "https://docs.lunar-sys.com/lunar/overview",
   },
   {
-    title: "API Reference",
-    href: `${DOCS_BASE}/lunar/api/reference`,
-    description: "REST endpoints, error handling, and response formats.",
-    items: [
-      { label: "API Reference", href: `${DOCS_BASE}/lunar/api/reference` },
-      { label: "Exceptions", href: `${DOCS_BASE}/lunar/api/exceptions` },
-      { label: "Custom Scorers", href: `${DOCS_BASE}/lunar/evals/custom-scorers` },
-      { label: "Factory Scorers", href: `${DOCS_BASE}/lunar/evals/factory-scorers` },
-    ],
-  },
-  {
-    title: "GPU & Pricing",
-    href: `${DOCS_BASE}/pricing/overview`,
-    description: "Instance tiers, billing, and deployment options.",
-    items: [
-      { label: "Pricing Overview", href: `${DOCS_BASE}/pricing/overview` },
-      { label: "Instance Tiers", href: `${DOCS_BASE}/pricing/instance-tiers` },
-      { label: "Billing & Credits", href: `${DOCS_BASE}/pricing/billing` },
-    ],
+    title: "Self-Hosting",
+    description: "Deploy the full stack with Docker. ClickHouse, Go engine, Python API, and UI.",
+    href: "https://docs.lunar-sys.com/pricing/instance-tiers",
   },
 ];
-
-const quickstartCode = `# Install the Lunar SDK
-pip install lunar
-
-# Set your API key
-export LUNAR_API_KEY="your-key"
-
-# Use the SDK
-from lunar import Lunar
-
-client = Lunar()
-response = client.chat.completions.create(
-    model="openai/gpt-4o-mini",
-    messages=[{"role": "user", "content": "Hello!"}]
-)
-print(response.choices[0].message.content)`;
 
 export default function DocsPage() {
   return (
     <div className="pt-24 pb-16 bg-grid min-h-screen">
       <Container>
-        {/* Header */}
-        <div className="max-w-2xl">
-          <h1 className="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Documentation
           </h1>
-          <p className="mt-4 text-[#888888]">
-            Everything you need to distill, route, and deploy LLMs with Lunar.
+          <p className="mt-4 text-[#888888] text-lg">
+            Everything you need to get started with Lunar Router.
           </p>
         </div>
 
-        {/* Search */}
-        <div className="mt-8 max-w-xl">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search documentation..."
-              className="w-full bg-[#0a0a0a] border border-[#333333] px-4 py-3 font-mono text-sm placeholder:text-[#888888] focus:outline-none focus:border-white"
-            />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[#888888]">
-              <kbd className="font-mono text-xs border border-[#333333] px-1.5 py-0.5">⌘K</kbd>
-            </div>
+        <div className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-xl font-bold mb-6">Quickstart</h2>
+          <div className="space-y-6">
+            <CodeBlock code={quickstartCode} language="bash" />
+            <CodeBlock code={usageCode} language="python" />
           </div>
         </div>
 
-        {/* Quickstart */}
-        <div className="mt-16">
-          <h2 className="font-mono text-xl font-bold uppercase tracking-tight mb-6">
-            Quickstart
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <p className="text-[#888888] mb-4">
-                Get up and running with Lunar in under 5 minutes. Install the SDK, set your API key, and make your first request.
-              </p>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-start gap-3">
-                  <span className="font-mono text-[#f59e0b]">1.</span>
-                  <span>Install the Lunar SDK with pip or npm</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-mono text-[#f59e0b]">2.</span>
-                  <span>Set your API key as an environment variable</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-mono text-[#f59e0b]">3.</span>
-                  <span>Create a Lunar client and make your first chat completion</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-mono text-[#f59e0b]">4.</span>
-                  <span>Add fallbacks, streaming, and cost tracking</span>
-                </div>
-              </div>
-            </div>
-            <CodeBlock code={quickstartCode} language="python" />
-          </div>
-        </div>
-
-        {/* Categories */}
         <div className="mt-20">
-          <h2 className="font-mono text-xl font-bold uppercase tracking-tight mb-8">
-            Documentation
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {docCategories.map((category) => (
-              <Card key={category.title} className="hover:border-white/30">
-                <a
-                  href={category.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-sm font-bold uppercase tracking-wider hover:text-[#f59e0b] transition-colors"
-                >
-                  {category.title}
-                </a>
-                <p className="mt-2 text-sm text-[#888888]">{category.description}</p>
-                <ul className="mt-4 space-y-2">
-                  {category.items.map((item) => (
-                    <li key={item.label}>
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-white hover:text-[#f59e0b] transition-colors flex items-center gap-2"
-                      >
-                        <span className="text-[#888888]">→</span>
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+          <SectionHeading
+            title="Explore the docs"
+            align="left"
+            className="max-w-3xl mx-auto"
+          />
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {categories.map((cat) => (
+              <Card key={cat.title} href={cat.href} className="p-5 hover:border-[#444444]">
+                <h3 className="text-sm font-semibold">{cat.title}</h3>
+                <p className="mt-2 text-xs text-[#888888] leading-relaxed">{cat.description}</p>
               </Card>
             ))}
-          </div>
-        </div>
-
-        {/* Help */}
-        <div className="mt-20 border border-[#333333] p-8 text-center">
-          <h3 className="font-mono text-lg font-bold uppercase">Need help?</h3>
-          <p className="mt-2 text-sm text-[#888888]">
-            Can&apos;t find what you&apos;re looking for? Join our community or contact support.
-          </p>
-          <div className="mt-4 flex items-center justify-center gap-4">
-            <a
-              href="https://discord.gg/thyZx5GkFV"
-              className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
-            >
-              Discord
-            </a>
-            <span className="text-[#333333]">|</span>
-            <a
-              href="https://github.com/lunar-ai"
-              className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-            <span className="text-[#333333]">|</span>
-            <a
-              href="#"
-              className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
-            >
-              Support
-            </a>
           </div>
         </div>
       </Container>

@@ -6,24 +6,24 @@ import LogoMark from "./LogoMark";
 import Button from "./Button";
 
 const navigation = [
+  { name: "Features", href: "/#features" },
   { name: "Docs", href: "/docs" },
   { name: "Pricing", href: "/pricing" },
   { name: "Blog", href: "/blog" },
-  { name: "Community", href: "/community" },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#333333] bg-black/90 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#222222] bg-black/80 backdrop-blur-md">
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2">
-              <LogoMark size={24} />
-              <span className="font-mono text-sm font-bold uppercase tracking-wider">
-                Lunar
+            <Link href="/" className="flex items-center gap-2.5">
+              <LogoMark size={22} />
+              <span className="text-sm font-semibold tracking-tight">
+                Lunar Router
               </span>
             </Link>
             <div className="hidden md:flex items-center gap-6">
@@ -31,21 +31,18 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
+                  className="text-sm text-[#888888] hover:text-white transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="/security"
-              className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
-            >
-              Security
-            </Link>
-            <Button href="https://app.lunar-sys.com" variant="secondary" className="text-xs py-2 px-3">
+          <div className="hidden md:flex items-center gap-3">
+            <Button href="https://github.com/lunar-org-ai/lunar-router" variant="ghost" className="text-sm">
+              GitHub
+            </Button>
+            <Button href="https://app.lunar-sys.com" variant="primary" className="text-sm py-2 px-4">
               Get Started
             </Button>
           </div>
@@ -55,13 +52,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -71,26 +62,19 @@ export default function Navbar() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[#333333] py-4">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden border-t border-[#222222] py-4">
+            <div className="flex flex-col gap-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="font-mono text-sm uppercase tracking-wider text-[#888888] hover:text-white"
+                  className="text-sm text-[#888888] hover:text-white py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Link
-                href="/security"
-                className="font-mono text-sm uppercase tracking-wider text-[#888888] hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Security
-              </Link>
-              <Button href="https://app.lunar-sys.com" variant="secondary" className="text-sm w-fit">
+              <Button href="https://app.lunar-sys.com" variant="primary" className="text-sm w-fit mt-2">
                 Get Started
               </Button>
             </div>
