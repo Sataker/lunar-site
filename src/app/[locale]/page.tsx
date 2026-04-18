@@ -528,6 +528,86 @@ export default async function Home({
 
       <div className="section-divider" />
 
+      {/* Testimonials */}
+      <section className="py-24">
+        <Container>
+          <FadeIn>
+            <SectionHeading
+              title={dict.testimonials.title}
+              subtitle={dict.testimonials.subtitle}
+            />
+          </FadeIn>
+          <StaggerContainer className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {dict.testimonials.items.map((item) => (
+              <StaggerItem key={item.name}>
+                <HoverCard>
+                  <div className="testimonial-card">
+                    <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="testimonial-avatar">
+                        {item.name.charAt(0)}
+                      </div>
+                      <div className="testimonial-author">
+                        <div className="font-semibold text-sm">{item.name}</div>
+                        <div className="text-xs text-[#888]">{item.role}, {item.company}</div>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCard>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </Container>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* Community */}
+      <section className="py-24 section-glow-blue">
+        <Container>
+          <FadeIn>
+            <SectionHeading
+              title={dict.community.title}
+              subtitle={dict.community.subtitle}
+            />
+          </FadeIn>
+          <div className="mt-12 max-w-3xl mx-auto">
+            <StaggerContainer className="grid grid-cols-3 gap-6 mb-10">
+              <StaggerItem>
+                <div className="community-card text-center">
+                  <div className="community-stat-value">1.2k</div>
+                  <div className="text-xs text-[#888] mt-1">{dict.community.stats.githubStars}</div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="community-card text-center">
+                  <div className="community-stat-value">48</div>
+                  <div className="text-xs text-[#888] mt-1">{dict.community.stats.contributors}</div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="community-card text-center">
+                  <div className="community-stat-value">850+</div>
+                  <div className="text-xs text-[#888] mt-1">{dict.community.stats.discordMembers}</div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+            <FadeIn delay={0.2}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button href="https://discord.gg/gDNPhQ347V" variant="primary">
+                  {dict.community.discordCta}
+                </Button>
+                <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
+                  {dict.community.githubCta}
+                </Button>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      <div className="section-divider" />
+
       {/* Final CTA */}
       <section className="py-28 relative overflow-hidden">
         <div className="cta-mesh" />
