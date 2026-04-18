@@ -92,17 +92,17 @@ export default async function Home({
   ];
 
   const sdkFeatures = [
-    { key: "openaiCompatible" as const, color: "#0070f3" },
-    { key: "automaticFallbacks" as const, color: "#f97316" },
-    { key: "costOnResponse" as const, color: "#0070f3" },
-    { key: "fullStreaming" as const, color: "#f97316" },
+    { key: "openaiCompatible" as const, color: "#d97706" },
+    { key: "automaticFallbacks" as const, color: "#ea580c" },
+    { key: "costOnResponse" as const, color: "#2563eb" },
+    { key: "fullStreaming" as const, color: "#d97706" },
   ];
 
   return (
     <div>
       {/* Hero */}
       <section className="pt-36 pb-28 relative overflow-hidden">
-        <div className="hero-glow" />
+        <div className="hero-mesh" />
         <FloatingOrb />
         <Container>
           <div className="max-w-3xl mx-auto text-center relative z-10">
@@ -436,7 +436,7 @@ export default async function Home({
 
       {/* Final CTA */}
       <section className="py-28 relative overflow-hidden">
-        <div className="cta-glow" />
+        <div className="cta-mesh" />
         <Container>
           <div className="max-w-2xl mx-auto text-center relative z-10">
             <TextReveal>
