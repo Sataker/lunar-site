@@ -12,6 +12,7 @@ import SlideIn from "@/components/motion/SlideIn";
 import CountUp from "@/components/motion/CountUp";
 import HoverCard from "@/components/motion/HoverCard";
 import FloatingOrb from "@/components/motion/FloatingOrb";
+import LiveCounter from "@/components/motion/LiveCounter";
 import { StaggerContainer, StaggerItem } from "@/components/motion/StaggerChildren";
 import { LogoWallContainer, LogoWallItem } from "@/components/motion/LogoWall";
 
@@ -117,7 +118,14 @@ export default async function Home({
             <TextReveal delay={0.15}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
                 {dict.hero.title}{" "}
-                <span className="gradient-text">{dict.hero.titleHighlight}</span>
+                <LiveCounter
+                  target={62}
+                  suffix="%"
+                  duration={2.5}
+                  incrementInterval={4000}
+                  incrementAmount={0.1}
+                  className="gradient-text"
+                />
               </h1>
             </TextReveal>
             <TextReveal delay={0.3}>

@@ -10,9 +10,9 @@
   },
   "hero": {
     "badge": "SDK v2 is out — fallbacks, streaming, and cost tracking",
-    "title": "One API for",
-    "titleHighlight": "every LLM.",
-    "subtitle": "Route to 13+ providers, track costs, measure quality, and optimize your AI stack. All through a single endpoint.",
+    "title": "We cut your cost per token by",
+    "titleHighlight": "",
+    "subtitle": "Smart routing sends simple prompts to cheap models, hard ones to powerful ones. One API, 13+ providers, automatic fallbacks. Your AI stack, finally optimized.",
     "ctaPrimary": "Start for free",
     "ctaSecondary": "Read the docs",
     "footnote": "Open source. MIT Licensed. No credit card required."

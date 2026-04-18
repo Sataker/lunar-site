@@ -10,9 +10,9 @@
   },
   "hero": {
     "badge": "SDK v2 disponible — fallbacks, streaming y seguimiento de costos",
-    "title": "Una API para",
-    "titleHighlight": "todos los LLMs.",
-    "subtitle": "Conecta con 13+ proveedores, controla costos, mide calidad y optimiza tu stack de IA. Todo desde un solo endpoint.",
+    "title": "Reducimos tu costo por token en",
+    "titleHighlight": "",
+    "subtitle": "Ruteo inteligente envia prompts simples a modelos baratos y los complejos a modelos potentes. Una API, 13+ proveedores, fallbacks automaticos. Tu stack de IA, finalmente optimizado.",
     "ctaPrimary": "Empezar gratis",
     "ctaSecondary": "Leer la documentacion",
     "footnote": "Codigo abierto. Licencia MIT. Sin tarjeta de credito."
