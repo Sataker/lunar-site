@@ -142,74 +142,19 @@ export default async function Home({
         </Container>
       </section>
 
-      {/* Dashboard Mockup */}
+      {/* Dashboard Screenshot */}
       <section className="pb-20">
         <Container>
           <FadeIn y={40} duration={0.8}>
-            <div className="dashboard-mock max-w-4xl mx-auto">
-              <div className="dashboard-titlebar">
-                <div className="titlebar-dot" style={{ background: "#ff5f57" }} />
-                <div className="titlebar-dot" style={{ background: "#febc2e" }} />
-                <div className="titlebar-dot" style={{ background: "#28c840" }} />
-                <span className="text-xs text-[#888] ml-2 font-mono">{dict.dashboard.title}</span>
-              </div>
-              <div className="dashboard-body">
-                <div className="dashboard-stat-row">
-                  <div className="dashboard-stat">
-                    <div className="text-xs text-[#666] mb-1">{dict.dashboard.requestsToday}</div>
-                    <div className="text-xl font-bold">12,847</div>
-                    <div className="dashboard-bar"><div className="dashboard-bar-fill-blue" style={{ width: "78%" }} /></div>
-                  </div>
-                  <div className="dashboard-stat">
-                    <div className="text-xs text-[#666] mb-1">{dict.dashboard.totalCost}</div>
-                    <div className="text-xl font-bold" style={{ color: "#f97316" }}>$4.23</div>
-                    <div className="dashboard-bar"><div className="dashboard-bar-fill-orange" style={{ width: "35%" }} /></div>
-                  </div>
-                  <div className="dashboard-stat">
-                    <div className="text-xs text-[#666] mb-1">{dict.dashboard.avgQuality}</div>
-                    <div className="text-xl font-bold" style={{ color: "#22c55e" }}>9.4/10</div>
-                    <div className="dashboard-bar"><div className="dashboard-bar-fill-green" style={{ width: "94%" }} /></div>
-                  </div>
-                </div>
-                <div className="text-xs text-[#888] font-mono mb-2">{dict.dashboard.recentTraces}</div>
-                <div>
-                  <div className="dashboard-trace-row">
-                    <div className="trace-status trace-status-ok" />
-                    <span className="text-[#888]">12:01:04</span>
-                    <span>gpt-4o-mini</span>
-                    <span className="ml-auto text-[#888]">234ms</span>
-                    <span style={{ color: "#f97316" }}>$0.0003</span>
-                  </div>
-                  <div className="dashboard-trace-row">
-                    <div className="trace-status trace-status-ok" />
-                    <span className="text-[#888]">12:01:02</span>
-                    <span>claude-3-haiku</span>
-                    <span className="ml-auto text-[#888]">312ms</span>
-                    <span style={{ color: "#f97316" }}>$0.0005</span>
-                  </div>
-                  <div className="dashboard-trace-row">
-                    <div className="trace-status trace-status-warn" />
-                    <span className="text-[#888]">12:01:00</span>
-                    <span>gemini-1.5-flash</span>
-                    <span className="ml-auto text-[#888]">189ms</span>
-                    <span style={{ color: "#f97316" }}>$0.0002</span>
-                  </div>
-                  <div className="dashboard-trace-row">
-                    <div className="trace-status trace-status-ok" />
-                    <span className="text-[#888]">12:00:58</span>
-                    <span>gpt-4o</span>
-                    <span className="ml-auto text-[#888]">1.2s</span>
-                    <span style={{ color: "#f97316" }}>$0.0089</span>
-                  </div>
-                  <div className="dashboard-trace-row" style={{ borderBottom: "none" }}>
-                    <div className="trace-status trace-status-ok" />
-                    <span className="text-[#888]">12:00:55</span>
-                    <span>mistral-small</span>
-                    <span className="ml-auto text-[#888]">156ms</span>
-                    <span style={{ color: "#f97316" }}>$0.0001</span>
-                  </div>
-                </div>
-              </div>
+            <div className="max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
+              <img
+                src="/lunar-site/dashboard-screenshot.png"
+                alt="OpenTracy Intelligence & Observability Dashboard — showing requests routed, cost savings, model distribution, and baseline comparison"
+                width={1468}
+                height={802}
+                className="w-full h-auto"
+                loading="eager"
+              />
             </div>
           </FadeIn>
         </Container>
