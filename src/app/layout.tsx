@@ -71,7 +71,7 @@ export default function RootLayout({
                     "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
                   sameAs: [
                     "https://github.com/PureAI-Tools/opentracy",
-                    "https://discord.gg/thyZx5GkFV",
+                    "https://discord.gg/gDNPhQ347V",
                   ],
                 },
                 {
