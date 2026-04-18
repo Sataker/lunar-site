@@ -1,6 +1,7 @@
 {
   "nav": {
     "features": "Funciones",
+    "platform": "Plataforma",
     "docs": "Docs",
     "pricing": "Precios",
     "blog": "Blog",
@@ -250,6 +251,123 @@
       "discordMembers": "Miembros en Discord"
     }
   },
+  "platform": {
+    "title": "La plataforma completa de operaciones LLM",
+    "subtitle": "Todo lo que OpenTracy entrega -- desde gateway unificado hasta destilacion de modelos. Sin marketing. Capacidades reales, arquitectura real.",
+    "sections": {
+      "gateway": {
+        "title": "Gateway Unificado",
+        "subtitle": "Una API compatible con OpenAI que rutea a 13 proveedores y 70+ modelos. Cambia una linea de codigo para empezar.",
+        "features": [
+          "API compatible con OpenAI -- reemplazo directo, mismo SDK, mismo formato",
+          "13 proveedores: OpenAI, Anthropic, Google Gemini, Mistral, Groq, DeepSeek, Perplexity, Cerebras, SambaNova, Together, Fireworks, Cohere, AWS Bedrock",
+          "70+ modelos con precios automaticos por token integrados",
+          "Streaming completo para todos los proveedores incluida traduccion SSE de Anthropic",
+          "Soporte de vision y multimodal (imagenes base64 o URL)",
+          "Llamadas a herramientas con traduccion de formato entre proveedores"
+        ]
+      },
+      "routing": {
+        "title": "Ruteo Inteligente",
+        "subtitle": "Dirige solicitudes al modelo correcto segun costo, latencia, complejidad o reglas personalizadas. Fallbacks automaticos cuando un proveedor se cae.",
+        "features": [
+          "Clase Router con estrategias: round-robin, menor costo, menor latencia, aleatorio ponderado",
+          "Ruteo semantico -- clasifica la complejidad del prompt, envia los simples a modelos baratos, los complejos a modelos potentes",
+          "Fallbacks automaticos con cadenas de reintento configurables (ej. GPT-4o -> Claude -> Gemini)",
+          "Balanceo de carga entre pools de modelos para cargas de alto rendimiento",
+          "Motor en Go para ruteo de alto rendimiento con <2ms de overhead"
+        ]
+      },
+      "traces": {
+        "title": "Trazas en Tiempo Real",
+        "subtitle": "Cada solicitud registrada con entrada, salida, costo, latencia, modelo y conteo de tokens. Consulta millones de trazas al instante.",
+        "features": [
+          "Registro completo: mensajes de entrada, salida, costo, latencia, modelo, tokens entrada/salida",
+          "Backend de analitica en ClickHouse -- consulta millones de trazas en milisegundos",
+          "Dashboard en tiempo real con filtros, busqueda y vista detallada de trazas",
+          "Estadisticas por modelo: latencia P50/P95/P99, tasas de error, costo por solicitud",
+          "Exporta trazas para analisis offline o integracion con tu pipeline de datos"
+        ]
+      },
+      "costIntel": {
+        "title": "Inteligencia de Costos",
+        "subtitle": "Precios automaticos por token para cada modelo. Mira exactamente a donde va tu dinero y cuanto te ahorra el ruteo inteligente.",
+        "features": [
+          "Precios automaticos por token para 70+ modelos (base de datos de precios actualizada continuamente)",
+          "Costo adjunto a cada respuesta -- sin adivinanzas ni calculo manual",
+          "Comparacion baseline vs real: ve lo que pagarias con el modelo mas caro vs ruteo inteligente",
+          "Calculo de ahorro neto con proyecciones mensuales",
+          "Desglose de costos por modelo, por proveedor, por periodo de tiempo",
+          "Alertas de presupuesto y deteccion de anomalias para picos inesperados"
+        ]
+      },
+      "quality": {
+        "title": "Monitoreo de Calidad",
+        "subtitle": "7 agentes autonomos de IA escanean continuamente tu trafico de produccion. Detecta problemas antes que tus usuarios.",
+        "features": [
+          "Cluster Labeler -- agrupa prompts por dominio automaticamente",
+          "Trace Scanner -- detecta alucinaciones, rechazos, fugas de PII y problemas de formato",
+          "Outlier Detector -- senala trazas anomalas que se desvian de los patrones normales",
+          "Coherence Scorer -- califica la calidad del cluster para asegurar comportamiento consistente",
+          "Deteccion heuristica: respuestas incompletas, frases de rechazo, picos de latencia, anomalias de costo",
+          "Deteccion de alucinaciones basada en LLM con puntuacion de confianza (0-1)"
+        ]
+      },
+      "evals": {
+        "title": "Evaluaciones",
+        "subtitle": "LLM-as-Judge para comparacion por pares y puntuacion individual. Rastrea la calidad entre actualizaciones de modelo con metricas reales.",
+        "features": [
+          "Comparacion por pares: modelo A vs B, elige al ganador con tus datos de produccion",
+          "Puntuacion individual: califica respuestas de 1-5 con rubricas personalizables",
+          "RouterEvaluator: evalua decisiones de ruteo contra respuestas en cache",
+          "Metricas AUROC, curvas de Pareto y calculos de tasa de victoria",
+          "Evaluacion especifica por dominio con metricas de calidad sugeridas por IA",
+          "Rastrea la calidad a lo largo del tiempo entre actualizaciones de modelo y cambios de ruteo"
+        ]
+      },
+      "distillation": {
+        "title": "Destilacion de Modelos (Pipeline BOND)",
+        "subtitle": "Entrena modelos mas pequenos, rapidos y baratos con tus datos de produccion. Pipeline completo desde modelo profesor hasta LoRA desplegado.",
+        "features": [
+          "Pipeline: Modelo profesor -> Curacion con LLM-as-Judge -> Entrenamiento LoRA (Unsloth) -> Exportacion GGUF",
+          "Extraccion automatica de datos de entrenamiento desde trazas de produccion",
+          "Generacion de pares de preferencia para alineamiento DPO/RLHF",
+          "Aumento de dataset dorado para benchmarks de evaluacion",
+          "Tus modelos -- sin vendor lock-in, despliega donde quieras",
+          "Eval Generator crea datasets de evaluacion desde datos reales de produccion"
+        ]
+      },
+      "clustering": {
+        "title": "Clustering de Prompts",
+        "subtitle": "Descubrimiento automatico de dominios desde tu trafico de produccion. Entiende que preguntan tus usuarios y como rinde cada dominio.",
+        "features": [
+          "Descubrimiento automatico de dominios desde patrones de trafico de produccion",
+          "Clustering KMeans + mapa aprendido para agrupar prompts similares",
+          "Similitud basada en embeddings usando sentence transformers",
+          "Metricas de calidad y analisis de costo por cluster",
+          "Deteccion de drift cuando los patrones de trafico cambian inesperadamente",
+          "Merge Checker sugiere consolidacion de clusters para reducir ruido"
+        ]
+      },
+      "deployment": {
+        "title": "Despliegue",
+        "subtitle": "Stack completo con Docker. Self-host con licencia MIT o usa la nube administrada. Listo para produccion desde el dia uno.",
+        "features": [
+          "Deploy completo con Docker: ClickHouse + motor Go + API Python + UI React",
+          "Opcion de self-host con licencia MIT -- tus datos en tu infraestructura",
+          "Motor en Go para ruteo de alto rendimiento (<2ms de overhead por solicitud)",
+          "SDK de Python: pip install opentracy",
+          "Drop-in del SDK de OpenAI: solo cambia base_url a tu instancia de OpenTracy"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Listo para tomar el control de tu stack LLM?",
+      "subtitle": "Codigo abierto, self-hostable, licencia MIT. Empieza en 5 minutos.",
+      "primary": "Empezar gratis",
+      "secondary": "Ver en GitHub"
+    }
+  },
   "blog": {
     "title": "Articulos",
     "subtitle": "Ideas sobre infraestructura de LLMs, optimizacion de costos y desarrollo con IA."
@@ -260,6 +378,7 @@
     "resources": "Recursos",
     "legal": "Legal",
     "features": "Funciones",
+    "platform": "Plataforma",
     "pricing": "Precios",
     "docs": "Docs",
     "security": "Seguridad",

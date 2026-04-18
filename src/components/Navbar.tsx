@@ -24,6 +24,7 @@ export default function Navbar({
 
   const navigation = [
     { name: dict.nav.features, href: `/${locale}#features` },
+    { name: dict.nav.platform, href: `/${locale}/platform` },
     { name: dict.nav.docs, href: `/${locale}/docs` },
     { name: dict.nav.pricing, href: `/${locale}/pricing` },
     { name: dict.nav.blog, href: `/${locale}/blog` },

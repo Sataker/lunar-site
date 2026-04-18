@@ -12,6 +12,7 @@ export default function Footer({
   const footerLinks = {
     [dict.footer.product]: [
       { name: dict.footer.features, href: `/${locale}#features` },
+      { name: dict.footer.platform, href: `/${locale}/platform` },
       { name: dict.footer.pricing, href: `/${locale}/pricing` },
       { name: dict.footer.docs, href: `/${locale}/docs` },
       { name: dict.footer.security, href: `/${locale}/security` },

@@ -1,6 +1,7 @@
 {
   "nav": {
     "features": "Features",
+    "platform": "Platform",
     "docs": "Docs",
     "pricing": "Pricing",
     "blog": "Blog",
@@ -250,6 +251,123 @@
       "discordMembers": "Discord Members"
     }
   },
+  "platform": {
+    "title": "The Complete LLM Operations Platform",
+    "subtitle": "Everything OpenTracy delivers -- from unified gateway to model distillation. Not marketing. Real capabilities, real architecture.",
+    "sections": {
+      "gateway": {
+        "title": "Unified Gateway",
+        "subtitle": "One OpenAI-compatible API that routes to 13 providers and 70+ models. Change one line of code to start.",
+        "features": [
+          "OpenAI-compatible API -- drop-in replacement, same SDK, same format",
+          "13 providers: OpenAI, Anthropic, Google Gemini, Mistral, Groq, DeepSeek, Perplexity, Cerebras, SambaNova, Together, Fireworks, Cohere, AWS Bedrock",
+          "70+ models with automatic per-token pricing baked in",
+          "Full streaming support for all providers including Anthropic SSE translation",
+          "Vision and multimodal support (base64 or URL images)",
+          "Tool calling with cross-provider format translation"
+        ]
+      },
+      "routing": {
+        "title": "Smart Routing",
+        "subtitle": "Route requests to the right model based on cost, latency, complexity, or custom rules. Automatic fallbacks when providers go down.",
+        "features": [
+          "Router class with strategies: round-robin, least-cost, lowest-latency, weighted-random",
+          "Semantic routing -- classifies prompt complexity, sends simple prompts to cheap models, complex ones to powerful models",
+          "Automatic fallbacks with configurable retry chains (e.g. GPT-4o -> Claude -> Gemini)",
+          "Load balancing across model pools for high-throughput workloads",
+          "Go engine for high-performance routing with <2ms overhead"
+        ]
+      },
+      "traces": {
+        "title": "Real-Time Traces",
+        "subtitle": "Every request logged with full input, output, cost, latency, model, and token counts. Query millions of traces instantly.",
+        "features": [
+          "Full trace logging: input messages, output, cost, latency, model, tokens in/out",
+          "ClickHouse analytics backend -- query millions of traces in milliseconds",
+          "Real-time dashboard UI with filters, search, and trace detail view",
+          "Model-level performance stats: latency P50/P95/P99, error rates, cost per request",
+          "Export traces for offline analysis or integration with your data pipeline"
+        ]
+      },
+      "costIntel": {
+        "title": "Cost Intelligence",
+        "subtitle": "Automatic per-token pricing for every model. See exactly where your money goes and how much smart routing saves you.",
+        "features": [
+          "Automatic per-token pricing for 70+ models (continuously updated pricing database)",
+          "Cost attached to every response -- no more guessing or manual calculation",
+          "Baseline vs actual cost comparison: see what you'd pay with the most expensive model vs smart routing",
+          "Net savings calculation with monthly projections",
+          "Cost breakdown by model, by provider, by time period",
+          "Budget alerts and anomaly detection for unexpected cost spikes"
+        ]
+      },
+      "quality": {
+        "title": "Quality Monitoring",
+        "subtitle": "7 autonomous AI agents continuously scan your production traffic for issues. Catch problems before your users do.",
+        "features": [
+          "Cluster Labeler -- groups prompts by domain automatically",
+          "Trace Scanner -- detects hallucinations, refusals, PII leaks, and format issues",
+          "Outlier Detector -- flags anomalous traces that deviate from normal patterns",
+          "Coherence Scorer -- rates cluster quality to ensure consistent behavior",
+          "Heuristic detection: incomplete responses, refusal phrases, latency spikes, cost anomalies",
+          "LLM-based hallucination detection with confidence scoring (0-1)"
+        ]
+      },
+      "evals": {
+        "title": "Evaluations",
+        "subtitle": "LLM-as-Judge for pairwise comparison and pointwise scoring. Track quality across model updates with real metrics.",
+        "features": [
+          "Pairwise comparison: model A vs B, pick the winner on your production data",
+          "Pointwise scoring: rate responses 1-5 with customizable rubrics",
+          "RouterEvaluator: benchmark routing decisions against cached responses",
+          "AUROC metrics, Pareto curves, and win rate calculations",
+          "Domain-specific evaluation with AI-suggested quality metrics",
+          "Track quality over time across model updates and routing changes"
+        ]
+      },
+      "distillation": {
+        "title": "Model Distillation (BOND Pipeline)",
+        "subtitle": "Train smaller, faster, cheaper models from your production data. Full pipeline from teacher model to deployed LoRA.",
+        "features": [
+          "Pipeline: Teacher model -> LLM-as-Judge curation -> LoRA training (Unsloth) -> GGUF export",
+          "Automatic training data extraction from production traces",
+          "Preference pair generation for DPO/RLHF alignment",
+          "Golden dataset augmentation for evaluation benchmarks",
+          "Own your models -- no vendor lock-in, deploy anywhere",
+          "Eval Generator creates evaluation datasets from real production data"
+        ]
+      },
+      "clustering": {
+        "title": "Prompt Clustering",
+        "subtitle": "Automatic domain discovery from your production traffic. Understand what your users actually ask and how each domain performs.",
+        "features": [
+          "Automatic domain discovery from production traffic patterns",
+          "KMeans + learned map clustering for grouping similar prompts",
+          "Embedding-based similarity using sentence transformers",
+          "Per-cluster quality metrics and cost analysis",
+          "Drift detection when traffic patterns change unexpectedly",
+          "Merge Checker suggests cluster consolidation to reduce noise"
+        ]
+      },
+      "deployment": {
+        "title": "Deployment",
+        "subtitle": "Full stack with Docker. Self-host with MIT license or use the managed cloud. Production-ready from day one.",
+        "features": [
+          "Full stack Docker deployment: ClickHouse + Go engine + Python API + React UI",
+          "Self-host option with MIT license -- your data stays on your infrastructure",
+          "Go engine for high-performance routing (<2ms overhead per request)",
+          "Python SDK: pip install opentracy",
+          "OpenAI SDK drop-in: just change base_url to your OpenTracy instance"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Ready to take control of your LLM stack?",
+      "subtitle": "Open source, self-hostable, MIT licensed. Start in 5 minutes.",
+      "primary": "Start for free",
+      "secondary": "View on GitHub"
+    }
+  },
   "blog": {
     "title": "Writing",
     "subtitle": "Thoughts on LLM infrastructure, cost optimization, and building with AI."
@@ -260,6 +378,7 @@
     "resources": "Resources",
     "legal": "Legal",
     "features": "Features",
+    "platform": "Platform",
     "pricing": "Pricing",
     "docs": "Docs",
     "security": "Security",

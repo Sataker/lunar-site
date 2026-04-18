@@ -8,6 +8,7 @@ export type Locale = (typeof i18n)["locales"][number];
 export type Dictionary = {
   nav: {
     features: string;
+    platform: string;
     docs: string;
     pricing: string;
     blog: string;
@@ -179,6 +180,27 @@ export type Dictionary = {
       discordMembers: string;
     };
   };
+  platform: {
+    title: string;
+    subtitle: string;
+    sections: {
+      gateway: { title: string; subtitle: string; features: string[] };
+      routing: { title: string; subtitle: string; features: string[] };
+      traces: { title: string; subtitle: string; features: string[] };
+      costIntel: { title: string; subtitle: string; features: string[] };
+      quality: { title: string; subtitle: string; features: string[] };
+      evals: { title: string; subtitle: string; features: string[] };
+      distillation: { title: string; subtitle: string; features: string[] };
+      clustering: { title: string; subtitle: string; features: string[] };
+      deployment: { title: string; subtitle: string; features: string[] };
+    };
+    cta: {
+      title: string;
+      subtitle: string;
+      primary: string;
+      secondary: string;
+    };
+  };
   blog: {
     title: string;
     subtitle: string;
@@ -189,6 +211,7 @@ export type Dictionary = {
     resources: string;
     legal: string;
     features: string;
+    platform: string;
     pricing: string;
     docs: string;
     security: string;
