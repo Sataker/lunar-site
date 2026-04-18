@@ -215,6 +215,41 @@
       }
     }
   },
+  "testimonials": {
+    "title": "Trusted by AI teams",
+    "subtitle": "From startups to enterprise, teams use OpenTracy to simplify their LLM stack.",
+    "items": [
+      {
+        "quote": "OpenTracy let us consolidate 4 different LLM integrations into a single API. Our team ships features 3x faster now.",
+        "name": "Sarah Chen",
+        "role": "Head of AI",
+        "company": "Nexus Labs"
+      },
+      {
+        "quote": "The cost tracking alone saved us $2,400/month. We had no idea how much we were overspending on GPT-4 calls.",
+        "name": "Marcus Rivera",
+        "role": "CTO",
+        "company": "BuildAI"
+      },
+      {
+        "quote": "Switched from a custom routing layer to OpenTracy in one afternoon. The fallback system caught two provider outages in the first week.",
+        "name": "Anja Kowalski",
+        "role": "Staff Engineer",
+        "company": "DataFlow"
+      }
+    ]
+  },
+  "community": {
+    "title": "Join the community",
+    "subtitle": "Open source, open development. Build with us.",
+    "discordCta": "Join Discord",
+    "githubCta": "Star on GitHub",
+    "stats": {
+      "githubStars": "GitHub Stars",
+      "contributors": "Contributors",
+      "discordMembers": "Discord Members"
+    }
+  },
   "blog": {
     "title": "Writing",
     "subtitle": "Thoughts on LLM infrastructure, cost optimization, and building with AI."

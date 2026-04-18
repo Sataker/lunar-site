@@ -32,7 +32,7 @@ export OPENAI_API_KEY=sk-...
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # Or self-host the full stack
-git clone https://github.com/PureAI-Tools/opentracy.git
+git clone https://github.com/lunar-org-ai/lunar-router.git
 cd opentracy
 docker compose up -d`;
 

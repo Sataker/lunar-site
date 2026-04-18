@@ -70,7 +70,7 @@ export default function RootLayout({
                   description:
                     "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
                   sameAs: [
-                    "https://github.com/PureAI-Tools/opentracy",
+                    "https://github.com/lunar-org-ai/lunar-router",
                     "https://discord.gg/gDNPhQ347V",
                   ],
                 },

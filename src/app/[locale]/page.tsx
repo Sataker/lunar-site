@@ -108,7 +108,7 @@ export default async function Home({
         <Container>
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <FadeIn delay={0} y={16}>
-              <a href="https://github.com/PureAI-Tools/opentracy" className="badge badge-new inline-flex items-center gap-2 mb-6 hover:border-[#bbb] transition-colors">
+              <a href="https://github.com/lunar-org-ai/lunar-router" className="badge badge-new inline-flex items-center gap-2 mb-6 hover:border-[#bbb] transition-colors">
                 <span className="badge-new-dot" />
                 <span>{dict.hero.badge}</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -597,7 +597,7 @@ export default async function Home({
                 <Button href="https://discord.gg/gDNPhQ347V" variant="primary">
                   {dict.community.discordCta}
                 </Button>
-                <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
+                <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
                   {dict.community.githubCta}
                 </Button>
               </div>
@@ -629,7 +629,7 @@ export default async function Home({
                 <Button href="https://app.opentracy.com" variant="primary">
                   {dict.cta.ctaPrimary}
                 </Button>
-                <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
+                <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
                   {dict.cta.ctaSecondary}
                 </Button>
               </div>

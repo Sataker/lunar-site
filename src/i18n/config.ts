@@ -158,6 +158,27 @@ export type Dictionary = {
       selfHosting: { title: string; description: string };
     };
   };
+  testimonials: {
+    title: string;
+    subtitle: string;
+    items: Array<{
+      quote: string;
+      name: string;
+      role: string;
+      company: string;
+    }>;
+  };
+  community: {
+    title: string;
+    subtitle: string;
+    discordCta: string;
+    githubCta: string;
+    stats: {
+      githubStars: string;
+      contributors: string;
+      discordMembers: string;
+    };
+  };
   blog: {
     title: string;
     subtitle: string;

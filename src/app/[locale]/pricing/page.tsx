@@ -165,7 +165,7 @@ export default async function PricingPage({
             <Button href="https://app.opentracy.com" variant="primary">
               {dict.pricing.ctaPrimary}
             </Button>
-            <Button href="https://github.com/PureAI-Tools/opentracy" variant="secondary">
+            <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
               {dict.pricing.ctaSecondary}
             </Button>
           </div>

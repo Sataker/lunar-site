@@ -215,6 +215,41 @@
       }
     }
   },
+  "testimonials": {
+    "title": "Equipos de IA confian en nosotros",
+    "subtitle": "Desde startups hasta empresas, los equipos usan OpenTracy para simplificar su stack de LLMs.",
+    "items": [
+      {
+        "quote": "OpenTracy nos permitio consolidar 4 integraciones de LLM en una sola API. Nuestro equipo entrega funcionalidades 3 veces mas rapido.",
+        "name": "Sarah Chen",
+        "role": "Directora de IA",
+        "company": "Nexus Labs"
+      },
+      {
+        "quote": "Solo el seguimiento de costos nos ahorro $2,400/mes. No teniamos idea de cuanto estabamos gastando de mas en llamadas a GPT-4.",
+        "name": "Marcus Rivera",
+        "role": "CTO",
+        "company": "BuildAI"
+      },
+      {
+        "quote": "Migramos de una capa de enrutamiento personalizada a OpenTracy en una tarde. El sistema de fallback detecto dos caidas de proveedores en la primera semana.",
+        "name": "Anja Kowalski",
+        "role": "Ingeniera Staff",
+        "company": "DataFlow"
+      }
+    ]
+  },
+  "community": {
+    "title": "Unete a la comunidad",
+    "subtitle": "Codigo abierto, desarrollo abierto. Construye con nosotros.",
+    "discordCta": "Unete a Discord",
+    "githubCta": "Estrella en GitHub",
+    "stats": {
+      "githubStars": "Estrellas en GitHub",
+      "contributors": "Contribuidores",
+      "discordMembers": "Miembros en Discord"
+    }
+  },
   "blog": {
     "title": "Articulos",
     "subtitle": "Ideas sobre infraestructura de LLMs, optimizacion de costos y desarrollo con IA."
