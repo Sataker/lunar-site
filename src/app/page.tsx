@@ -99,7 +99,7 @@ export default function Home() {
         <div className="hero-orb" />
         <Container>
           <div className="max-w-3xl mx-auto text-center fade-in relative z-10">
-            <a href="https://github.com/PureAI-Tools/opentracy" className="badge badge-new inline-flex items-center gap-2 mb-6 hover:border-[#444] transition-colors">
+            <a href="https://github.com/PureAI-Tools/opentracy" className="badge badge-new inline-flex items-center gap-2 mb-6 hover:border-[#bbb] transition-colors">
               <span className="badge-new-dot" />
               <span>SDK v2 is out — fallbacks, streaming, and cost tracking</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -108,7 +108,7 @@ export default function Home() {
               One API for{" "}
               <span className="gradient-text">every LLM.</span>
             </h1>
-            <p className="mt-6 text-lg text-[#999] max-w-xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg text-[#666] max-w-xl mx-auto leading-relaxed">
               Route to 13+ providers, track costs, measure quality, and optimize your AI stack. All through a single endpoint.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -119,7 +119,7 @@ export default function Home() {
                 Read the docs
               </Button>
             </div>
-            <p className="mt-4 text-xs text-[#555]">Open source. MIT Licensed. No credit card required.</p>
+            <p className="mt-4 text-xs text-[#888]">Open source. MIT Licensed. No credit card required.</p>
           </div>
         </Container>
       </section>
@@ -132,7 +132,7 @@ export default function Home() {
               <div className="titlebar-dot" style={{ background: "#ff5f57" }} />
               <div className="titlebar-dot" style={{ background: "#febc2e" }} />
               <div className="titlebar-dot" style={{ background: "#28c840" }} />
-              <span className="text-xs text-[#555] ml-2 font-mono">OpenTracy — Dashboard</span>
+              <span className="text-xs text-[#888] ml-2 font-mono">OpenTracy — Dashboard</span>
             </div>
             <div className="dashboard-body">
               <div className="dashboard-stat-row">
@@ -152,41 +152,41 @@ export default function Home() {
                   <div className="dashboard-bar"><div className="dashboard-bar-fill-green" style={{ width: "94%" }} /></div>
                 </div>
               </div>
-              <div className="text-xs text-[#555] font-mono mb-2">Recent Traces</div>
+              <div className="text-xs text-[#888] font-mono mb-2">Recent Traces</div>
               <div>
                 <div className="dashboard-trace-row">
                   <div className="trace-status trace-status-ok" />
-                  <span className="text-[#555]">12:01:04</span>
+                  <span className="text-[#888]">12:01:04</span>
                   <span>gpt-4o-mini</span>
-                  <span className="ml-auto text-[#555]">234ms</span>
+                  <span className="ml-auto text-[#888]">234ms</span>
                   <span style={{ color: "#f97316" }}>$0.0003</span>
                 </div>
                 <div className="dashboard-trace-row">
                   <div className="trace-status trace-status-ok" />
-                  <span className="text-[#555]">12:01:02</span>
+                  <span className="text-[#888]">12:01:02</span>
                   <span>claude-3-haiku</span>
-                  <span className="ml-auto text-[#555]">312ms</span>
+                  <span className="ml-auto text-[#888]">312ms</span>
                   <span style={{ color: "#f97316" }}>$0.0005</span>
                 </div>
                 <div className="dashboard-trace-row">
                   <div className="trace-status trace-status-warn" />
-                  <span className="text-[#555]">12:01:00</span>
+                  <span className="text-[#888]">12:01:00</span>
                   <span>gemini-1.5-flash</span>
-                  <span className="ml-auto text-[#555]">189ms</span>
+                  <span className="ml-auto text-[#888]">189ms</span>
                   <span style={{ color: "#f97316" }}>$0.0002</span>
                 </div>
                 <div className="dashboard-trace-row">
                   <div className="trace-status trace-status-ok" />
-                  <span className="text-[#555]">12:00:58</span>
+                  <span className="text-[#888]">12:00:58</span>
                   <span>gpt-4o</span>
-                  <span className="ml-auto text-[#555]">1.2s</span>
+                  <span className="ml-auto text-[#888]">1.2s</span>
                   <span style={{ color: "#f97316" }}>$0.0089</span>
                 </div>
                 <div className="dashboard-trace-row" style={{ borderBottom: "none" }}>
                   <div className="trace-status trace-status-ok" />
-                  <span className="text-[#555]">12:00:55</span>
+                  <span className="text-[#888]">12:00:55</span>
                   <span>mistral-small</span>
-                  <span className="ml-auto text-[#555]">156ms</span>
+                  <span className="ml-auto text-[#888]">156ms</span>
                   <span style={{ color: "#f97316" }}>$0.0001</span>
                 </div>
               </div>
@@ -196,9 +196,9 @@ export default function Home() {
       </section>
 
       {/* Provider Logo Wall */}
-      <section className="py-16 border-y border-[#1a1a1a]">
+      <section className="py-16 border-y border-[#e5e5e5]">
         <Container>
-          <p className="text-center text-xs uppercase tracking-widest text-[#555] mb-10">
+          <p className="text-center text-xs uppercase tracking-widest text-[#888] mb-10">
             Works with every major provider
           </p>
           <div className="logo-wall">
@@ -418,7 +418,7 @@ export default function Home() {
                 View on GitHub
               </Button>
             </div>
-            <p className="mt-6 text-sm text-[#555]">
+            <p className="mt-6 text-sm text-[#888]">
               Free tier available. No credit card required.
             </p>
           </div>

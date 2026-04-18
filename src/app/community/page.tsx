@@ -77,7 +77,7 @@ export default function CommunityPage() {
           <h1 className="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight">
             Built with the community
           </h1>
-          <p className="mt-4 text-[#888888]">
+          <p className="mt-4 text-[#666666]">
             Join thousands of developers building Small Language Models with OpenTracy.
           </p>
         </div>
@@ -88,16 +88,16 @@ export default function CommunityPage() {
             <a
               key={link.title}
               href={link.href}
-              className="border border-[#333333] p-6 hover:border-white/30 transition-colors group"
+              className="border border-[#e0e0e0] p-6 hover:border-white/30 transition-colors group"
             >
-              <div className="text-[#888888] group-hover:text-white transition-colors">
+              <div className="text-[#666666] group-hover:text-[#111] transition-colors">
                 {link.icon}
               </div>
               <h2 className="mt-4 font-mono text-lg font-bold uppercase">
                 {link.title}
               </h2>
-              <p className="mt-2 text-sm text-[#888888]">{link.description}</p>
-              <div className="mt-4 font-mono text-xs text-[#f59e0b] flex items-center gap-1">
+              <p className="mt-2 text-sm text-[#666666]">{link.description}</p>
+              <div className="mt-4 font-mono text-xs text-[#0070f3] flex items-center gap-1">
                 {link.cta} <span>→</span>
               </div>
             </a>
@@ -113,15 +113,15 @@ export default function CommunityPage() {
             {roadmapItems.map((item) => (
               <div
                 key={item.title}
-                className="border border-[#333333] p-4 flex items-start gap-4"
+                className="border border-[#e0e0e0] p-4 flex items-start gap-4"
               >
                 <div
                   className={`font-mono text-xs uppercase tracking-wider px-2 py-1 ${
                     item.status === "completed"
                       ? "bg-green-500/10 text-green-500 border border-green-500/30"
                       : item.status === "in-progress"
-                      ? "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/30"
-                      : "bg-[#333333]/50 text-[#888888] border border-[#333333]"
+                      ? "bg-[#f59e0b]/10 text-[#0070f3] border border-[#f59e0b]/30"
+                      : "bg-[#333333]/50 text-[#666666] border border-[#e0e0e0]"
                   }`}
                 >
                   {item.status === "completed"
@@ -132,7 +132,7 @@ export default function CommunityPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-mono text-sm font-bold">{item.title}</h3>
-                  <p className="mt-1 text-sm text-[#888888]">{item.description}</p>
+                  <p className="mt-1 text-sm text-[#666666]">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -145,11 +145,11 @@ export default function CommunityPage() {
         </div>
 
         {/* Contribute CTA */}
-        <div className="mt-24 border border-[#333333] p-12 text-center">
+        <div className="mt-24 border border-[#e0e0e0] p-12 text-center">
           <h2 className="font-mono text-2xl font-bold uppercase tracking-tight">
             Want to contribute?
           </h2>
-          <p className="mt-4 text-[#888888] max-w-xl mx-auto">
+          <p className="mt-4 text-[#666666] max-w-xl mx-auto">
             We welcome contributions of all kinds: code, documentation, bug reports, and feature requests.
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">

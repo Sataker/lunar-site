@@ -76,7 +76,7 @@ export default function DocsPage() {
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Documentation
           </h1>
-          <p className="mt-4 text-[#888888] text-lg">
+          <p className="mt-4 text-[#666666] text-lg">
             Everything you need to get started with OpenTracy.
           </p>
         </div>
@@ -97,9 +97,9 @@ export default function DocsPage() {
           />
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {categories.map((cat) => (
-              <Card key={cat.title} href={cat.href} className="p-5 hover:border-[#444444]">
+              <Card key={cat.title} href={cat.href} className="p-5 hover:border-[#bbb]">
                 <h3 className="text-sm font-semibold">{cat.title}</h3>
-                <p className="mt-2 text-xs text-[#888888] leading-relaxed">{cat.description}</p>
+                <p className="mt-2 text-xs text-[#666666] leading-relaxed">{cat.description}</p>
               </Card>
             ))}
           </div>

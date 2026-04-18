@@ -23,13 +23,13 @@ export default function CodeBlock({
 
   return (
     <div className={`code-block relative ${className}`}>
-      <div className="flex items-center justify-between border-b border-[#333333] px-4 py-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#888888]">
+      <div className="flex items-center justify-between border-b border-[#2a2a3e] px-4 py-2">
+        <span className="font-mono text-xs uppercase tracking-wider text-[#888]">
           {language}
         </span>
         <button
           onClick={handleCopy}
-          className="font-mono text-xs uppercase tracking-wider text-[#888888] hover:text-white transition-colors"
+          className="font-mono text-xs uppercase tracking-wider text-[#888] hover:text-white transition-colors"
           aria-label="Copy code"
         >
           {copied ? "Copied!" : "Copy"}

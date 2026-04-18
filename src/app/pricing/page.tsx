@@ -118,7 +118,7 @@ export default function PricingPage() {
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Simple, predictable pricing
           </h1>
-          <p className="mt-4 text-[#888888]">
+          <p className="mt-4 text-[#666666]">
             Start free. Scale when you need to. No surprises.
           </p>
         </div>
@@ -129,8 +129,8 @@ export default function PricingPage() {
               key={plan.name}
               className={`border p-8 rounded-xl ${
                 plan.highlighted
-                  ? "border-[#0070f3] bg-[#0a0a0a]"
-                  : "border-[#222222]"
+                  ? "border-[#0070f3] bg-[#f8f8f8]"
+                  : "border-[#e5e5e5]"
               }`}
             >
               {plan.highlighted && (
@@ -144,10 +144,10 @@ export default function PricingPage() {
               <div className="mt-4">
                 <span className="text-4xl font-bold">{plan.price}</span>
                 {plan.period && (
-                  <span className="text-[#888888]">{plan.period}</span>
+                  <span className="text-[#666666]">{plan.period}</span>
                 )}
               </div>
-              <p className="mt-3 text-sm text-[#888888]">{plan.description}</p>
+              <p className="mt-3 text-sm text-[#666666]">{plan.description}</p>
               <ul className="mt-6 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5 text-sm">
@@ -181,19 +181,19 @@ export default function PricingPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {faqs.map((faq) => (
-              <div key={faq.question} className="border-l-2 border-[#222222] pl-6">
+              <div key={faq.question} className="border-l-2 border-[#e5e5e5] pl-6">
                 <h3 className="text-sm font-semibold">{faq.question}</h3>
-                <p className="mt-2 text-sm text-[#888888] leading-relaxed">{faq.answer}</p>
+                <p className="mt-2 text-sm text-[#666666] leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-24 border border-[#222222] rounded-xl p-12 text-center">
+        <div className="mt-24 border border-[#e5e5e5] rounded-xl p-12 text-center">
           <h2 className="text-2xl font-bold tracking-tight">
             Ready to simplify your AI stack?
           </h2>
-          <p className="mt-4 text-[#888888]">
+          <p className="mt-4 text-[#666666]">
             Start free today. No credit card required.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">

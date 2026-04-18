@@ -20,7 +20,7 @@ export default function TermsPage() {
           <h1 className="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight leading-[1.1]">
             Terms of Service
           </h1>
-          <p className="mt-4 text-sm text-[#888888] font-mono">
+          <p className="mt-4 text-sm text-[#666666] font-mono">
             Last updated: March 8, 2026
           </p>
         </div>
@@ -29,7 +29,7 @@ export default function TermsPage() {
         <div className="mt-16 max-w-3xl mx-auto space-y-16">
           {/* Introduction */}
           <section>
-            <p className="text-sm text-[#cccccc] leading-relaxed">
+            <p className="text-sm text-[#444444] leading-relaxed">
               These Terms of Service (&quot;Terms&quot;) govern your access to
               and use of the services provided by OpenTracy (&quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;), including our website
@@ -44,10 +44,10 @@ export default function TermsPage() {
           {/* Section 1 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">01.</span> Eligibility
+              <span className="text-[#0070f3]">01.</span> Eligibility
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 You must be at least 16 years old to use the Services. If you
                 are using the Services on behalf of an organization, you
                 represent and warrant that you have the authority to bind that
@@ -60,10 +60,10 @@ export default function TermsPage() {
           {/* Section 2 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">02.</span> Account Registration
+              <span className="text-[#0070f3]">02.</span> Account Registration
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-4">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-4">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 To access certain features, you must create an account. You
                 agree to:
               </p>
@@ -78,11 +78,11 @@ export default function TermsPage() {
                     <span className="text-green-500 mt-0.5 shrink-0 font-mono">
                       [+]
                     </span>
-                    <span className="text-[#cccccc]">{item}</span>
+                    <span className="text-[#444444]">{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-[#888888] leading-relaxed">
+              <p className="text-sm text-[#666666] leading-relaxed">
                 We reserve the right to suspend or terminate accounts that
                 violate these Terms or pose a security risk.
               </p>
@@ -92,14 +92,14 @@ export default function TermsPage() {
           {/* Section 3 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">03.</span> Use of Services
+              <span className="text-[#0070f3]">03.</span> Use of Services
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-6">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-6">
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-3">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-3">
                   /// Permitted Use
                 </h3>
-                <p className="text-sm text-[#cccccc] leading-relaxed">
+                <p className="text-sm text-[#444444] leading-relaxed">
                   You may use the Services for lawful purposes in accordance
                   with these Terms. We grant you a limited, non-exclusive,
                   non-transferable, revocable license to access and use the
@@ -107,10 +107,10 @@ export default function TermsPage() {
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-3">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-3">
                   /// Restrictions
                 </h3>
-                <p className="text-sm text-[#cccccc] leading-relaxed mb-3">
+                <p className="text-sm text-[#444444] leading-relaxed mb-3">
                   You agree not to:
                 </p>
                 <ul className="space-y-3">
@@ -127,7 +127,7 @@ export default function TermsPage() {
                       <span className="text-red-500 mt-0.5 shrink-0 font-mono">
                         [x]
                       </span>
-                      <span className="text-[#cccccc]">{item}</span>
+                      <span className="text-[#444444]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -138,10 +138,10 @@ export default function TermsPage() {
           {/* Section 4 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">04.</span> Customer Data
+              <span className="text-[#0070f3]">04.</span> Customer Data
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-4">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-4">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 You retain all rights, title, and interest in your Customer
                 Data. &quot;Customer Data&quot; includes production traces,
                 model configurations, training data, evaluation results, and
@@ -159,7 +159,7 @@ export default function TermsPage() {
                     <span className="text-green-500 mt-0.5 shrink-0 font-mono">
                       [+]
                     </span>
-                    <span className="text-[#cccccc]">{item}</span>
+                    <span className="text-[#444444]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -169,10 +169,10 @@ export default function TermsPage() {
           {/* Section 5 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">05.</span> Payment &amp; Billing
+              <span className="text-[#0070f3]">05.</span> Payment &amp; Billing
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-4">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-4">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 Certain Services require payment. By subscribing to a paid plan,
                 you agree to:
               </p>
@@ -188,7 +188,7 @@ export default function TermsPage() {
                     <span className="text-green-500 mt-0.5 shrink-0 font-mono">
                       [+]
                     </span>
-                    <span className="text-[#cccccc]">{item}</span>
+                    <span className="text-[#444444]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -198,14 +198,14 @@ export default function TermsPage() {
           {/* Section 6 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">06.</span> Intellectual Property
+              <span className="text-[#0070f3]">06.</span> Intellectual Property
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-6">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-6">
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-3">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-3">
                   /// Our IP
                 </h3>
-                <p className="text-sm text-[#cccccc] leading-relaxed">
+                <p className="text-sm text-[#444444] leading-relaxed">
                   The Services, including all software, algorithms, interfaces,
                   documentation, and branding, are owned by OpenTracy and protected
                   by intellectual property laws. Nothing in these Terms grants
@@ -213,10 +213,10 @@ export default function TermsPage() {
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-3">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-3">
                   /// Your Models
                 </h3>
-                <p className="text-sm text-[#cccccc] leading-relaxed">
+                <p className="text-sm text-[#444444] leading-relaxed">
                   Models you create, fine-tune, or distill using the Services
                   belong to you. You retain all rights to the output models
                   generated through the platform, subject to any applicable
@@ -224,10 +224,10 @@ export default function TermsPage() {
                 </p>
               </div>
               <div>
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-3">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-3">
                   /// Feedback
                 </h3>
-                <p className="text-sm text-[#cccccc] leading-relaxed">
+                <p className="text-sm text-[#444444] leading-relaxed">
                   If you provide feedback, suggestions, or ideas about the
                   Services, you grant us a non-exclusive, royalty-free,
                   perpetual, irrevocable license to use and incorporate that
@@ -240,10 +240,10 @@ export default function TermsPage() {
           {/* Section 7 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">07.</span> Service Availability
+              <span className="text-[#0070f3]">07.</span> Service Availability
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 We strive to maintain high availability but do not guarantee
                 uninterrupted access. We may modify, suspend, or discontinue
                 any part of the Services at any time. For paid plans, service
@@ -257,18 +257,18 @@ export default function TermsPage() {
           {/* Section 8 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">08.</span> Limitation of
+              <span className="text-[#0070f3]">08.</span> Limitation of
               Liability
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-4">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-4">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW, LUNAR SHALL NOT BE
                 LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
                 PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS,
                 DATA, BUSINESS OPPORTUNITIES, OR GOODWILL, ARISING OUT OF OR
                 RELATED TO YOUR USE OF THE SERVICES.
               </p>
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF
                 THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE AMOUNT YOU PAID
                 US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
@@ -279,11 +279,11 @@ export default function TermsPage() {
           {/* Section 9 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">09.</span> Disclaimer of
+              <span className="text-[#0070f3]">09.</span> Disclaimer of
               Warranties
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 THE SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS
                 AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS
                 OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF
@@ -297,10 +297,10 @@ export default function TermsPage() {
           {/* Section 10 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">10.</span> Indemnification
+              <span className="text-[#0070f3]">10.</span> Indemnification
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 You agree to indemnify, defend, and hold harmless OpenTracy and its
                 officers, directors, employees, and agents from any claims,
                 losses, damages, liabilities, and expenses (including legal
@@ -313,15 +313,15 @@ export default function TermsPage() {
           {/* Section 11 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">11.</span> Termination
+              <span className="text-[#0070f3]">11.</span> Termination
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6 space-y-4">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6 space-y-4">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 Either party may terminate these Terms at any time. You may
                 terminate by closing your account. We may terminate or suspend
                 your access immediately if you breach these Terms.
               </p>
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 Upon termination: your license to use the Services ends
                 immediately; we will delete your Customer Data according to your
                 retention settings or within 30 days; provisions that by their
@@ -334,10 +334,10 @@ export default function TermsPage() {
           {/* Section 12 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">12.</span> Governing Law
+              <span className="text-[#0070f3]">12.</span> Governing Law
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 These Terms are governed by and construed in accordance with the
                 laws of the jurisdiction in which OpenTracy is incorporated, without
                 regard to conflict of law principles. Any disputes arising from
@@ -350,10 +350,10 @@ export default function TermsPage() {
           {/* Section 13 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">13.</span> Changes to These Terms
+              <span className="text-[#0070f3]">13.</span> Changes to These Terms
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 We may update these Terms from time to time. We will notify you
                 of material changes by posting the updated Terms on this page
                 and updating the &quot;Last updated&quot; date. For material
@@ -367,20 +367,20 @@ export default function TermsPage() {
           {/* Section 14 */}
           <section>
             <h2 className="font-mono text-lg font-bold uppercase tracking-tight mb-4 flex items-center gap-2">
-              <span className="text-[#f59e0b]">14.</span> Contact Us
+              <span className="text-[#0070f3]">14.</span> Contact Us
             </h2>
-            <div className="border border-[#333333] bg-[#0a0a0a] p-6">
-              <p className="text-sm text-[#cccccc] leading-relaxed">
+            <div className="border border-[#e0e0e0] bg-[#f8f8f8] p-6">
+              <p className="text-sm text-[#444444] leading-relaxed">
                 If you have questions about these Terms, contact us at:
               </p>
               <div className="mt-4 space-y-2 font-mono text-sm">
                 <div className="flex items-center gap-3">
-                  <span className="text-[#888888]">Email</span>
-                  <span className="text-[#f59e0b]">legal@opentracy.com</span>
+                  <span className="text-[#666666]">Email</span>
+                  <span className="text-[#0070f3]">legal@opentracy.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-[#888888]">Web</span>
-                  <span className="text-[#f59e0b]">opentracy.com</span>
+                  <span className="text-[#666666]">Web</span>
+                  <span className="text-[#0070f3]">opentracy.com</span>
                 </div>
               </div>
             </div>

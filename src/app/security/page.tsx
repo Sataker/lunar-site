@@ -130,24 +130,24 @@ export default function SecurityPage() {
             Your data never touches{" "}
             <span className="highlight-box">plaintext.</span>
           </h1>
-          <p className="mt-6 text-lg text-[#888888] max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-[#666666] max-w-2xl mx-auto">
             Everything is encrypted, isolated, and auditable. Security isn&apos;t
             a feature we added — it&apos;s how OpenTracy was built from day one.
           </p>
         </div>
 
         {/* Stats Bar */}
-        <div className="mt-16 border border-[#333333] bg-[#0a0a0a]">
+        <div className="mt-16 border border-[#e0e0e0] bg-[#f8f8f8]">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {securityStats.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`p-6 text-center ${i < securityStats.length - 1 ? "md:border-r md:border-[#333333]" : ""} ${i < 2 ? "border-b md:border-b-0 border-[#333333]" : ""}`}
+                className={`p-6 text-center ${i < securityStats.length - 1 ? "md:border-r md:border-[#e0e0e0]" : ""} ${i < 2 ? "border-b md:border-b-0 border-[#e0e0e0]" : ""}`}
               >
-                <div className="font-mono text-lg font-bold text-[#f59e0b]">
+                <div className="font-mono text-lg font-bold text-[#0070f3]">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-[#888888]">
+                <div className="mt-1 text-xs uppercase tracking-wider text-[#666666]">
                   {stat.label}
                 </div>
               </div>
@@ -215,7 +215,7 @@ export default function SecurityPage() {
               <div className="progress-bar">
                 <div className="progress-bar-fill" />
               </div>
-              <div className="mt-3 font-mono text-xs text-[#888888]">
+              <div className="mt-3 font-mono text-xs text-[#666666]">
                 <span className="blink-caret">
                   All systems operational
                 </span>
@@ -243,13 +243,13 @@ export default function SecurityPage() {
                     className={`shrink-0 font-mono text-[10px] uppercase tracking-wider px-2 py-1 ${
                       feature.badge === "CORE"
                         ? "bg-green-500/10 text-green-500 border border-green-500/30"
-                        : "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/30"
+                        : "bg-[#f59e0b]/10 text-[#0070f3] border border-[#f59e0b]/30"
                     }`}
                   >
                     {feature.badge}
                   </span>
                 </div>
-                <p className="text-sm text-[#888888] leading-relaxed">
+                <p className="text-sm text-[#666666] leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -274,9 +274,9 @@ export default function SecurityPage() {
             ].map((section) => (
               <div
                 key={section.title}
-                className="border border-[#333333] p-6 bg-[#0a0a0a]"
+                className="border border-[#e0e0e0] p-6 bg-[#f8f8f8]"
               >
-                <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-5 flex items-center gap-2">
+                <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-5 flex items-center gap-2">
                   <span>///</span> {section.title}
                 </h3>
                 <ul className="space-y-3">
@@ -285,7 +285,7 @@ export default function SecurityPage() {
                       <span className="text-green-500 mt-0.5 shrink-0">
                         [+]
                       </span>
-                      <span className="text-[#cccccc]">{item}</span>
+                      <span className="text-[#444444]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -306,16 +306,16 @@ export default function SecurityPage() {
             {roadmapItems.map((item) => (
               <div
                 key={item.title}
-                className="border border-[#333333] p-6 bg-[#0a0a0a] flex flex-col"
+                className="border border-[#e0e0e0] p-6 bg-[#f8f8f8] flex flex-col"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-2xl text-[#888888]">◈</span>
-                  <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-1 bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/30">
+                  <span className="font-mono text-2xl text-[#666666]">◈</span>
+                  <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-1 bg-[#f59e0b]/10 text-[#0070f3] border border-[#f59e0b]/30">
                     {item.status}
                   </span>
                 </div>
                 <h3 className="font-mono text-lg font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-[#888888] leading-relaxed flex-1">
+                <p className="mt-2 text-sm text-[#666666] leading-relaxed flex-1">
                   {item.description}
                 </p>
               </div>
@@ -326,13 +326,13 @@ export default function SecurityPage() {
         <div className="section-divider mt-24" />
 
         {/* Trust Center */}
-        <div className="mt-24 border border-[#333333] bg-[#0a0a0a]">
+        <div className="mt-24 border border-[#e0e0e0] bg-[#f8f8f8]">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-8 lg:border-r border-[#333333]">
-              <h3 className="font-mono text-sm uppercase tracking-wider text-[#f59e0b] mb-2">
+            <div className="p-8 lg:border-r border-[#e0e0e0]">
+              <h3 className="font-mono text-sm uppercase tracking-wider text-[#0070f3] mb-2">
                 /// Trust Center
               </h3>
-              <p className="text-sm text-[#888888] mb-6">
+              <p className="text-sm text-[#666666] mb-6">
                 Available to customers and qualified prospects.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -344,7 +344,7 @@ export default function SecurityPage() {
                     <span className="text-green-500 font-mono text-xs">
                       [+]
                     </span>
-                    <span className="text-[#cccccc]">{doc.name}</span>
+                    <span className="text-[#444444]">{doc.name}</span>
                   </div>
                 ))}
               </div>
@@ -353,7 +353,7 @@ export default function SecurityPage() {
               <h3 className="font-mono text-xl font-bold uppercase mb-3">
                 Need security details?
               </h3>
-              <p className="text-sm text-[#888888] mb-6 leading-relaxed">
+              <p className="text-sm text-[#666666] mb-6 leading-relaxed">
                 Our team responds within 24 hours with architecture diagrams,
                 encryption details, and completed vendor questionnaires.
               </p>
@@ -374,7 +374,7 @@ export default function SecurityPage() {
           <h2 className="font-mono text-2xl sm:text-3xl font-bold uppercase tracking-tight">
             Your data. Your keys. Your network.
           </h2>
-          <p className="mt-4 text-[#888888]">
+          <p className="mt-4 text-[#666666]">
             Have security requirements? Our team works directly with yours to
             meet them.
           </p>
@@ -386,13 +386,13 @@ export default function SecurityPage() {
               Book security review
             </Button>
           </div>
-          <div className="mt-16 border-t border-[#333333] pt-8">
-            <h3 className="font-mono text-sm uppercase tracking-wider text-[#888888]">
+          <div className="mt-16 border-t border-[#e0e0e0] pt-8">
+            <h3 className="font-mono text-sm uppercase tracking-wider text-[#666666]">
               Responsible Disclosure
             </h3>
-            <p className="mt-2 text-sm text-[#888888]">
+            <p className="mt-2 text-sm text-[#666666]">
               Found a vulnerability? Email{" "}
-              <span className="text-[#f59e0b]">security@opentracy.com</span>
+              <span className="text-[#0070f3]">security@opentracy.com</span>
             </p>
           </div>
         </div>

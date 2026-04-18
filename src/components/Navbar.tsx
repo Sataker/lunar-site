@@ -16,7 +16,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#222222] bg-black/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#e5e5e5] bg-white/90 backdrop-blur-md">
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-8">
@@ -31,7 +31,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-[#888888] hover:text-white transition-colors"
+                  className="text-sm text-[#666666] hover:text-[#111] transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
           <button
             type="button"
-            className="md:hidden p-2 text-[#888888] hover:text-white"
+            className="md:hidden p-2 text-[#666666] hover:text-[#111]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -62,13 +62,13 @@ export default function Navbar() {
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[#222222] py-4">
+          <div className="md:hidden border-t border-[#e5e5e5] py-4">
             <div className="flex flex-col gap-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-[#888888] hover:text-white py-1"
+                  className="text-sm text-[#666666] hover:text-[#111] py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
