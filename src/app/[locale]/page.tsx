@@ -41,31 +41,37 @@ export default async function Home({
       key: "oneApi" as const,
       tracy: "/lunar-site/tracy/tracy-default.png",
       color: "blue" as const,
+      size: 96,
     },
     {
       key: "realTimeTraces" as const,
       tracy: "/lunar-site/tracy/tracy-alert.png",
       color: "orange" as const,
+      size: 96,
     },
     {
       key: "costTracking" as const,
       tracy: "/lunar-site/tracy/tracy-cost.png",
       color: "blue" as const,
+      size: 96,
     },
     {
       key: "smartRouting" as const,
       tracy: "/lunar-site/tracy/tracy-routing.png",
       color: "orange" as const,
+      size: 96,
     },
     {
       key: "qualityMonitoring" as const,
       tracy: "/lunar-site/tracy/tracy-security.png",
       color: "blue" as const,
+      size: 72,
     },
     {
       key: "modelDistillation" as const,
       tracy: "/lunar-site/tracy/tracy-zen.png",
       color: "orange" as const,
+      size: 96,
     },
   ];
 
@@ -325,8 +331,8 @@ export default async function Home({
                       <img
                         src={feature.tracy}
                         alt={dict.features[feature.key].title}
-                        width={72}
-                        height={72}
+                        width={feature.size}
+                        height={feature.size}
                         className="object-contain"
                       />
                       <h3 className="text-base font-semibold tracking-tight">
