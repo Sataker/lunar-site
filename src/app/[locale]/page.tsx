@@ -39,56 +39,32 @@ export default async function Home({
   const features = [
     {
       key: "oneApi" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-default.png",
       color: "blue" as const,
     },
     {
       key: "realTimeTraces" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-alert.png",
       color: "orange" as const,
     },
     {
       key: "costTracking" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-cost.png",
       color: "blue" as const,
     },
     {
       key: "smartRouting" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-routing.png",
       color: "orange" as const,
     },
     {
       key: "qualityMonitoring" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-security.png",
       color: "blue" as const,
     },
     {
       key: "modelDistillation" as const,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 3l-8 4.5v9L12 21l8-4.5v-9L12 3z"/><path d="M12 12l8-4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/>
-        </svg>
-      ),
+      tracy: "/lunar-site/tracy/tracy-zen.png",
       color: "orange" as const,
     },
   ];
@@ -119,9 +95,9 @@ export default async function Home({
               <img
                 src="/lunar-site/tracy/tracy-default.png"
                 alt="Tracy — OpenTracy mascot"
-                width={80}
-                height={80}
-                className="mx-auto mb-6"
+                width={120}
+                height={120}
+                className="mx-auto mb-6 drop-shadow-lg"
               />
             </FadeIn>
             <TextReveal delay={0.15}>
@@ -266,7 +242,8 @@ export default async function Home({
             </FadeIn>
             <SlideIn direction="up" delay={0.3}>
               <div className="flow-node flow-node-accent">
-                <div className="text-sm font-semibold" style={{ color: "#0070f3" }}>{dict.howItWorks.opentracy}</div>
+                <img src="/lunar-site/tracy/tracy-routing.png" alt="Tracy routing" width={36} height={36} className="mx-auto mb-1" />
+                <div className="text-sm font-semibold" style={{ color: "#22c55e" }}>{dict.howItWorks.opentracy}</div>
                 <div className="text-xs text-[var(--color-muted)] mt-1">{dict.howItWorks.opentracySub}</div>
               </div>
             </SlideIn>
@@ -344,13 +321,19 @@ export default async function Home({
               <StaggerItem key={feature.key}>
                 <HoverCard>
                   <Card className="p-6 card-hover-glow">
-                    <div className={`feature-icon feature-icon-${feature.color} mb-4`}>
-                      {feature.icon}
+                    <div className="mb-4 flex items-center gap-3">
+                      <img
+                        src={feature.tracy}
+                        alt={dict.features[feature.key].title}
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
+                      <h3 className="text-base font-semibold tracking-tight">
+                        {dict.features[feature.key].title}
+                      </h3>
                     </div>
-                    <h3 className="text-base font-semibold tracking-tight">
-                      {dict.features[feature.key].title}
-                    </h3>
-                    <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">
+                    <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                       {dict.features[feature.key].description}
                     </p>
                   </Card>
