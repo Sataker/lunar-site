@@ -197,7 +197,7 @@ export default async function Home({
               <span>Azure</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9.533 9.953c2.933 0 5.378-.73 7.247-1.904 1.474-.925 3.22-2.716 3.22-5.072C20 1.384 18.643 0 16.946 0H7.126C3.2 0 0 3.2 0 7.126c0 1.563 1.267 2.827 2.828 2.827zm5.253 2.74H4.35c-1.087 0-2.158.293-3.098.85A5.93 5.93 0 0 0 0 14.36v.04A9.6 9.6 0 0 0 9.6 24c2.56 0 5.173-.928 7.138-2.676A5.28 5.28 0 0 0 18.5 17.42v-.003c0-2.609-2.063-4.723-3.714-4.723z"/></svg>
+              <img src="/lunar-site/logos/cohere.png" alt="Cohere" width={48} height={24} className="object-contain" />
               <span>Cohere</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
