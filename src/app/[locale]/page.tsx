@@ -15,6 +15,7 @@ import FloatingOrb from "@/components/motion/FloatingOrb";
 import LiveCounter from "@/components/motion/LiveCounter";
 import { StaggerContainer, StaggerItem } from "@/components/motion/StaggerChildren";
 import { LogoWallContainer, LogoWallItem } from "@/components/motion/LogoWall";
+import ImageCarousel from "@/components/motion/ImageCarousel";
 
 const sdkCode = `import opentracy as ot
 
@@ -141,18 +142,21 @@ export default async function Home({
         </Container>
       </section>
 
-      {/* Dashboard Screenshot */}
+      {/* Dashboard Screenshots Carousel */}
       <section className="pb-20">
         <Container>
           <FadeIn y={40} duration={0.8}>
-            <div className="max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
-              <img
-                src="/lunar-site/dashboard-screenshot.png"
-                alt="OpenTracy Intelligence & Observability Dashboard — showing requests routed, cost savings, model distribution, and baseline comparison"
-                width={1468}
-                height={802}
-                className="w-full h-auto"
-                loading="eager"
+            <div className="max-w-5xl mx-auto">
+              <ImageCarousel
+                images={[
+                  { src: "/lunar-site/screenshots/intelligence-overview.png", alt: "Intelligence & Observability — requests routed, cost savings, model distribution" },
+                  { src: "/lunar-site/screenshots/eval-overview.png", alt: "Distill Evaluations — overview with activity and model leaderboard" },
+                  { src: "/lunar-site/screenshots/eval-list.png", alt: "Evaluations list — running, completed, and failed evaluation runs" },
+                  { src: "/lunar-site/screenshots/cost-baseline.png", alt: "Cost Analysis — baseline model comparison, latency distribution, router efficiency" },
+                  { src: "/lunar-site/screenshots/cost-trends.png", alt: "Cost Analysis — savings trend, cost over time, baseline comparison" },
+                  { src: "/lunar-site/screenshots/cost-details.png", alt: "Cost Analysis — cost by model, cost by provider, most expensive requests" },
+                ]}
+                interval={5000}
               />
             </div>
           </FadeIn>
