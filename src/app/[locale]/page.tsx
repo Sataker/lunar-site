@@ -130,7 +130,7 @@ export default async function Home({
                 <Button href="https://app.opentracy.com" variant="primary">
                   {dict.hero.ctaPrimary}
                 </Button>
-                <Button href="https://opentracy.mintlify.app" variant="secondary">
+                <Button href="/docs" variant="secondary">
                   {dict.hero.ctaSecondary}
                 </Button>
               </div>
