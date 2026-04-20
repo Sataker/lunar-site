@@ -80,7 +80,7 @@ export default async function PricingPage({
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
             {dict.pricing.title}
           </h1>
-          <p className="mt-4 text-[#666666]">
+          <p className="mt-4 text-[var(--color-muted)]">
             {dict.pricing.subtitle}
           </p>
         </div>
@@ -93,8 +93,8 @@ export default async function PricingPage({
                 key={plan.key}
                 className={`border p-8 rounded-xl ${
                   plan.highlighted
-                    ? "border-[#0070f3] bg-[#f8f8f8]"
-                    : "border-[#e5e5e5]"
+                    ? "border-[var(--color-accent)] bg-[var(--color-surface)]"
+                    : "border-[var(--color-border)]"
                 }`}
               >
                 {plan.highlighted && (
@@ -108,14 +108,14 @@ export default async function PricingPage({
                 <div className="mt-4">
                   <span className="text-4xl font-bold">{plan.price}</span>
                   {plan.period && (
-                    <span className="text-[#666666]">{plan.period}</span>
+                    <span className="text-[var(--color-muted)]">{plan.period}</span>
                   )}
                 </div>
-                <p className="mt-3 text-sm text-[#666666]">{planDict.description}</p>
+                <p className="mt-3 text-sm text-[var(--color-muted)]">{planDict.description}</p>
                 <ul className="mt-6 space-y-3">
                   {planDict.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5 text-sm">
-                      <span className="checkmark mt-0.5">&#10003;</span>
+                      <span className="text-[var(--color-accent)] mt-0.5">&#10003;</span>
                       {feature}
                     </li>
                   ))}
@@ -135,7 +135,7 @@ export default async function PricingPage({
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-sm text-[#666666]">
+          <p className="text-sm text-[var(--color-muted)]">
             {dict.pricing.billingNote}
           </p>
         </div>
@@ -146,19 +146,19 @@ export default async function PricingPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {dict.pricing.faqs.map((faq) => (
-              <div key={faq.question} className="border-l-2 border-[#e5e5e5] pl-6">
+              <div key={faq.question} className="border-l-2 border-[var(--color-border)] pl-6">
                 <h3 className="text-sm font-semibold">{faq.question}</h3>
-                <p className="mt-2 text-sm text-[#666666] leading-relaxed">{faq.answer}</p>
+                <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-24 border border-[#e5e5e5] rounded-xl p-12 text-center">
+        <div className="mt-24 border border-[var(--color-border)] rounded-xl p-12 text-center">
           <h2 className="text-2xl font-bold tracking-tight">
             {dict.pricing.ctaTitle}
           </h2>
-          <p className="mt-4 text-[#666666]">
+          <p className="mt-4 text-[var(--color-muted)]">
             {dict.pricing.ctaSubtitle}
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
