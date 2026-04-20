@@ -193,15 +193,15 @@ export default async function Home({
               <span>Bedrock</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/azure.png" alt="Azure" width={28} height={28} className="object-contain" />
+              <img src="/lunar-site/logos/azure.png" alt="Azure" width={28} height={28} className="object-contain dark:invert" />
               <span>Azure</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/cohere.png" alt="Cohere" width={48} height={24} className="object-contain" />
+              <img src="/lunar-site/logos/cohere.png" alt="Cohere" width={48} height={24} className="object-contain dark:invert" />
               <span>Cohere</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/deepseek.png" alt="DeepSeek" width={28} height={28} className="object-contain" />
+              <img src="/lunar-site/logos/deepseek.png" alt="DeepSeek" width={28} height={28} className="object-contain dark:invert" />
               <span>DeepSeek</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
@@ -209,7 +209,7 @@ export default async function Home({
               <span>Together</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain" />
+              <img src="/lunar-site/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain dark:invert" />
               <span>Fireworks</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
