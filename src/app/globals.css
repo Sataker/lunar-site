@@ -593,13 +593,14 @@ body::before {
   border-radius: 12px;
   border: 1px solid transparent;
   font-size: 0.8125rem;
-  color: #999;
+  color: #666;
   transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
   cursor: default;
 }
 
-.logo-wall-item svg {
-  opacity: 0.25;
+.logo-wall-item svg,
+.logo-wall-item img {
+  opacity: 0.5;
   transition: all 0.35s ease;
 }
 
@@ -610,8 +611,9 @@ body::before {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.logo-wall-item:hover svg {
-  opacity: 0.7;
+.logo-wall-item:hover svg,
+.logo-wall-item:hover img {
+  opacity: 0.85;
   transform: scale(1.1);
 }
 
