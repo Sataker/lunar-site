@@ -91,9 +91,9 @@ export default async function PricingPage({
             return (
               <div
                 key={plan.key}
-                className={`border p-8 rounded-xl ${
+                className={`border p-8 rounded-xl bg-[var(--color-background)] ${
                   plan.highlighted
-                    ? "border-[var(--color-accent)] bg-[var(--color-surface)]"
+                    ? "border-[var(--color-accent)]"
                     : "border-[var(--color-border)]"
                 }`}
               >
