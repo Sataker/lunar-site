@@ -205,10 +205,6 @@ export default async function Home({
               <span>DeepSeek</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
-              <span>Together</span>
-            </LogoWallItem>
-            <LogoWallItem className="logo-wall-item">
               <img src="/lunar-site/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain dark:invert" />
               <span>Fireworks</span>
             </LogoWallItem>
