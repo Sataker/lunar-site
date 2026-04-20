@@ -193,7 +193,7 @@ export default async function Home({
               <span>Bedrock</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5.483 21.3H24L14.025 4.013l-3.038 8.347 5.836 6.938L5.483 21.3zM13.23 2.7L6.105 8.677 0 19.253h5.505v.014L13.23 2.7z"/></svg>
+              <img src="/lunar-site/logos/azure.png" alt="Azure" width={28} height={28} className="object-contain" />
               <span>Azure</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
@@ -209,7 +209,7 @@ export default async function Home({
               <span>Together</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+              <img src="/lunar-site/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain" />
               <span>Fireworks</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
