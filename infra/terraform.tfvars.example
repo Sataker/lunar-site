@@ -1,7 +1,0 @@
-aws_region         = "us-east-1"
-app_name           = "lunar-site"
-github_repository  = "https://github.com/PureAI-Tools/site-lunar"
-
-# Create a GitHub PAT (classic) with scopes: repo + admin:repo_hook
-# Fine-grained tokens do NOT work with AWS Amplify.
-# github_access_token = "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

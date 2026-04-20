@@ -40,37 +40,37 @@ export default async function Home({
   const features = [
     {
       key: "oneApi" as const,
-      tracy: "/lunar-site/tracy/tracy-default.png",
+      tracy: "/tracy/tracy-default.png",
       color: "blue" as const,
       size: 96,
     },
     {
       key: "realTimeTraces" as const,
-      tracy: "/lunar-site/tracy/tracy-alert.png",
+      tracy: "/tracy/tracy-alert.png",
       color: "orange" as const,
       size: 96,
     },
     {
       key: "costTracking" as const,
-      tracy: "/lunar-site/tracy/tracy-cost.png",
+      tracy: "/tracy/tracy-cost.png",
       color: "blue" as const,
       size: 96,
     },
     {
       key: "smartRouting" as const,
-      tracy: "/lunar-site/tracy/tracy-routing.png",
+      tracy: "/tracy/tracy-routing.png",
       color: "orange" as const,
       size: 96,
     },
     {
       key: "qualityMonitoring" as const,
-      tracy: "/lunar-site/tracy/tracy-security.png",
+      tracy: "/tracy/tracy-security.png",
       color: "blue" as const,
       size: 72,
     },
     {
       key: "modelDistillation" as const,
-      tracy: "/lunar-site/tracy/tracy-zen.png",
+      tracy: "/tracy/tracy-zen.png",
       color: "orange" as const,
       size: 96,
     },
@@ -100,7 +100,7 @@ export default async function Home({
             </FadeIn>
             <FadeIn delay={0.1} y={12}>
               <img
-                src="/lunar-site/tracy/tracy-default.png"
+                src="/tracy/tracy-default.png"
                 alt="Tracy — OpenTracy mascot"
                 width={200}
                 height={200}
@@ -149,12 +149,12 @@ export default async function Home({
             <div className="max-w-5xl mx-auto">
               <ImageCarousel
                 images={[
-                  { src: "/lunar-site/screenshots/intelligence-overview.png", alt: "Intelligence & Observability — requests routed, cost savings, model distribution" },
-                  { src: "/lunar-site/screenshots/eval-overview.png", alt: "Distill Evaluations — overview with activity and model leaderboard" },
-                  { src: "/lunar-site/screenshots/eval-list.png", alt: "Evaluations list — running, completed, and failed evaluation runs" },
-                  { src: "/lunar-site/screenshots/cost-baseline.png", alt: "Cost Analysis — baseline model comparison, latency distribution, router efficiency" },
-                  { src: "/lunar-site/screenshots/cost-trends.png", alt: "Cost Analysis — savings trend, cost over time, baseline comparison" },
-                  { src: "/lunar-site/screenshots/cost-details.png", alt: "Cost Analysis — cost by model, cost by provider, most expensive requests" },
+                  { src: "/screenshots/intelligence-overview.png", alt: "Intelligence & Observability — requests routed, cost savings, model distribution" },
+                  { src: "/screenshots/eval-overview.png", alt: "Distill Evaluations — overview with activity and model leaderboard" },
+                  { src: "/screenshots/eval-list.png", alt: "Evaluations list — running, completed, and failed evaluation runs" },
+                  { src: "/screenshots/cost-baseline.png", alt: "Cost Analysis — baseline model comparison, latency distribution, router efficiency" },
+                  { src: "/screenshots/cost-trends.png", alt: "Cost Analysis — savings trend, cost over time, baseline comparison" },
+                  { src: "/screenshots/cost-details.png", alt: "Cost Analysis — cost by model, cost by provider, most expensive requests" },
                 ]}
                 interval={5000}
               />
@@ -189,7 +189,7 @@ export default async function Home({
               <span>Mistral</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/groq.png" alt="Groq" width={48} height={24} className="object-contain dark:invert" />
+              <img src="/logos/groq.png" alt="Groq" width={48} height={24} className="object-contain dark:invert" />
               <span>Groq</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
@@ -197,27 +197,27 @@ export default async function Home({
               <span>Bedrock</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/azure.png" alt="Azure" width={28} height={28} className="object-contain dark:invert" />
+              <img src="/logos/azure.png" alt="Azure" width={28} height={28} className="object-contain dark:invert" />
               <span>Azure</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/cohere.png" alt="Cohere" width={48} height={24} className="object-contain dark:invert" />
+              <img src="/logos/cohere.png" alt="Cohere" width={48} height={24} className="object-contain dark:invert" />
               <span>Cohere</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/deepseek.png" alt="DeepSeek" width={28} height={28} className="object-contain dark:invert" />
+              <img src="/logos/deepseek.png" alt="DeepSeek" width={28} height={28} className="object-contain dark:invert" />
               <span>DeepSeek</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain dark:invert" />
+              <img src="/logos/fireworks.png" alt="Fireworks" width={28} height={28} className="object-contain dark:invert" />
               <span>Fireworks</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/ollama.png" alt="Ollama" width={28} height={28} className="object-contain dark:invert" />
+              <img src="/logos/ollama.png" alt="Ollama" width={28} height={28} className="object-contain dark:invert" />
               <span>Ollama</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
-              <img src="/lunar-site/logos/together.png" alt="Together" width={48} height={24} className="object-contain dark:invert" />
+              <img src="/logos/together.png" alt="Together" width={48} height={24} className="object-contain dark:invert" />
               <span>Together</span>
             </LogoWallItem>
             <LogoWallItem className="logo-wall-item">
@@ -252,7 +252,7 @@ export default async function Home({
             </FadeIn>
             <SlideIn direction="up" delay={0.3}>
               <div className="flow-node flow-node-accent">
-                <img src="/lunar-site/tracy/tracy-routing.png" alt="Tracy routing" width={64} height={64} className="mx-auto mb-1" />
+                <img src="/tracy/tracy-routing.png" alt="Tracy routing" width={64} height={64} className="mx-auto mb-1" />
                 <div className="text-sm font-semibold" style={{ color: "#22c55e" }}>{dict.howItWorks.opentracy}</div>
                 <div className="text-xs text-[var(--color-muted)] mt-1">{dict.howItWorks.opentracySub}</div>
               </div>
@@ -570,7 +570,7 @@ export default async function Home({
           <div className="max-w-2xl mx-auto text-center relative z-10">
             <FadeIn y={12}>
               <img
-                src="/lunar-site/tracy/tracy-zen.png"
+                src="/tracy/tracy-zen.png"
                 alt="Tracy zen"
                 width={120}
                 height={120}
