@@ -51,12 +51,12 @@ print(f"Cost: \${response._cost:.6f}")
 print(f"Latency: {response._latency_ms}ms")`;
 
 const categoryKeys = [
-  { key: "gettingStarted" as const, href: "https://docs.opentracy.com/installation" },
-  { key: "modelsProviders" as const, href: "https://docs.opentracy.com/guides/models-providers" },
-  { key: "routingStrategies" as const, href: "https://docs.opentracy.com/guides/streaming" },
-  { key: "observability" as const, href: "https://docs.opentracy.com/overview" },
-  { key: "evaluations" as const, href: "https://docs.opentracy.com/overview" },
-  { key: "selfHosting" as const, href: "https://docs.opentracy.com/pricing/instance-tiers" },
+  { key: "gettingStarted" as const, href: "https://opentracy.mintlify.app/installation" },
+  { key: "modelsProviders" as const, href: "https://opentracy.mintlify.app/guides/models-providers" },
+  { key: "routingStrategies" as const, href: "https://opentracy.mintlify.app/guides/streaming" },
+  { key: "observability" as const, href: "https://opentracy.mintlify.app/overview" },
+  { key: "evaluations" as const, href: "https://opentracy.mintlify.app/overview" },
+  { key: "selfHosting" as const, href: "https://opentracy.mintlify.app/pricing/instance-tiers" },
 ];
 
 export default async function DocsPage({
