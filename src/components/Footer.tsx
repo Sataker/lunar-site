@@ -1,5 +1,4 @@
 import Link from "next/link";
-import LogoMark from "./LogoMark";
 import type { Locale, Dictionary } from "@/i18n/config";
 
 export default function Footer({
@@ -41,11 +40,14 @@ export default function Footer({
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <Link href={`/${locale}`} className="flex items-center gap-2">
-              <LogoMark size={20} />
-              <span className="text-sm font-semibold tracking-tight">
-                OpenTracy
-              </span>
+            <Link href={`/${locale}`} className="inline-flex items-center">
+              <img
+                src="/tracy/opentracy-logo.png"
+                alt="OpenTracy"
+                width={140}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 text-sm text-[var(--color-muted)] max-w-xs leading-relaxed">
               {dict.footer.tagline}
