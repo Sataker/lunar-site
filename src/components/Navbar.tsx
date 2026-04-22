@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import ThemeToggle from "./ThemeToggle";
@@ -21,6 +21,44 @@ export default function Navbar({
   dict: Dictionary;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [starCount, setStarCount] = useState<string>("...");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const formatStarCount = (value: number) =>
+      new Intl.NumberFormat("en", {
+        notation: "compact",
+        maximumFractionDigits: 1,
+      }).format(value);
+
+    const loadStars = async () => {
+      try {
+        const response = await fetch("/api/github-stars");
+        if (!response.ok) {
+          if (!cancelled) setStarCount("N/A");
+          return;
+        }
+
+        const data = (await response.json()) as { stars: number | null };
+        if (!cancelled) {
+          setStarCount(
+            typeof data.stars === "number"
+              ? formatStarCount(data.stars)
+              : "N/A",
+          );
+        }
+      } catch {
+        if (!cancelled) setStarCount("N/A");
+      }
+    };
+
+    loadStars();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const navigation = [
     { name: dict.nav.features, href: `/${locale}#features` },
@@ -68,8 +106,8 @@ export default function Navbar({
                   href={`/${loc}`}
                   className={`text-xs px-2 py-1 rounded transition-colors ${
                     loc === locale
-                      ? "bg-[var(--color-accent)] text-white"
-                      : "text-muted hover:text-foreground hover:bg-[var(--color-surface)]"
+                      ? "bg-accent text-white"
+                      : "text-muted hover:text-foreground hover:bg-surface"
                   }`}
                 >
                   {localeLabels[loc]}
@@ -79,7 +117,7 @@ export default function Navbar({
             <ThemeToggle />
             {/* GitHub with star count */}
             <Link
-              href="https://github.com/lunar-org-ai/lunar-router"
+              href="https://github.com/OpenTracy/OpenTracy"
               className="github-stars-badge"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +128,7 @@ export default function Navbar({
                 />
               </svg>
               <span>Star</span>
-              <span className="github-stars-count">1.2k</span>
+              <span className="github-stars-count">{starCount}</span>
             </Link>
             <Button
               href="https://app.opentracy.com"
@@ -130,7 +168,7 @@ export default function Navbar({
           </button>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[var(--color-border)] py-4">
+          <div className="md:hidden border-t border-border py-4">
             <div className="flex flex-col gap-3">
               {navigation.map((item) => (
                 <Link
@@ -149,8 +187,8 @@ export default function Navbar({
                     href={`/${loc}`}
                     className={`text-xs px-2 py-1 rounded transition-colors ${
                       loc === locale
-                        ? "bg-[var(--color-accent)] text-white"
-                        : "text-muted hover:text-foreground hover:bg-[var(--color-surface)]"
+                        ? "bg-accent text-white"
+                        : "text-muted hover:text-foreground hover:bg-surface"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
