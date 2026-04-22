@@ -23,16 +23,21 @@ export default function CodeBlock({
 
   return (
     <div className={`code-block relative ${className}`}>
-      <div className="flex items-center justify-between border-b border-[#2a2a3e] px-4 py-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#888]">
-          {language}
-        </span>
+      <div className="flex items-center justify-between border-b border-border/70 px-4 py-2.5 bg-background/5">
+        <div className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-muted/60" />
+          <span className="h-2.5 w-2.5 rounded-full bg-muted/40" />
+          <span className="h-2.5 w-2.5 rounded-full bg-muted/30" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted ml-2">
+            {language}
+          </span>
+        </div>
         <button
           onClick={handleCopy}
-          className="font-mono text-xs uppercase tracking-wider text-[#888] hover:text-white transition-colors"
+          className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted hover:text-foreground transition-colors"
           aria-label="Copy code"
         >
-          {copied ? "Copied!" : "Copy"}
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
       <pre className="overflow-x-auto p-4">

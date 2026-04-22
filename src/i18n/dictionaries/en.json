@@ -257,7 +257,7 @@
   },
   "platform": {
     "title": "The Complete LLM Operations Platform",
-    "subtitle": "Everything OpenTracy delivers -- from unified gateway to model distillation. Not marketing. Real capabilities, real architecture.",
+    "subtitle": "Everything OpenTracy ships — from a unified model gateway to routing, tracing, evaluations, and distillation. Built for production teams with real architecture, measurable quality, and cost control.",
     "sections": {
       "gateway": {
         "title": "Unified Gateway",

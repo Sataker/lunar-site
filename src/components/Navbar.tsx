@@ -52,7 +52,7 @@ export default function Navbar({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+                  className="text-sm text-muted hover:text-foreground transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -69,7 +69,7 @@ export default function Navbar({
                   className={`text-xs px-2 py-1 rounded transition-colors ${
                     loc === locale
                       ? "bg-[var(--color-accent)] text-white"
-                      : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface)]"
+                      : "text-muted hover:text-foreground hover:bg-[var(--color-surface)]"
                   }`}
                 >
                   {localeLabels[loc]}
@@ -102,7 +102,7 @@ export default function Navbar({
           </div>
           <button
             type="button"
-            className="md:hidden p-2 text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+            className="md:hidden p-2 text-muted hover:text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={dict.nav.toggleMenu}
           >
@@ -136,7 +136,7 @@ export default function Navbar({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] py-1"
+                  className="text-sm text-muted hover:text-foreground py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -150,7 +150,7 @@ export default function Navbar({
                     className={`text-xs px-2 py-1 rounded transition-colors ${
                       loc === locale
                         ? "bg-[var(--color-accent)] text-white"
-                        : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface)]"
+                        : "text-muted hover:text-foreground hover:bg-[var(--color-surface)]"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
