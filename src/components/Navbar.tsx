@@ -73,17 +73,14 @@ export default function Navbar({
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-8">
-            <Link href={`/${locale}`} className="flex items-center gap-2.5">
+            <Link href={`/${locale}`} className="flex items-center">
               <img
-                src="/tracy/tracy-default.png"
+                src="/tracy/opentracy-logo.png"
                 alt="OpenTracy"
-                width={28}
-                height={28}
-                className="navbar-brand-mark"
+                width={140}
+                height={32}
+                className="h-8 w-auto object-contain"
               />
-              <span className="text-base font-semibold tracking-tight">
-                OpenTracy
-              </span>
             </Link>
             <div className="hidden md:flex items-center gap-6">
               {navigation.map((item) => (
