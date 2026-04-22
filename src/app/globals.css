@@ -1601,6 +1601,47 @@ html.dark .feature-showcase-image {
   max-width: 680px;
   margin: 0 auto;
 }
+
+.blog-empty-state {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.blog-empty-card {
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  padding: 2rem 1.25rem;
+  background: var(--color-background);
+  text-align: center;
+}
+
+.blog-empty-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.7rem, 4vw, 2.1rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.blog-empty-note {
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+@media (max-width: 640px) {
+  .blog-empty-state {
+    padding: 3rem 0;
+  }
+
+  .blog-empty-card {
+    padding: 1.75rem 1.125rem;
+  }
+}
+
 .blog-list-header {
   margin-bottom: 3rem;
 }

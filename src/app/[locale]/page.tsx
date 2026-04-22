@@ -723,7 +723,7 @@ export default async function Home({
         </Container>
       </section>
 
-      <section className="py-24 border-t border-border bg-surface-alt">
+      {/* <section className="py-24 border-t border-border bg-surface-alt">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -749,7 +749,7 @@ export default async function Home({
             ))}
           </StaggerContainer>
         </Container>
-      </section>
+      </section> */}
 
       <section className="py-24 border-t border-border">
         <Container>

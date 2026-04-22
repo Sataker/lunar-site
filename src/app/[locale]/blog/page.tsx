@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/Container";
-import { getAllPosts } from "@/data/posts";
+import { getAllPosts } from "../../../data/posts";
 import { getDictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 
@@ -13,15 +13,28 @@ export default async function BlogPage({
   const dict = await getDictionary(locale as Locale);
   const posts = getAllPosts();
 
+  if (posts.length === 0) {
+    return (
+      <div className="pt-24 pb-16 min-h-screen">
+        <Container>
+          <div className="blog-empty-state">
+            <div className="blog-empty-card">
+              <h1 className="blog-empty-title">{dict.blog.emptyState.title}</h1>
+              <p className="blog-empty-note">{dict.blog.emptyState.note}</p>
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+
   return (
     <div className="pt-24 pb-16 min-h-screen">
       <Container>
         <div className="blog-list-container">
           <header className="blog-list-header">
             <h1 className="blog-list-title">{dict.blog.title}</h1>
-            <p className="blog-list-subtitle">
-              {dict.blog.subtitle}
-            </p>
+            <p className="blog-list-subtitle">{dict.blog.subtitle}</p>
           </header>
 
           <div className="blog-list">
@@ -44,7 +57,9 @@ export default async function BlogPage({
                     <p className="blog-list-entry-summary">{post.summary}</p>
                     <div className="blog-list-tags">
                       {post.tags.map((tag) => (
-                        <span key={tag} className="blog-tag">{tag}</span>
+                        <span key={tag} className="blog-tag">
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   </div>

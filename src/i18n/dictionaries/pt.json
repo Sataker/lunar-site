@@ -374,7 +374,13 @@
   },
   "blog": {
     "title": "Artigos",
-    "subtitle": "Reflexões sobre infraestrutura de LLMs, otimização de custos e desenvolvimento com IA."
+    "subtitle": "Reflexões sobre infraestrutura de LLMs, otimização de custos e desenvolvimento com IA.",
+    "emptyState": {
+      "badge": "Publicação em breve",
+      "title": "Novos artigos estão chegando",
+      "description": "Estamos preparando guias práticos e conteúdos técnicos sobre roteamento, observabilidade e arquitetura de IA confiável.",
+      "note": "Volte em breve para acompanhar as próximas publicações."
+    }
   },
   "footer": {
     "tagline": "Uma API para todos os LLMs. Roteie, observe, avalie e otimize sua infraestrutura de IA.",

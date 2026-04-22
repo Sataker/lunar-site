@@ -374,7 +374,13 @@
   },
   "blog": {
     "title": "Writing",
-    "subtitle": "Thoughts on LLM infrastructure, cost optimization, and building with AI."
+    "subtitle": "Thoughts on LLM infrastructure, cost optimization, and building with AI.",
+    "emptyState": {
+      "badge": "Publishing soon",
+      "title": "New articles are on the way",
+      "description": "Fresh technical content is coming soon.",
+      "note": "Check back soon for fresh updates."
+    }
   },
   "footer": {
     "tagline": "One API for every LLM. Route, observe, evaluate, and optimize your AI infrastructure.",

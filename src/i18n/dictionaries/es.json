@@ -374,7 +374,13 @@
   },
   "blog": {
     "title": "Artículos",
-    "subtitle": "Ideas sobre infraestructura de LLMs, optimización de costos y desarrollo con IA."
+    "subtitle": "Ideas sobre infraestructura de LLMs, optimización de costos y desarrollo con IA.",
+    "emptyState": {
+      "badge": "Publicación próxima",
+      "title": "Nuevos artículos en camino",
+      "description": "Estamos preparando guías prácticas y contenido técnico sobre ruteo, observabilidad y arquitectura de IA confiable.",
+      "note": "Vuelve pronto para ver las nuevas publicaciones."
+    }
   },
   "footer": {
     "tagline": "Una API para todos los LLMs. Rutea, observa, evalúa y optimiza tu infraestructura de IA.",

@@ -204,6 +204,12 @@ export type Dictionary = {
   blog: {
     title: string;
     subtitle: string;
+    emptyState: {
+      badge: string;
+      title: string;
+      description: string;
+      note: string;
+    };
   };
   footer: {
     tagline: string;
