@@ -208,7 +208,7 @@ export default async function Home({
       </section>
 
       <section id="features" className="py-20 bg-surface-alt">
-        <Container>
+        <Container className="max-w-360!">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-6">
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
@@ -271,11 +271,11 @@ export default async function Home({
             </StaggerContainer>
           </FadeIn>
 
-          <div className="space-y-5 max-w-360 mx-auto">
+          <div className="space-y-5 w-full mx-auto">
             {/* Feature 1: One API */}
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-default.png"
@@ -329,7 +329,7 @@ export default async function Home({
 
             {/* Feature 2: Smart Routing */}
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/cost-baseline.png"
@@ -337,7 +337,7 @@ export default async function Home({
                     className="feature-showcase-image"
                   />
                 </div>
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center order-1 lg:order-2">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-routing.png"
@@ -367,8 +367,8 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-cost.png"
@@ -413,7 +413,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/intelligence-overview.png"
@@ -421,7 +421,7 @@ export default async function Home({
                     className="feature-showcase-image"
                   />
                 </div>
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center order-1 lg:order-2">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-alert.png"
@@ -451,8 +451,8 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-zen.png"
@@ -494,7 +494,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/eval-overview.png"
@@ -502,7 +502,7 @@ export default async function Home({
                     className="feature-showcase-image"
                   />
                 </div>
-                <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center order-1 lg:order-2">
+                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
                   <div className="flex items-center gap-4 mb-5">
                     <img
                       src="/tracy/tracy-security.png"
