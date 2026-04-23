@@ -77,8 +77,8 @@ export default async function Home({
               <img
                 src="/tracy/tracy-default.png"
                 alt="Tracy"
-                width={72}
-                height={72}
+                width={100}
+                height={100}
                 className="hero-mascot mx-auto mb-6 -mt-0.5 drop-shadow-md"
               />
             </FadeIn>
@@ -280,8 +280,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-default.png"
                       alt="Tracy"
-                      width={74}
-                      height={74}
+                      width={104}
+                      height={104}
                       className="mascot-image shrink-0 -mt-0.5"
                     />
                     <div>
@@ -342,8 +342,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-routing.png"
                       alt="Tracy routing"
-                      width={78}
-                      height={78}
+                      width={110}
+                      height={110}
                       className="mascot-image shrink-0 -mt-0.5"
                     />
                     <div>
@@ -373,8 +373,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-cost.png"
                       alt="Tracy cost"
-                      width={66}
-                      height={66}
+                      width={92}
+                      height={92}
                       className="mascot-image shrink-0 -mt-0.5"
                     />
                     <div>
@@ -426,8 +426,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-alert.png"
                       alt="Tracy alert"
-                      width={78}
-                      height={78}
+                      width={110}
+                      height={110}
                       className="mascot-image shrink-0 -mt-1"
                     />
                     <div>
@@ -457,8 +457,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-zen.png"
                       alt="Tracy zen"
-                      width={78}
-                      height={78}
+                      width={110}
+                      height={110}
                       className="mascot-image shrink-0 -mt-1"
                     />
                     <div>
@@ -507,8 +507,8 @@ export default async function Home({
                     <img
                       src="/tracy/tracy-security.png"
                       alt="Tracy security"
-                      width={78}
-                      height={78}
+                      width={110}
+                      height={110}
                       className="mascot-image shrink-0 -mt-1"
                     />
                     <div>
