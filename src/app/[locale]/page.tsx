@@ -274,7 +274,7 @@ export default async function Home({
           <div className="space-y-5 max-w-360 mx-auto">
             {/* Feature 1: One API */}
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[40%_60%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
                 <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
@@ -329,7 +329,7 @@ export default async function Home({
 
             {/* Feature 2: Smart Routing */}
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[60%_40%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/cost-baseline.png"
@@ -367,7 +367,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[40%_60%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
                 <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
@@ -413,7 +413,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[60%_40%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/intelligence-overview.png"
@@ -451,7 +451,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[40%_60%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[38%_62%]">
                 <div className="px-8 py-5 lg:px-10 lg:py-6 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-5">
                     <img
@@ -497,7 +497,7 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[55%_45%]">
+              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[62%_38%]">
                 <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
                   <FullscreenImage
                     src="/screenshots/eval-overview.png"
