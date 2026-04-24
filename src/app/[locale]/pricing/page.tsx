@@ -27,7 +27,7 @@ const planConfig = [
   {
     key: "free" as const,
     price: "$0",
-    ctaHref: "https://app.opentracy.com",
+    ctaHref: "https://github.com/lunar-org-ai/lunar-router",
     ctaVariant: "secondary" as const,
     highlighted: false,
   },
@@ -102,27 +102,38 @@ export default async function PricingPage({
                     {dict.pricing.bestValue}
                   </Badge>
                 )}
-                <h2 className="text-xl font-bold">
-                  {planDict.name}
-                </h2>
+                <h2 className="text-xl font-bold">{planDict.name}</h2>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">{plan.price}</span>
                   {plan.period && (
-                    <span className="text-[var(--color-muted)]">{plan.period}</span>
+                    <span className="text-[var(--color-muted)]">
+                      {plan.period}
+                    </span>
                   )}
                 </div>
-                <p className="mt-3 text-sm text-[var(--color-muted)]">{planDict.description}</p>
+                <p className="mt-3 text-sm text-[var(--color-muted)]">
+                  {planDict.description}
+                </p>
                 <ul className="mt-6 space-y-3">
                   {planDict.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm">
-                      <span className="text-[var(--color-accent)] mt-0.5">&#10003;</span>
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 text-sm"
+                    >
+                      <span className="text-[var(--color-accent)] mt-0.5">
+                        &#10003;
+                      </span>
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <div className="mt-8">
                   <Button
-                    href={plan.ctaHref}
+                    href={
+                      plan.key === "starter"
+                        ? `/${locale}/start-free-trial`
+                        : plan.ctaHref
+                    }
                     variant={plan.ctaVariant}
                     className="w-full justify-center"
                   >
@@ -146,9 +157,14 @@ export default async function PricingPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {dict.pricing.faqs.map((faq) => (
-              <div key={faq.question} className="border-l-2 border-[var(--color-border)] pl-6">
+              <div
+                key={faq.question}
+                className="border-l-2 border-[var(--color-border)] pl-6"
+              >
                 <h3 className="text-sm font-semibold">{faq.question}</h3>
-                <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">{faq.answer}</p>
+                <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -162,10 +178,16 @@ export default async function PricingPage({
             {dict.pricing.ctaSubtitle}
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <Button href="https://app.opentracy.com" variant="primary">
+            <Button
+              href="https://github.com/lunar-org-ai/lunar-router"
+              variant="primary"
+            >
               {dict.pricing.ctaPrimary}
             </Button>
-            <Button href="https://github.com/lunar-org-ai/lunar-router" variant="secondary">
+            <Button
+              href="https://github.com/lunar-org-ai/lunar-router"
+              variant="secondary"
+            >
               {dict.pricing.ctaSecondary}
             </Button>
           </div>

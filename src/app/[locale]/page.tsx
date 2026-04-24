@@ -97,7 +97,10 @@ export default async function Home({
 
             <FadeIn delay={0.4} y={10}>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button href="https://app.opentracy.com" variant="primary">
+                <Button
+                  href="https://github.com/lunar-org-ai/lunar-router"
+                  variant="primary"
+                >
                   {dict.hero.ctaPrimary}
                 </Button>
                 <Button href="/docs" variant="secondary">
@@ -395,7 +398,7 @@ export default async function Home({
                   </p>
                   <div className="mt-8">
                     <Button
-                      href="https://app.opentracy.com"
+                      href="https://github.com/lunar-org-ai/lunar-router"
                       variant="secondary"
                     >
                       {dict.hero.ctaPrimary}
@@ -564,7 +567,7 @@ export default async function Home({
                   </ul>
                   <div className="mt-8">
                     <Button
-                      href="https://app.opentracy.com"
+                      href="https://github.com/lunar-org-ai/lunar-router"
                       variant="secondary"
                       className="w-full justify-center"
                     >
@@ -600,7 +603,7 @@ export default async function Home({
                   </ul>
                   <div className="mt-8">
                     <Button
-                      href="https://app.opentracy.com"
+                      href={`/${locale}/start-free-trial`}
                       variant="primary"
                       className="w-full justify-center"
                     >
@@ -743,7 +746,10 @@ export default async function Home({
             </FadeIn>
             <FadeIn delay={0.3} y={12}>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button href="https://app.opentracy.com" variant="primary">
+                <Button
+                  href="https://github.com/lunar-org-ai/lunar-router"
+                  variant="primary"
+                >
                   {dict.cta.ctaPrimary}
                 </Button>
                 <Button

@@ -159,7 +159,7 @@ export default function Navbar({
               <span className="github-stars-count">{starCount}</span>
             </Link>
             <Button
-              href="https://app.opentracy.com"
+              href="https://github.com/lunar-org-ai/lunar-router"
               variant="primary"
               className="text-sm py-2 px-4"
             >
@@ -235,7 +235,7 @@ export default function Navbar({
               </div>
               <ThemeToggle />
               <Button
-                href="https://app.opentracy.com"
+                href="https://github.com/lunar-org-ai/lunar-router"
                 variant="primary"
                 className="text-sm w-fit mt-2"
               >
