@@ -132,7 +132,7 @@ export default function Navbar({
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <div className="nav-links hidden md:flex">
+            <div className="nav-links hidden lg:flex">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -146,7 +146,7 @@ export default function Navbar({
               ))}
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Language switcher */}
             <div className="flex items-center gap-1 mr-2">
               {i18n.locales.map((loc) => (
@@ -219,7 +219,7 @@ export default function Navbar({
           </div>
           <button
             type="button"
-            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-muted hover:text-foreground hover:border-accent/40 transition-colors"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-muted hover:text-foreground hover:border-accent/40 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={dict.nav.toggleMenu}
           >
@@ -249,7 +249,7 @@ export default function Navbar({
       </nav>
 
       <div
-        className={`md:hidden fixed inset-0 z-70 transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 z-70 transition-all duration-300 ${
           mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
         aria-hidden={!mobileMenuOpen}

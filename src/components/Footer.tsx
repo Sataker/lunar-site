@@ -38,10 +38,11 @@ export default function Footer({
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-[linear-gradient(180deg,#ffffff_0%,#f8f8f4_100%)]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="sm:col-span-2 lg:col-span-1 rounded-2xl border border-border bg-background/70 p-5">
+    <footer className="relative border-t border-border bg-background">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+          {/* Logo & Tagline */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link href={`/${locale}`} className="inline-flex items-center">
               <img
                 src="/tracy/opentracy-logo.png"
@@ -51,26 +52,25 @@ export default function Footer({
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <p className="mt-4 text-sm text-muted max-w-xs leading-relaxed">
+            <p className="mt-2 text-xs text-muted max-w-xs leading-tight">
               {dict.footer.tagline}
             </p>
           </div>
+
+          {/* Link Groups */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div
-              key={category}
-              className="rounded-2xl border border-border bg-background/70 p-5"
-            >
-              <h3 className="text-xs font-medium uppercase tracking-wider text-muted mb-4">
+            <div key={category}>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                 {category}
               </h3>
-              <ul className="space-y-2.5">
+              <ul className="space-y-1.5">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
                       target={link.newTab ? "_blank" : undefined}
                       rel={link.newTab ? "noopener noreferrer" : undefined}
-                      className="text-sm text-muted hover:text-foreground transition-colors"
+                      className="text-xs text-muted hover:text-foreground transition-colors duration-200"
                     >
                       {link.name}
                     </Link>
@@ -80,45 +80,16 @@ export default function Footer({
             </div>
           ))}
         </div>
-        {/* <div className="mt-12 flex items-center justify-center gap-6">
-          <div className="compliance-badge">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
-            <span>SOC 2 Type II</span>
-          </div>
-          <div className="compliance-badge">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            <span>GDPR Compliant</span>
-          </div>
-        </div> */}
-        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted text-center sm:text-left">
+
+        {/* Divider */}
+        <div className="h-px bg-border" />
+
+        {/* Bottom Section */}
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p className="text-xs text-muted text-center sm:text-left order-2 sm:order-1">
             &copy; {new Date().getFullYear()} {dict.footer.copyright}
           </p>
-          <div className="flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1.5">
+          <div className="flex items-center gap-4 order-1 sm:order-2">
             <Link
               href="https://github.com/lunar-org-ai/lunar-router"
               className="text-muted hover:text-foreground transition-colors"

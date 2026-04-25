@@ -273,16 +273,25 @@ export default async function PlatformPage({
             </FadeIn>
 
             <FadeIn delay={0.32} y={10}>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button href="https://app.opentracy.com" variant="primary">
+              <div className="mt-10 flex w-full flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  href="https://app.opentracy.com"
+                  variant="primary"
+                  className="w-full sm:w-auto sm:min-w-46"
+                >
                   {dict.platform.cta.primary}
                 </Button>
-                <Button href="/docs" variant="secondary">
+                <Button
+                  href="/docs"
+                  variant="secondary"
+                  className="w-full sm:w-auto sm:min-w-46"
+                >
                   {dict.nav.docs}
                 </Button>
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="secondary"
+                  className="w-full sm:w-auto sm:min-w-46"
                 >
                   {dict.platform.cta.secondary}
                 </Button>
@@ -396,13 +405,18 @@ export default async function PlatformPage({
                 {dict.platform.cta.title}
               </h2>
               <p className="mt-4 text-muted">{dict.platform.cta.subtitle}</p>
-              <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
-                <Button href="https://app.opentracy.com" variant="primary">
+              <div className="mt-8 flex w-full flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  href="https://app.opentracy.com"
+                  variant="primary"
+                  className="w-full sm:w-auto sm:min-w-46"
+                >
                   {dict.platform.cta.primary}
                 </Button>
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="secondary"
+                  className="w-full sm:w-auto sm:min-w-46"
                 >
                   {dict.platform.cta.secondary}
                 </Button>
