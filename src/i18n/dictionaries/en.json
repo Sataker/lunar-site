@@ -6,17 +6,17 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "github": "GitHub",
-    "getStarted": "Get Started",
+    "getStarted": "Start free →",
     "toggleMenu": "Toggle menu"
   },
   "hero": {
     "badge": "SDK v2 is out — fallbacks, streaming, and cost tracking",
-    "title": "We cut your cost per token by",
+    "title": "Cut LLM costs by",
     "titleHighlight": "",
-    "subtitle": "Smart routing sends simple prompts to cheap models, hard ones to powerful ones. One API, 13+ providers, automatic fallbacks. Your AI stack, finally optimized.",
-    "ctaPrimary": "Start for free",
-    "ctaSecondary": "Read the docs",
-    "footnote": "Open source. MIT Licensed. No credit card required."
+    "subtitle": "One OpenAI-compatible API to route, trace, and evaluate every AI request — across every major provider. Ship smarter, pay less.",
+    "ctaPrimary": "Star on GitHub",
+    "ctaSecondary": "Explore features",
+    "footnote": "Free forever · No credit card · Self-hostable"
   },
   "providers": {
     "heading": "Works with every major provider",
@@ -31,18 +31,19 @@
     "opentracySub": "Route + Trace + Eval"
   },
   "metrics": {
-    "providers": "13+",
-    "providersLabel": "LLM Providers",
-    "models": "70+",
-    "modelsLabel": "Models",
-    "overhead": "<2ms",
-    "overheadLabel": "Routing Overhead",
+    "providers": "70+",
+    "providersLabel": "AI providers",
+    "models": "300+",
+    "modelsLabel": "Models supported",
+    "overhead": "<1ms",
+    "overheadLabel": "Added overhead",
     "license": "MIT",
-    "licenseLabel": "Open Source"
+    "licenseLabel": "Open source"
   },
   "features": {
-    "title": "Everything you need to manage LLMs",
-    "subtitle": "From routing to evaluation to distillation. One platform.",
+    "title": "Everything you need to",
+    "titleAccent": "ship AI at scale",
+    "subtitle": "Route, trace, evaluate, and distill — one platform, every provider, zero vendor lock-in.",
     "oneApi": {
       "title": "One API, Every Model",
       "description": "Send requests to OpenAI, Anthropic, Google, Mistral, and 9 more through a single endpoint."
@@ -104,54 +105,43 @@
     "recentTraces": "Recent Traces"
   },
   "pricing": {
-    "title": "Simple, predictable pricing",
-    "subtitle": "Start free. Scale when you need to. No surprises.",
-    "bestValue": "Best Value",
+    "title": "Simple. Transparent.",
+    "subtitle": "Start free. Scale when you're ready. No hidden fees, ever.",
+    "bestValue": "Most popular",
     "plans": {
       "free": {
         "name": "Free",
-        "description": "For developers exploring LLM routing and observability.",
-        "cta": "Get started",
+        "description": "Perfect for side projects and experimentation.",
+        "cta": "Get started free",
         "features": [
-          "Up to 10,000 requests/month",
-          "3 distillation runs/month",
-          "All 13+ providers",
-          "Full trace logging",
+          "70+ providers",
+          "10k requests/month",
+          "Basic analytics",
           "Community support"
         ]
       },
       "starter": {
         "name": "Starter",
-        "description": "For teams running LLMs in production.",
+        "description": "For teams shipping real products with real users.",
         "cta": "Start free trial",
         "features": [
-          "Unlimited requests",
-          "Unlimited distillation",
-          "Advanced evaluations",
-          "AI quality scanning",
-          "Priority support",
-          "Team collaboration",
-          "Self-host option",
-          "Custom routing rules"
+          "Everything in Free",
+          "500k requests/month",
+          "Smart routing",
+          "Cost tracking & alerts",
+          "Priority support"
         ]
       },
       "enterprise": {
         "name": "Enterprise",
-        "description": "For organizations that want a turnkey AI infrastructure with hands-on guidance.",
-        "cta": "Schedule a meeting",
+        "description": "For large-scale AI deployments with custom needs.",
+        "cta": "Book a demo",
         "features": [
-          "Everything in Starter",
-          "24/7 dedicated support",
-          "Full setup done for you",
-          "Implementation consulting",
-          "Dedicated onboarding",
-          "Custom API architecture review",
-          "VPC deployment",
-          "SSO / SAML",
-          "Audit logs",
-          "Custom SLAs",
-          "On-premise option",
-          "BYOK encryption"
+          "Unlimited requests",
+          "Model distillation",
+          "SSO & SAML",
+          "SLA & dedicated support",
+          "On-prem option"
         ]
       }
     },
@@ -245,7 +235,7 @@
     ]
   },
   "community": {
-    "title": "Join the community",
+    "title": "Community",
     "subtitle": "Open source, open development. Build with us.",
     "discordCta": "Join Discord",
     "githubCta": "Star on GitHub",
@@ -258,6 +248,18 @@
   "platform": {
     "title": "The Complete LLM Operations Platform",
     "subtitle": "Everything OpenTracy ships — from a unified model gateway to routing, tracing, evaluations, and distillation. Built for production teams with real architecture, measurable quality, and cost control.",
+    "badge": "Open source platform",
+    "pills": [
+      "Unified Gateway",
+      "Smart Routing",
+      "Quality Monitoring",
+      "Self-hostable"
+    ],
+    "overview": {
+      "eyebrow": "Platform",
+      "title": "Core capabilities",
+      "subtitle": "Everything in one place, following the same visual system and interaction patterns as the home page."
+    },
     "sections": {
       "gateway": {
         "title": "Unified Gateway",

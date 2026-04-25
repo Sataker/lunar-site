@@ -6,17 +6,17 @@
     "pricing": "Preços",
     "blog": "Blog",
     "github": "GitHub",
-    "getStarted": "Começar",
+    "getStarted": "Começar grátis →",
     "toggleMenu": "Abrir menu"
   },
   "hero": {
     "badge": "SDK v2 lançado — fallbacks, streaming e rastreamento de custos",
-    "title": "Reduzimos seu custo por token em",
+    "title": "Reduza custos LLM em",
     "titleHighlight": "",
-    "subtitle": "Roteamento inteligente envia prompts simples pra modelos baratos e os complexos pra modelos potentes. Uma API, 13+ provedores, fallbacks automáticos. Seu stack de IA, finalmente otimizado.",
-    "ctaPrimary": "Começar grátis",
-    "ctaSecondary": "Ler a documentação",
-    "footnote": "Código aberto. Licença MIT. Sem cartão de crédito."
+    "subtitle": "Uma API compatível com OpenAI para rotear, rastrear e avaliar cada requisição — com todos os principais provedores. Envie mais inteligente, pague menos.",
+    "ctaPrimary": "Star no GitHub",
+    "ctaSecondary": "Explorar recursos",
+    "footnote": "Gratuito para sempre · Sem cartão de crédito · Self-hostable"
   },
   "providers": {
     "heading": "Compatível com todos os principais provedores",
@@ -31,18 +31,19 @@
     "opentracySub": "Roteamento + Traces + Eval"
   },
   "metrics": {
-    "providers": "13+",
-    "providersLabel": "Provedores de LLM",
-    "models": "70+",
-    "modelsLabel": "Modelos",
-    "overhead": "<2ms",
-    "overheadLabel": "Latência de roteamento",
+    "providers": "70+",
+    "providersLabel": "Provedores de IA",
+    "models": "300+",
+    "modelsLabel": "Modelos suportados",
+    "overhead": "<1ms",
+    "overheadLabel": "Latência adicionada",
     "license": "MIT",
     "licenseLabel": "Código aberto"
   },
   "features": {
-    "title": "Tudo que você precisa para gerenciar LLMs",
-    "subtitle": "Do roteamento à avaliação e destilação. Uma única plataforma.",
+    "title": "Tudo que você precisa para",
+    "titleAccent": "escalar IA com confiança",
+    "subtitle": "Roteie, rastreie, avalie e destile — uma plataforma, todos os provedores, sem lock-in de fornecedor.",
     "oneApi": {
       "title": "Uma API, todos os modelos",
       "description": "Envie requisições para OpenAI, Anthropic, Google, Mistral e mais 9 provedores por um único endpoint."
@@ -104,54 +105,43 @@
     "recentTraces": "Traces recentes"
   },
   "pricing": {
-    "title": "Preços simples e previsíveis",
-    "subtitle": "Comece grátis. Escale quando precisar. Sem surpresas.",
-    "bestValue": "Melhor custo-benefício",
+    "title": "Simples. Transparente.",
+    "subtitle": "Comece grátis. Escale quando estiver pronto. Sem taxas ocultas.",
+    "bestValue": "Mais popular",
     "plans": {
       "free": {
         "name": "Grátis",
-        "description": "Para desenvolvedores explorando roteamento e observabilidade de LLMs.",
-        "cta": "Começar",
+        "description": "Perfeito para projetos paralelos e experimentação.",
+        "cta": "Começar grátis",
         "features": [
-          "Até 10.000 requisições/mês",
-          "3 execuções de destilação/mês",
-          "Todos os 13+ provedores",
-          "Registro completo de traces",
+          "70+ provedores",
+          "10k requisições/mês",
+          "Análises básicas",
           "Suporte da comunidade"
         ]
       },
       "starter": {
         "name": "Starter",
-        "description": "Para equipes rodando LLMs em produção.",
+        "description": "Para times lançando produtos reais com usuários reais.",
         "cta": "Iniciar teste gratuito",
         "features": [
-          "Requisições ilimitadas",
-          "Destilação ilimitada",
-          "Avaliações avançadas",
-          "Escaneamento de qualidade com IA",
-          "Suporte prioritário",
-          "Colaboração em equipe",
-          "Opção de self-host",
-          "Regras de roteamento personalizadas"
+          "Tudo no Gratuito",
+          "500k requisições/mês",
+          "Roteamento inteligente",
+          "Rastreamento de custos e alertas",
+          "Suporte prioritário"
         ]
       },
       "enterprise": {
         "name": "Enterprise",
-        "description": "Para empresas que querem infraestrutura de IA pronta, com acompanhamento especializado.",
-        "cta": "Agendar uma reunião",
+        "description": "Para implantações de IA em grande escala com necessidades personalizadas.",
+        "cta": "Agendar uma demo",
         "features": [
-          "Tudo do plano Starter",
-          "Suporte 24/7 dedicado",
-          "Setup completo feito por nós",
-          "Consultoria de implementação",
-          "Onboarding dedicado",
-          "Review personalizado da sua arquitetura",
-          "Deploy em VPC",
-          "SSO / SAML",
-          "Logs de auditoria",
-          "SLAs personalizados",
-          "Opção on-premise",
-          "Criptografia BYOK"
+          "Requisições ilimitadas",
+          "Destilação de modelos",
+          "SSO e SAML",
+          "SLA e suporte dedicado",
+          "Opção on-premise"
         ]
       }
     },
@@ -257,7 +247,19 @@
   },
   "platform": {
     "title": "A plataforma completa de operações LLM",
-    "subtitle": "Tudo que o OpenTracy entrega -- do gateway unificado à destilação de modelos. Sem marketing. Capacidades reais, arquitetura real.",
+    "subtitle": "Tudo o que o OpenTracy entrega -- de um gateway unificado de modelos a roteamento, rastreamento, avaliações e destilação. Feita para equipes em produção com arquitetura real, qualidade mensurável e controle de custos.",
+    "badge": "Plataforma de código aberto",
+    "pills": [
+      "Gateway unificado",
+      "Roteamento inteligente",
+      "Monitoramento de qualidade",
+      "Auto-hospedável"
+    ],
+    "overview": {
+      "eyebrow": "Plataforma",
+      "title": "Capacidades centrais",
+      "subtitle": "Tudo em um só lugar, seguindo o mesmo sistema visual e os mesmos padrões de interação da página inicial."
+    },
     "sections": {
       "gateway": {
         "title": "Gateway Unificado",

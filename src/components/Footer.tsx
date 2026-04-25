@@ -38,10 +38,10 @@ export default function Footer({
   };
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-background)]">
+    <footer className="relative overflow-hidden border-t border-border bg-[linear-gradient(180deg,#ffffff_0%,#f8f8f4_100%)]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="sm:col-span-2 lg:col-span-1 rounded-2xl border border-border bg-background/70 p-5">
             <Link href={`/${locale}`} className="inline-flex items-center">
               <img
                 src="/tracy/opentracy-logo.png"
@@ -51,13 +51,16 @@ export default function Footer({
                 className="h-8 w-auto object-contain"
               />
             </Link>
-            <p className="mt-4 text-sm text-[var(--color-muted)] max-w-xs leading-relaxed">
+            <p className="mt-4 text-sm text-muted max-w-xs leading-relaxed">
               {dict.footer.tagline}
             </p>
           </div>
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-muted)] mb-4">
+            <div
+              key={category}
+              className="rounded-2xl border border-border bg-background/70 p-5"
+            >
+              <h3 className="text-xs font-medium uppercase tracking-wider text-muted mb-4">
                 {category}
               </h3>
               <ul className="space-y-2.5">
@@ -67,7 +70,7 @@ export default function Footer({
                       href={link.href}
                       target={link.newTab ? "_blank" : undefined}
                       rel={link.newTab ? "noopener noreferrer" : undefined}
-                      className="text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+                      className="text-sm text-muted hover:text-foreground transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -111,14 +114,14 @@ export default function Footer({
             <span>GDPR Compliant</span>
           </div>
         </div> */}
-        <div className="mt-8 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[var(--color-muted)]">
+        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted text-center sm:text-left">
             &copy; {new Date().getFullYear()} {dict.footer.copyright}
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1.5">
             <Link
               href="https://github.com/lunar-org-ai/lunar-router"
-              className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -131,7 +134,7 @@ export default function Footer({
             </Link>
             <Link
               href="https://discord.gg/gDNPhQ347V"
-              className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="Discord"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

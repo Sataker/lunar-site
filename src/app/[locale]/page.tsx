@@ -1,8 +1,6 @@
 import Container from "@/components/Container";
 import Button from "@/components/Button";
-import Badge from "@/components/Badge";
 import SectionHeading from "@/components/SectionHeading";
-import CodeBlock from "@/components/CodeBlock";
 import { getDictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 import FadeIn from "@/components/motion/FadeIn";
@@ -17,18 +15,6 @@ import { LogoWallContainer, LogoWallItem } from "@/components/motion/LogoWall";
 import ImageCarousel from "@/components/motion/ImageCarousel";
 import FullscreenImage from "@/components/FullscreenImage";
 import { Fireworks, Gemini, ProviderIcon } from "@lobehub/icons";
-
-const sdkCode = `import opentracy as ot
-
-# Call any model — one line
-response = ot.completion(
-    model="openai/gpt-4o-mini",
-    messages=[{"role": "user", "content": "Hello!"}],
-    fallbacks=["anthropic/claude-3-haiku"]
-)
-
-print(response.choices[0].message.content)
-print(f"Cost: \${response._cost:.6f}")`;
 
 const GITHUB_REPO = "lunar-org-ai/lunar-router";
 
@@ -83,15 +69,33 @@ export default async function Home({
     fetchGitHubStats(),
   ]);
 
-  const sdkFeatures = [
-    { key: "openaiCompatible" as const, color: "#22c55e" },
-    { key: "automaticFallbacks" as const, color: "#16a34a" },
-    { key: "costOnResponse" as const, color: "#2563eb" },
-    { key: "fullStreaming" as const, color: "#22c55e" },
-  ];
+  const enterprisePriceLabel =
+    locale === "es"
+      ? "Personalizado"
+      : locale === "pt"
+        ? "Personalizado"
+        : "Custom";
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: dict.pricing.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       <section className="pt-32 pb-24 border-b border-border">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
@@ -107,7 +111,6 @@ export default async function Home({
                   height="12"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="hero-mascot mx-auto mb-3 drop-shadow-md"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -129,8 +132,10 @@ export default async function Home({
             </FadeIn>
 
             <TextReveal delay={0.1}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-                {dict.hero.title} <span className="text-accent">62%</span>
+              <h1 className="hero-h1">
+                {dict.hero.title}
+                <br />
+                <span className="hero-underline">62% faster</span>.
               </h1>
             </TextReveal>
 
@@ -141,14 +146,32 @@ export default async function Home({
             </FadeIn>
 
             <FadeIn delay={0.4} y={10}>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="mt-10 mx-auto flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center">
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="primary"
+                  newTab
+                  className="w-full justify-center sm:w-auto"
                 >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
                   {dict.hero.ctaPrimary}
+                  {githubStats.stars !== null
+                    ? ` — ${githubStats.stars >= 1000 ? `${(githubStats.stars / 1000).toFixed(1)}k` : githubStats.stars} ★`
+                    : ""}
                 </Button>
-                <Button href="/docs" variant="secondary">
+                <Button
+                  href={`/${locale}#features`}
+                  variant="secondary"
+                  className="w-full justify-center sm:w-auto"
+                >
                   {dict.hero.ctaSecondary}
                 </Button>
               </div>
@@ -255,63 +278,67 @@ export default async function Home({
         </Container>
       </section>
 
-      <section id="features" className="py-20 bg-surface-alt">
-        <Container className="max-w-360!">
+      <section
+        id="features"
+        className="platform-section py-24 border-t border-border bg-surface-alt"
+      >
+        <Container className="max-w-7xl">
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center mb-6">
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-                Everything you need to
+            <div className="platform-top-header text-center">
+              <span className="platform-eyebrow">{dict.nav.features}</span>
+              <h2 className="platform-title">
+                {dict.features.title}
                 <br />
-                <span className="text-accent">ship AI at scale</span>
+                <span className="platform-title-accent">
+                  {dict.features.titleAccent}
+                </span>
               </h2>
-              <p className="mt-5 text-lg text-muted">
-                Route, trace, evaluate, and distill — one platform, every
-                provider.
-              </p>
+              <p className="platform-subtitle">{dict.features.subtitle}</p>
             </div>
           </FadeIn>
-          <FadeIn delay={0.1}>
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-0 max-w-3xl mx-auto my-10 rounded-2xl border border-border overflow-hidden bg-surface">
+
+          <FadeIn delay={0.08}>
+            <StaggerContainer className="platform-metrics-strip">
               <StaggerItem>
-                <div className="text-center py-7 px-4 border-r border-border">
+                <div className="platform-metric-cell">
                   <CountUp
                     value={dict.metrics.providers}
-                    className="text-3xl font-bold tracking-tight"
+                    className="platform-metric-num"
                   />
-                  <div className="mt-1.5 text-xs text-muted font-medium">
+                  <div className="platform-metric-lbl">
                     {dict.metrics.providersLabel}
                   </div>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center py-7 px-4 border-r border-border">
+                <div className="platform-metric-cell">
                   <CountUp
                     value={dict.metrics.models}
-                    className="text-3xl font-bold tracking-tight"
+                    className="platform-metric-num"
                   />
-                  <div className="mt-1.5 text-xs text-muted font-medium">
+                  <div className="platform-metric-lbl">
                     {dict.metrics.modelsLabel}
                   </div>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center py-7 px-4 border-r border-border">
+                <div className="platform-metric-cell">
                   <CountUp
                     value={dict.metrics.overhead}
-                    className="text-3xl font-bold tracking-tight"
+                    className="platform-metric-num"
                   />
-                  <div className="mt-1.5 text-xs text-muted font-medium">
+                  <div className="platform-metric-lbl">
                     {dict.metrics.overheadLabel}
                   </div>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center py-7 px-4">
+                <div className="platform-metric-cell">
                   <CountUp
                     value={dict.metrics.license}
-                    className="text-3xl font-bold tracking-tight"
+                    className="platform-metric-num"
                   />
-                  <div className="mt-1.5 text-xs text-muted font-medium">
+                  <div className="platform-metric-lbl">
                     {dict.metrics.licenseLabel}
                   </div>
                 </div>
@@ -319,298 +346,249 @@ export default async function Home({
             </StaggerContainer>
           </FadeIn>
 
-          <div className="space-y-5 w-full mx-auto">
-            {/* Feature 1: One API */}
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-5">
+          <div className="features-grid">
+            <FadeIn y={24} className="feat-card big">
+              <div className="feat-split">
+                <div>
+                  <div className="feat-ghost-wrap">
                     <img
                       src="/tracy/tracy-default.png"
                       alt="Tracy"
-                      width={104}
-                      height={104}
-                      className="mascot-image shrink-0 -mt-0.5"
+                      width={110}
+                      height={110}
+                      className="mascot-image"
                     />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.oneApi.title}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        One endpoint.
-                        <br />
-                        Every LLM provider.
-                      </h3>
-                    </div>
                   </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
+                  <div className="feat-tag">One API</div>
+                  <h3 className="feat-title">
+                    One endpoint. Every LLM provider.
+                  </h3>
+                  <p className="feat-desc">
                     One OpenAI-compatible API that routes to every major
-                    provider — OpenAI, Anthropic, Google, Mistral, Groq, and
-                    more. Swap providers in one line. Automatic fallbacks keep
-                    you online.
+                    provider. Swap providers in one line. Automatic fallbacks
+                    keep you online when things go sideways.
                   </p>
-                  <div className="mt-8 flex flex-wrap gap-2">
+                  <div className="feat-pills">
                     {["OpenAI", "Anthropic", "Google", "Mistral", "Groq"].map(
-                      (p) => (
-                        <span
-                          key={p}
-                          className="px-3 py-1.5 rounded-full text-sm border border-border font-medium"
-                        >
-                          {p}
+                      (provider) => (
+                        <span key={provider} className="feat-pill">
+                          {provider}
                         </span>
                       ),
                     )}
-                    <span className="px-3 py-1.5 rounded-full text-sm border border-border text-muted">
-                      {dict.providers.plusMore}
-                    </span>
+                    <span className="feat-pill accent">+ 67 more</span>
                   </div>
                 </div>
-                <div className="feature-media-panel overflow-hidden">
-                  <CodeBlock
-                    code={sdkCode}
-                    language="python"
-                    className="feature-code-block rounded-none border-0"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Feature 2: Smart Routing */}
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
-                <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
-                  <FullscreenImage
-                    src="/screenshots/cost-baseline.png"
-                    alt="Smart Routing — cost baseline comparison"
-                    className="feature-showcase-image"
-                  />
-                </div>
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
-                  <div className="flex items-center gap-4 mb-5">
-                    <img
-                      src="/tracy/tracy-routing.png"
-                      alt="Tracy routing"
-                      width={110}
-                      height={110}
-                      className="mascot-image shrink-0 -mt-0.5"
+                <div className="feat-code">
+                  <div className="code-header">
+                    <div
+                      className="code-dot"
+                      style={{ background: "#ff5f56" }}
                     />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.smartRouting.title}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        Route smarter.
-                        <br />
-                        Pay less per request.
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
-                    Automatically send simple prompts to fast, cheap models and
-                    route complex reasoning to the most capable one — across any
-                    provider, no code changes needed.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-5">
-                    <img
-                      src="/tracy/tracy-cost.png"
-                      alt="Tracy cost"
-                      width={92}
-                      height={92}
-                      className="mascot-image shrink-0 -mt-0.5"
+                    <div
+                      className="code-dot"
+                      style={{ background: "#ffbd2e" }}
                     />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.costTracking.title}
+                    <div
+                      className="code-dot"
+                      style={{ background: "#27c93f" }}
+                    />
+                  </div>
+                  <div className="code-body">
+                    <pre>
+                      <span className="code-keyword">import</span> opentracy{" "}
+                      <span className="code-keyword">as</span> ot
+                      {"\n\n"}
+                      <span className="code-comment">
+                        # Call any model — one line
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        Know exactly where
-                        <br />
-                        every dollar goes.
-                      </h3>
-                    </div>
+                      {"\n"}
+                      response = ot.
+                      <span className="code-fn">completion</span>({"\n    "}
+                      model=
+                      <span className="code-string">"openai/gpt-4o-mini"</span>,
+                      {"\n    "}
+                      messages=[{"{"}
+                      <span className="code-string">"role"</span>:{" "}
+                      <span className="code-string">"user"</span>,
+                      {"\n               "}
+                      <span className="code-string">"content"</span>:{" "}
+                      <span className="code-string">"Hello!"</span>
+                      {"}"}],
+                      {"\n    "}
+                      fallbacks=[
+                      <span className="code-string">"anthropic/claude-3"</span>]
+                      {"\n"}){"\n\n"}
+                      <span className="code-fn">print</span>(response.choices[
+                      <span className="code-value">0</span>].message.content)
+                      {"\n"}
+                      <span className="code-fn">print</span>(
+                      <span className="code-string">
+                        f"Cost: ${"{"}response._cost:.6f{"}"}"
+                      </span>
+                      )
+                    </pre>
                   </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
-                    Per-token pricing on 70+ models, broken down by model, user,
-                    or feature. Set budget alerts and hard caps — no more
-                    end-of-month surprises.
-                  </p>
-                  <div className="mt-8">
-                    <Button
-                      href="https://github.com/lunar-org-ai/lunar-router"
-                      variant="secondary"
-                    >
-                      {dict.hero.ctaPrimary}
-                    </Button>
-                  </div>
-                </div>
-                <div className="feature-media-panel feature-media-panel-image overflow-hidden order-last">
-                  <FullscreenImage
-                    src="/screenshots/cost-trends.png"
-                    alt="Cost Tracking — savings trend over time"
-                    className="feature-showcase-image"
-                  />
                 </div>
               </div>
             </FadeIn>
 
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
-                <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
-                  <FullscreenImage
-                    src="/screenshots/intelligence-overview.png"
-                    alt="Real-time observability dashboard"
-                    className="feature-showcase-image"
-                  />
-                </div>
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
-                  <div className="flex items-center gap-4 mb-5">
+            <FadeIn y={24} className="feat-card wide">
+              <div className="feat-ghost-wrap">
+                <img
+                  src="/tracy/tracy-routing.png"
+                  alt="Tracy routing"
+                  width={118}
+                  height={118}
+                  className="mascot-image"
+                />
+              </div>
+              <div className="feat-tag">Smart Routing</div>
+              <h3 className="feat-title">Route smarter. Pay less.</h3>
+              <p className="feat-desc">
+                Automatically send simple prompts to fast, cheap models and
+                route complex reasoning to the most capable one - across any
+                provider, no code changes.
+              </p>
+            </FadeIn>
+
+            <FadeIn y={24} className="feat-card wide">
+              <div className="feat-ghost-wrap">
+                <img
+                  src="/tracy/tracy-cost.png"
+                  alt="Tracy cost"
+                  width={102}
+                  height={102}
+                  className="mascot-image"
+                />
+              </div>
+              <div className="feat-tag">Cost Tracking</div>
+              <h3 className="feat-title">Know where every dollar goes.</h3>
+              <p className="feat-desc">
+                Per-token pricing on 70+ models, broken down by model, user, or
+                feature. Set budget alerts and hard caps - no more end-of-month
+                surprises.
+              </p>
+            </FadeIn>
+
+            <FadeIn y={24} className="feat-card full">
+              <div className="feat-split">
+                <div>
+                  <div className="feat-ghost-wrap">
                     <img
                       src="/tracy/tracy-alert.png"
                       alt="Tracy alert"
                       width={110}
                       height={110}
-                      className="mascot-image shrink-0 -mt-1"
+                      className="mascot-image"
                     />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.realTimeTraces.title}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        Complete visibility
-                        <br />
-                        into every request.
-                      </h3>
-                    </div>
                   </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
+                  <div className="feat-tag">Observability</div>
+                  <h3 className="feat-title">
+                    Complete visibility into every request.
+                  </h3>
+                  <p className="feat-desc">
                     Every request logged with full input, output, cost, latency,
                     and model metadata. AI-powered scanning detects
                     hallucinations before your users do.
                   </p>
                 </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[35%_65%]">
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-5">
-                    <img
-                      src="/tracy/tracy-zen.png"
-                      alt="Tracy zen"
-                      width={110}
-                      height={110}
-                      className="mascot-image shrink-0 -mt-1"
-                    />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.modelDistillation.title}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        Train your own model
-                        <br />
-                        from production data.
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
-                    Turn production traces into fine-tuning datasets
-                    automatically. Get frontier-model quality from a model you
-                    own — at a fraction of the inference cost.
-                  </p>
-                  <div className="mt-8">
-                    <Button href="/docs" variant="secondary">
-                      {dict.hero.ctaSecondary}
-                    </Button>
-                  </div>
-                </div>
-                <div className="feature-media-panel feature-media-panel-image overflow-hidden order-last">
+                <div className="feat-image">
                   <FullscreenImage
-                    src="/screenshots/eval-list.png"
-                    alt="Model Distillation — evaluation runs"
+                    src="/screenshots/intelligence-overview.png"
+                    alt="Observability dashboard"
                     className="feature-showcase-image"
                   />
                 </div>
               </div>
             </FadeIn>
 
-            <FadeIn y={24}>
-              <div className="rounded-2xl border border-border overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-[65%_35%]">
-                <div className="feature-media-panel feature-media-panel-image overflow-hidden order-2 lg:order-1">
-                  <FullscreenImage
-                    src="/screenshots/eval-overview.png"
-                    alt="Quality Monitoring — evaluation overview"
-                    className="feature-showcase-image"
-                  />
-                </div>
-                <div className="px-7 py-4 lg:px-8 lg:py-5 flex flex-col justify-center order-1 lg:order-2">
-                  <div className="flex items-center gap-4 mb-5">
-                    <img
-                      src="/tracy/tracy-security.png"
-                      alt="Tracy security"
-                      width={110}
-                      height={110}
-                      className="mascot-image shrink-0 -mt-1"
-                    />
-                    <div>
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                        {dict.features.qualityMonitoring.title}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug mt-1">
-                        Catch quality drops
-                        <br />
-                        before users do.
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-muted leading-relaxed text-base">
-                    Continuous evaluations on production traffic detect
-                    regressions and hallucinations automatically.
-                  </p>
-                </div>
+            <FadeIn y={24} className="feat-card wide">
+              <div className="feat-ghost-wrap">
+                <img
+                  src="/tracy/tracy-zen.png"
+                  alt="Tracy zen"
+                  width={110}
+                  height={110}
+                  className="mascot-image"
+                />
               </div>
+              <div className="feat-tag">Model Distillation</div>
+              <h3 className="feat-title">Train your own model.</h3>
+              <p className="feat-desc">
+                Turn production traces into fine-tuning datasets automatically.
+                Get frontier-model quality from a model you own - at a fraction
+                of the cost.
+              </p>
+            </FadeIn>
+
+            <FadeIn y={24} className="feat-card wide">
+              <div className="feat-ghost-wrap">
+                <img
+                  src="/tracy/tracy-security.png"
+                  alt="Tracy security"
+                  width={108}
+                  height={108}
+                  className="mascot-image"
+                />
+              </div>
+              <div className="feat-tag">Quality Monitoring</div>
+              <h3 className="feat-title">Catch drops before users do.</h3>
+              <p className="feat-desc">
+                Continuous evaluations on production traffic detect regressions
+                and hallucinations automatically. Set thresholds, get alerts,
+                stay confident.
+              </p>
             </FadeIn>
           </div>
         </Container>
       </section>
 
-      <section id="pricing" className="py-24 border-t border-border">
+      <section
+        id="pricing"
+        className="pricing-section py-24 border-t border-border"
+      >
         <Container>
           <FadeIn>
-            <SectionHeading
-              title={dict.pricing.title}
-              subtitle={dict.pricing.subtitle}
-            />
+            <div className="section-header max-w-3xl mx-auto text-center">
+              <span className="section-eyebrow">{dict.nav.pricing}</span>
+              <h2 className="section-title mt-4">{dict.pricing.title}</h2>
+              <p className="section-sub mt-5">{dict.pricing.subtitle}</p>
+            </div>
           </FadeIn>
-          <StaggerContainer className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+          <StaggerContainer className="pricing-grid mt-16">
             <StaggerItem>
-              <HoverCard>
-                <div className="card p-8 h-full flex flex-col">
-                  <h3 className="text-lg font-bold">
+              <HoverCard className="h-full">
+                <div className="pricing-card h-full">
+                  <div className="pricing-name">
                     {dict.pricing.plans.free.name}
-                  </h3>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold">$0</span>
                   </div>
-                  <p className="mt-3 text-sm text-muted">
+                  <div className="pricing-price">$0</div>
+                  <p className="pricing-desc">
                     {dict.pricing.plans.free.description}
                   </p>
-                  <ul className="mt-6 space-y-2.5 flex-1">
-                    {dict.pricing.plans.free.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm">
-                        <span className="checkmark mt-0.5">&#10003;</span>
-                        {f}
+                  <div className="pricing-divider" />
+                  <ul className="pricing-features">
+                    {dict.pricing.plans.free.features.map((feature) => (
+                      <li key={feature} className="pricing-feature">
+                        <span className="pricing-check" aria-hidden="true">
+                          <svg
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="2 6 5 9 10 3" />
+                          </svg>
+                        </span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
+                  <div className="pricing-cta">
                     <Button
                       href="https://github.com/lunar-org-ai/lunar-router"
                       variant="secondary"
@@ -622,31 +600,40 @@ export default async function Home({
                 </div>
               </HoverCard>
             </StaggerItem>
+
             <StaggerItem>
-              <HoverCard>
-                <div className="card p-8 border-accent ring-1 ring-accent/10 h-full flex flex-col">
-                  <Badge variant="accent" className="mb-4 self-start">
-                    {dict.pricing.bestValue}
-                  </Badge>
-                  <h3 className="text-lg font-bold">
+              <HoverCard className="h-full">
+                <div className="pricing-card featured h-full">
+                  <div className="pricing-name">
                     {dict.pricing.plans.starter.name}
-                  </h3>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold">$10</span>
-                    <span className="text-muted">/mo</span>
                   </div>
-                  <p className="mt-3 text-sm text-muted">
+                  <div className="pricing-price">
+                    $10<span className="pricing-price-period">/mo</span>
+                  </div>
+                  <p className="pricing-desc">
                     {dict.pricing.plans.starter.description}
                   </p>
-                  <ul className="mt-6 space-y-2.5 flex-1">
-                    {dict.pricing.plans.starter.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm">
-                        <span className="checkmark mt-0.5">&#10003;</span>
-                        {f}
+                  <div className="pricing-divider" />
+                  <ul className="pricing-features">
+                    {dict.pricing.plans.starter.features.map((feature) => (
+                      <li key={feature} className="pricing-feature">
+                        <span className="pricing-check" aria-hidden="true">
+                          <svg
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="2 6 5 9 10 3" />
+                          </svg>
+                        </span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
+                  <div className="pricing-cta">
                     <Button
                       href={`/${locale}/start-free-trial`}
                       variant="primary"
@@ -658,28 +645,42 @@ export default async function Home({
                 </div>
               </HoverCard>
             </StaggerItem>
-            {/* Enterprise */}
+
             <StaggerItem>
-              <HoverCard>
-                <div className="card p-8 h-full flex flex-col">
-                  <h3 className="text-lg font-bold">
+              <HoverCard className="h-full">
+                <div className="pricing-card h-full">
+                  <div className="pricing-name">
                     {dict.pricing.plans.enterprise.name}
-                  </h3>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold">Custom</span>
                   </div>
-                  <p className="mt-3 text-sm text-muted">
+                  <div className="pricing-price">
+                    <span className="pricing-price-label">
+                      {enterprisePriceLabel}
+                    </span>
+                  </div>
+                  <p className="pricing-desc">
                     {dict.pricing.plans.enterprise.description}
                   </p>
-                  <ul className="mt-6 space-y-2.5 flex-1">
-                    {dict.pricing.plans.enterprise.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm">
-                        <span className="checkmark mt-0.5">&#10003;</span>
-                        {f}
+                  <div className="pricing-divider" />
+                  <ul className="pricing-features">
+                    {dict.pricing.plans.enterprise.features.map((feature) => (
+                      <li key={feature} className="pricing-feature">
+                        <span className="pricing-check" aria-hidden="true">
+                          <svg
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="2 6 5 9 10 3" />
+                          </svg>
+                        </span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
+                  <div className="pricing-cta">
                     <Button
                       href="https://cal.com/opentracy/30min-demo"
                       variant="secondary"
@@ -691,6 +692,31 @@ export default async function Home({
                 </div>
               </HoverCard>
             </StaggerItem>
+          </StaggerContainer>
+        </Container>
+      </section>
+
+      <section className="py-24 border-t border-border bg-surface-alt">
+        <Container>
+          <FadeIn>
+            <div className="section-header max-w-3xl mx-auto text-center">
+              <span className="section-eyebrow">FAQ</span>
+              <h2 className="section-title mt-4">{dict.pricing.faqTitle}</h2>
+              <p className="section-sub mt-5">
+                Answers to the most common pricing and deployment questions.
+              </p>
+            </div>
+          </FadeIn>
+
+          <StaggerContainer className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+            {dict.pricing.faqs.map((faq) => (
+              <StaggerItem key={faq.question}>
+                <div className="faq-card h-full">
+                  <h3 className="faq-question">{faq.question}</h3>
+                  <p className="faq-answer">{faq.answer}</p>
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerContainer>
         </Container>
       </section>
@@ -723,7 +749,7 @@ export default async function Home({
         </Container>
       </section> */}
 
-      <section className="py-24 border-t border-border">
+      <section id="community" className="py-24 border-t border-border">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -732,9 +758,9 @@ export default async function Home({
             />
           </FadeIn>
           <div className="mt-12 max-w-3xl mx-auto">
-            <StaggerContainer className="grid grid-cols-3 gap-6 mb-10">
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-10">
               <StaggerItem>
-                <div className="text-center p-6 rounded-2xl border border-border">
+                <div className="text-center p-6 rounded-2xl border border-border min-h-35 flex flex-col items-center justify-center">
                   <div className="text-3xl font-bold">
                     {githubStats.stars !== null
                       ? githubStats.stars >= 1000
@@ -742,19 +768,19 @@ export default async function Home({
                         : githubStats.stars.toString()
                       : "—"}
                   </div>
-                  <div className="text-sm text-muted mt-1">
+                  <div className="text-sm text-muted mt-1 leading-snug wrap-break-word">
                     {dict.community.stats.githubStars}
                   </div>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center p-6 rounded-2xl border border-border">
+                <div className="text-center p-6 rounded-2xl border border-border min-h-35 flex flex-col items-center justify-center">
                   <div className="text-3xl font-bold">
                     {githubStats.contributors !== null
                       ? githubStats.contributors
                       : "—"}
                   </div>
-                  <div className="text-sm text-muted mt-1">
+                  <div className="text-sm text-muted mt-1 leading-snug wrap-break-word">
                     {dict.community.stats.contributors}
                   </div>
                 </div>
@@ -764,7 +790,7 @@ export default async function Home({
                   href="https://discord.gg/gDNPhQ347V"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-border hover:border-[#5865F2]/60 hover:bg-[#5865F2]/5 transition-colors group"
+                  className="flex min-h-35 flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-border hover:border-[#5865F2]/60 hover:bg-[#5865F2]/5 transition-colors group"
                 >
                   <svg
                     width="32"
@@ -776,20 +802,25 @@ export default async function Home({
                   >
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                   </svg>
-                  <div className="text-sm text-muted group-hover:text-foreground transition-colors">
+                  <div className="text-sm text-muted text-center leading-snug wrap-break-word group-hover:text-foreground transition-colors">
                     {dict.community.discordCta}
                   </div>
                 </a>
               </StaggerItem>
             </StaggerContainer>
             <FadeIn delay={0.2}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button href="https://discord.gg/gDNPhQ347V" variant="primary">
+              <div className="mx-auto flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center">
+                <Button
+                  href="https://discord.gg/gDNPhQ347V"
+                  variant="primary"
+                  className="w-full justify-center sm:w-auto sm:min-w-55"
+                >
                   {dict.community.discordCta}
                 </Button>
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="secondary"
+                  className="w-full justify-center sm:w-auto sm:min-w-55"
                 >
                   {dict.community.githubCta}
                 </Button>
@@ -814,16 +845,18 @@ export default async function Home({
               </p>
             </FadeIn>
             <FadeIn delay={0.3} y={12}>
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="mt-10 mx-auto grid w-full max-w-md grid-cols-1 gap-3 sm:max-w-xl sm:grid-cols-2">
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="primary"
+                  className="w-full justify-center"
                 >
                   {dict.cta.ctaPrimary}
                 </Button>
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
                   variant="secondary"
+                  className="w-full justify-center"
                 >
                   {dict.cta.ctaSecondary}
                 </Button>

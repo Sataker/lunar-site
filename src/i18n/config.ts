@@ -49,6 +49,7 @@ export type Dictionary = {
   };
   features: {
     title: string;
+    titleAccent: string;
     subtitle: string;
     oneApi: {
       title: string;
@@ -183,6 +184,13 @@ export type Dictionary = {
   platform: {
     title: string;
     subtitle: string;
+    badge: string;
+    pills: string[];
+    overview: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+    };
     sections: {
       gateway: { title: string; subtitle: string; features: string[] };
       routing: { title: string; subtitle: string; features: string[] };

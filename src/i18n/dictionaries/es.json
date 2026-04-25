@@ -6,17 +6,17 @@
     "pricing": "Precios",
     "blog": "Blog",
     "github": "GitHub",
-    "getStarted": "Comenzar",
+    "getStarted": "Empezar gratis →",
     "toggleMenu": "Abrir menú"
   },
   "hero": {
     "badge": "SDK v2 disponible — fallbacks, streaming y seguimiento de costos",
-    "title": "Reducimos tu costo por token en",
+    "title": "Reduce costos LLM hasta",
     "titleHighlight": "",
-    "subtitle": "Ruteo inteligente envía prompts simples a modelos baratos y los complejos a modelos potentes. Una API, 13+ proveedores, fallbacks automáticos. Tu stack de IA, finalmente optimizado.",
-    "ctaPrimary": "Empezar gratis",
-    "ctaSecondary": "Leer la documentación",
-    "footnote": "Código abierto. Licencia MIT. Sin tarjeta de crédito."
+    "subtitle": "Una API compatible con OpenAI para enrutar, rastrear y evaluar cada solicitud — con todos los proveedores principales. Envía más inteligente, paga menos.",
+    "ctaPrimary": "Star en GitHub",
+    "ctaSecondary": "Explorar funciones",
+    "footnote": "Gratis para siempre · Sin tarjeta de crédito · Self-hostable"
   },
   "providers": {
     "heading": "Compatible con todos los proveedores principales",
@@ -31,18 +31,19 @@
     "opentracySub": "Ruteo + Trazas + Eval"
   },
   "metrics": {
-    "providers": "13+",
-    "providersLabel": "Proveedores de LLM",
-    "models": "70+",
-    "modelsLabel": "Modelos",
-    "overhead": "<2ms",
-    "overheadLabel": "Latencia de ruteo",
+    "providers": "70+",
+    "providersLabel": "Proveedores de IA",
+    "models": "300+",
+    "modelsLabel": "Modelos soportados",
+    "overhead": "<1ms",
+    "overheadLabel": "Latencia añadida",
     "license": "MIT",
     "licenseLabel": "Código abierto"
   },
   "features": {
-    "title": "Todo lo que necesitas para gestionar LLMs",
-    "subtitle": "Desde ruteo hasta evaluación y destilación. Una sola plataforma.",
+    "title": "Todo lo que necesitas para",
+    "titleAccent": "lanzar IA a escala",
+    "subtitle": "Enruta, rastrea, evalúa y destila — una plataforma, todos los proveedores, sin dependencia de proveedor.",
     "oneApi": {
       "title": "Una API, todos los modelos",
       "description": "Envía solicitudes a OpenAI, Anthropic, Google, Mistral y 9 más a través de un solo endpoint."
@@ -104,54 +105,43 @@
     "recentTraces": "Trazas recientes"
   },
   "pricing": {
-    "title": "Precios simples y predecibles",
-    "subtitle": "Empieza gratis. Escala cuando lo necesites. Sin sorpresas.",
-    "bestValue": "Mejor valor",
+    "title": "Simple. Transparente.",
+    "subtitle": "Empieza gratis. Escala cuando estés listo. Sin cargos ocultos.",
+    "bestValue": "Más popular",
     "plans": {
       "free": {
         "name": "Gratis",
-        "description": "Para desarrolladores explorando ruteo y observabilidad de LLMs.",
-        "cta": "Comenzar",
+        "description": "Perfecto para proyectos paralelos y experimentación.",
+        "cta": "Empezar gratis",
         "features": [
-          "Hasta 10,000 solicitudes/mes",
-          "3 ejecuciones de destilación/mes",
-          "Todos los 13+ proveedores",
-          "Registro completo de trazas",
+          "70+ proveedores",
+          "10k solicitudes/mes",
+          "Análisis básico",
           "Soporte de la comunidad"
         ]
       },
       "starter": {
         "name": "Starter",
-        "description": "Para equipos ejecutando LLMs en producción.",
-        "cta": "Iniciar prueba gratuita",
+        "description": "Para equipos que lanzan productos reales con usuarios reales.",
+        "cta": "Iniciar prueba gratis",
         "features": [
-          "Solicitudes ilimitadas",
-          "Destilación ilimitada",
-          "Evaluaciones avanzadas",
-          "Escaneo de calidad con IA",
-          "Soporte prioritario",
-          "Colaboración en equipo",
-          "Opción de self-host",
-          "Reglas de ruteo personalizadas"
+          "Todo en Gratuito",
+          "500k solicitudes/mes",
+          "Enrutamiento inteligente",
+          "Seguimiento de costos y alertas",
+          "Soporte prioritario"
         ]
       },
       "enterprise": {
         "name": "Enterprise",
-        "description": "Para empresas que quieren infraestructura de IA lista, con acompañamiento especializado.",
-        "cta": "Agendar una reunión",
+        "description": "Para despliegues de IA a gran escala con necesidades personalizadas.",
+        "cta": "Reservar una demo",
         "features": [
-          "Todo lo del plan Starter",
-          "Soporte 24/7 dedicado",
-          "Setup completo hecho por nosotros",
-          "Consultoría de implementación",
-          "Onboarding dedicado",
-          "Review personalizado de tu arquitectura",
-          "Despliegue en VPC",
-          "SSO / SAML",
-          "Registros de auditoría",
-          "SLAs personalizados",
-          "Opción on-premise",
-          "Cifrado BYOK"
+          "Solicitudes ilimitadas",
+          "Destilación de modelos",
+          "SSO y SAML",
+          "SLA y soporte dedicado",
+          "Opción on-premise"
         ]
       }
     },
@@ -257,7 +247,19 @@
   },
   "platform": {
     "title": "La plataforma completa de operaciones LLM",
-    "subtitle": "Todo lo que OpenTracy entrega -- desde gateway unificado hasta destilación de modelos. Sin marketing. Capacidades reales, arquitectura real.",
+    "subtitle": "Todo lo que ofrece OpenTracy -- desde un gateway unificado de modelos hasta ruteo, trazas, evaluaciones y destilación. Diseñado para equipos en producción con arquitectura real, calidad medible y control de costos.",
+    "badge": "Plataforma de código abierto",
+    "pills": [
+      "Gateway unificado",
+      "Ruteo inteligente",
+      "Monitoreo de calidad",
+      "Autoalojable"
+    ],
+    "overview": {
+      "eyebrow": "Plataforma",
+      "title": "Capacidades principales",
+      "subtitle": "Todo en un solo lugar, siguiendo el mismo sistema visual y los mismos patrones de interacción de la página principal."
+    },
     "sections": {
       "gateway": {
         "title": "Gateway Unificado",

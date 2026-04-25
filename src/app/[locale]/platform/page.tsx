@@ -1,12 +1,14 @@
 import Container from "@/components/Container";
-import CodeBlock from "@/components/CodeBlock";
-import Card from "@/components/Card";
 import Button from "@/components/Button";
 import { getDictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 import { i18n } from "@/i18n/config";
 import FadeIn from "@/components/motion/FadeIn";
-import SlideIn from "@/components/motion/SlideIn";
+import HoverCard from "@/components/motion/HoverCard";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/StaggerChildren";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -216,6 +218,14 @@ const sectionKeys = [
   "deployment",
 ] as const;
 
+type SectionKey = (typeof sectionKeys)[number];
+
+const codeBySection: Partial<Record<SectionKey, string>> = {
+  gateway: gatewayCode,
+  routing: routerCode,
+  deployment: sdkInstallCode,
+};
+
 export default async function PlatformPage({
   params,
 }: {
@@ -225,45 +235,50 @@ export default async function PlatformPage({
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <div className="pt-24 pb-16 min-h-screen">
-      <section className="py-16">
+    <div className="pt-32 pb-20 min-h-screen">
+      <section className="pb-16 border-b border-border">
         <Container>
-          <FadeIn>
-            <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
+            <FadeIn delay={0} y={16}>
               <a
                 href="https://github.com/lunar-org-ai/lunar-router"
                 className="badge badge-new inline-flex items-center gap-2 mb-8 hover:border-muted transition-colors"
               >
                 <span className="badge-new-dot" />
-                <span>Open source platform</span>
+                <span>{dict.platform.badge}</span>
               </a>
+            </FadeIn>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-                {dict.platform.title}
-              </h1>
+            <FadeIn delay={0.08} y={10}>
+              <h1 className="hero-h1">{dict.platform.title}</h1>
+            </FadeIn>
 
-              <p className="mt-6 text-xl text-muted max-w-2xl mx-auto leading-relaxed">
+            <FadeIn delay={0.16} y={8}>
+              <p className="mt-6 text-xl text-muted max-w-3xl mx-auto leading-relaxed">
                 {dict.platform.subtitle}
               </p>
+            </FadeIn>
 
+            <FadeIn delay={0.24} y={8}>
               <div className="mt-7 flex flex-wrap items-center justify-center gap-2 text-[11px] uppercase tracking-[0.16em] text-muted font-mono">
-                <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/50">
-                  API Gateway
-                </span>
-                <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/50">
-                  Semantic Routing
-                </span>
-                <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/50">
-                  Cost & Quality
-                </span>
+                {dict.platform.pills.map((pill) => (
+                  <span
+                    key={pill}
+                    className="px-2.5 py-1 rounded-md border border-border/70 bg-background/50"
+                  >
+                    {pill}
+                  </span>
+                ))}
               </div>
+            </FadeIn>
 
+            <FadeIn delay={0.32} y={10}>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button href="https://app.opentracy.com" variant="primary">
                   {dict.platform.cta.primary}
                 </Button>
                 <Button href="/docs" variant="secondary">
-                  Docs
+                  {dict.nav.docs}
                 </Button>
                 <Button
                   href="https://github.com/lunar-org-ai/lunar-router"
@@ -272,110 +287,106 @@ export default async function PlatformPage({
                   {dict.platform.cta.secondary}
                 </Button>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </Container>
       </section>
 
-      {sectionKeys.map((key, index) => {
-        const section = dict.platform.sections[key];
-        const showCode =
-          key === "gateway"
-            ? gatewayCode
-            : key === "routing"
-              ? routerCode
-              : key === "deployment"
-                ? sdkInstallCode
-                : null;
+      <section className="py-20 border-b border-border bg-surface-alt">
+        <Container>
+          <FadeIn>
+            <div className="section-header max-w-3xl mx-auto text-center">
+              <span className="section-eyebrow">
+                {dict.platform.overview.eyebrow}
+              </span>
+              <h2 className="section-title mt-4">
+                {dict.platform.overview.title}
+              </h2>
+              <p className="section-sub mt-5">
+                {dict.platform.overview.subtitle}
+              </p>
+            </div>
+          </FadeIn>
 
-        const mainFeatures = section.features.slice(
-          0,
-          Math.ceil(section.features.length / 2),
-        );
-        const implementationNotes = section.features.slice(
-          Math.ceil(section.features.length / 2),
-        );
+          <StaggerContainer className="platform-page-grid mt-12">
+            {sectionKeys.map((key) => {
+              const section = dict.platform.sections[key];
+              const codeExample = codeBySection[key];
 
-        return (
-          <section id={key} key={key} className="py-14 scroll-mt-24">
-            <Container>
-              <SlideIn direction={index % 2 === 0 ? "left" : "right"}>
-                <Card className="p-6 lg:p-8 border-border/60 bg-card/60 max-w-5xl mx-auto rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="mb-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="text-accent">{sectionIcons[key]}</div>
-                      <h2 className="text-2xl font-bold tracking-tight">
-                        {section.title}
-                      </h2>
-                    </div>
-                    <p className="text-muted leading-relaxed max-w-3xl">
-                      {section.subtitle}
-                    </p>
-                  </div>
+              return (
+                <StaggerItem key={key}>
+                  <HoverCard className="h-full">
+                    <article
+                      id={key}
+                      className="platform-page-card h-full scroll-mt-24"
+                    >
+                      <div className="platform-page-header">
+                        <div className="platform-page-icon">
+                          {sectionIcons[key]}
+                        </div>
+                        <h3 className="feat-title">{section.title}</h3>
+                      </div>
 
-                  <div className="space-y-6">
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.16em] text-muted mb-3">
-                        Core capabilities
+                      <p className="platform-page-subtitle">
+                        {section.subtitle}
                       </p>
-                      <ul className="space-y-3">
-                        {mainFeatures.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <div className="h-5 w-5 rounded border border-border/70 bg-background/60 text-accent shrink-0 mt-0.5 flex items-center justify-center">
-                              <span className="text-[10px] font-mono">
-                                &gt;
-                              </span>
+
+                      {codeExample ? (
+                        <div className="platform-page-code-wrap">
+                          <div className="feat-code">
+                            <div className="code-header">
+                              <div
+                                className="code-dot"
+                                style={{ background: "#ff5f56" }}
+                              />
+                              <div
+                                className="code-dot"
+                                style={{ background: "#ffbd2e" }}
+                              />
+                              <div
+                                className="code-dot"
+                                style={{ background: "#27c93f" }}
+                              />
                             </div>
-                            <span className="text-sm text-foreground/85 leading-relaxed">
-                              {feature}
+                            <div className="code-body">
+                              <pre>
+                                <code>{codeExample}</code>
+                              </pre>
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+
+                      <ul className="platform-page-features">
+                        {section.features.map((feature) => (
+                          <li key={feature} className="platform-page-feature">
+                            <span
+                              className="platform-page-check"
+                              aria-hidden="true"
+                            >
+                              <svg
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <polyline points="2 6 5 9 10 3" />
+                              </svg>
                             </span>
+                            <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    {showCode ? (
-                      <div>
-                        <p className="text-[11px] uppercase tracking-[0.16em] text-muted mb-3">
-                          Integration example
-                        </p>
-                        <div className="rounded-xl border border-border/60 bg-background/30 p-2 shadow-sm">
-                          <CodeBlock code={showCode} language="python" />
-                        </div>
-                      </div>
-                    ) : (
-                      implementationNotes.length > 0 && (
-                        <div>
-                          <p className="text-[11px] uppercase tracking-[0.16em] text-muted mb-3">
-                            Implementation notes
-                          </p>
-                          <div className="space-y-2">
-                            {implementationNotes.map((feature, i) => (
-                              <div
-                                key={i}
-                                className="rounded-lg border border-border/60 px-3 py-2.5 bg-background/50 hover:bg-card/70 transition-colors"
-                              >
-                                <div className="flex items-start gap-2.5">
-                                  <span className="text-accent text-xs font-mono mt-0.5">
-                                    &gt;_
-                                  </span>
-                                  <p className="text-sm text-foreground/85 leading-relaxed">
-                                    {feature}
-                                  </p>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </Card>
-              </SlideIn>
-            </Container>
-          </section>
-        );
-      })}
+                    </article>
+                  </HoverCard>
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
+        </Container>
+      </section>
 
       <section className="py-24">
         <Container>
