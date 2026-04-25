@@ -1,6 +1,35 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/index",
+        destination: "/docs",
+        permanent: false,
+      },
+      {
+        source: "/quickstart",
+        destination: "/docs/quickstart",
+        permanent: false,
+      },
+      {
+        source: "/concepts/:path*",
+        destination: "/docs/concepts/:path*",
+        permanent: false,
+      },
+      {
+        source: "/guides/:path*",
+        destination: "/docs/guides/:path*",
+        permanent: false,
+      },
+      {
+        source: "/api-reference/:path*",
+        destination: "/docs/api-reference/:path*",
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
