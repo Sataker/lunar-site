@@ -24,7 +24,7 @@ function PostHogPageView() {
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    const key = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
     const host =
       process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 
@@ -33,7 +33,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         api_host: host,
         capture_pageview: false, // manual pageview via PostHogPageView
         capture_pageleave: true,
-        person_profiles: "identified_only",
+        person_profiles: "always",
       });
     }
   }, []);
