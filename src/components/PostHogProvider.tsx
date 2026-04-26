@@ -23,21 +23,6 @@ function PostHogPageView() {
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const key = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
-    const host =
-      process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
-
-    if (key) {
-      posthog.init(key, {
-        api_host: host,
-        capture_pageview: false, // manual pageview via PostHogPageView
-        capture_pageleave: true,
-        person_profiles: "always",
-      });
-    }
-  }, []);
-
   return (
     <PHProvider client={posthog}>
       <Suspense fallback={null}>
