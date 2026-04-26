@@ -239,4 +239,57 @@ export type Dictionary = {
     terms: string;
     copyright: string;
   };
+  enterprise: {
+    meta: { title: string; description: string };
+    hero: {
+      badge: string;
+      title1: string;
+      title2: string;
+      subtitle: string;
+      ctaPrimary: string;
+      ctaSecondary: string;
+      trust: string[];
+    };
+    capabilities: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      rl: { tag: string; title: string; desc: string; outcomes: string[] };
+      envDesign: { tag: string; title: string; desc: string };
+      rewardEng: { tag: string; title: string; desc: string };
+      agents: { tag: string; title: string; desc: string; outcomes: string[] };
+      distillation: {
+        tag: string;
+        statValue: string;
+        statLabel: string;
+        desc: string;
+      };
+      zeroRetrain: {
+        tag: string;
+        title: string;
+        desc: string;
+        bullets: string[];
+      };
+    };
+    infrastructure: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      bigCard: { tag: string; title: string; desc: string; outcomes: string[] };
+      features: Array<{ title: string; desc: string }>;
+    };
+    industries: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      items: Array<{ title: string; description: string }>;
+    };
+    services: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      items: Array<{ title: string; description: string }>;
+    };
+    cta: { title: string; subtitle: string; primary: string; footnote: string };
+  };
 };

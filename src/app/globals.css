@@ -1456,7 +1456,7 @@ s .code-block pre {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .feat-card {
@@ -1485,12 +1485,13 @@ s .code-block pre {
 .feat-card.big,
 .feat-card.full {
   grid-column: span 6;
+  padding: 2.25rem;
 }
 
 .feat-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
@@ -3351,6 +3352,7 @@ s .code-block pre {
 
 .ep-section-header {
   max-width: 640px;
+  padding-bottom: 1.25rem;
 }
 
 .ep-section-sub {
@@ -3439,7 +3441,7 @@ s .code-block pre {
 
 /* ── CAPABILITY SECTIONS ── */
 .ep-capability-section {
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -3588,7 +3590,7 @@ s .code-block pre {
 
 /* ── INFRASTRUCTURE SECTION ── */
 .ep-infra-section {
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -3641,7 +3643,7 @@ s .code-block pre {
 
 /* ── DOMAINS / INDUSTRIES ── */
 .ep-domains-section {
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -3662,7 +3664,7 @@ s .code-block pre {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 1.1rem 1.15rem;
+  padding: 1.25rem 1.35rem;
   border: 1px solid var(--color-border);
   border-radius: 14px;
   background: var(--color-background);
@@ -3708,24 +3710,25 @@ s .code-block pre {
 
 /* ── SERVICES ── */
 .ep-services-section {
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--color-border);
 }
 
 .ep-services-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.875rem;
-  max-width: 960px;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .ep-service-item {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 1rem 1.1rem;
+  padding: 1.2rem 1.35rem;
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--color-background);
   transition: border-color 0.15s ease;
 }

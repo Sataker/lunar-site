@@ -410,5 +410,200 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "copyright": "OpenTracy. MIT License."
+  },
+  "enterprise": {
+    "meta": {
+      "title": "Enterprise - OpenTracy",
+      "description": "Your AI Lab for your enterprise. Custom Environment RL and self-improving agents, built to cut costs inside your infrastructure."
+    },
+    "hero": {
+      "badge": "Enterprise AI Lab",
+      "title1": "Your AI Lab for",
+      "title2": "Your Enterprise",
+      "subtitle": "Custom Environment Reinforcement Learning and Self-Improving Agents — built to cut costs and run inside your own infrastructure.",
+      "ctaPrimary": "Book Your AI Lab Call",
+      "ctaSecondary": "See What We Build",
+      "trust": [
+        "Environment RL",
+        "Self-Improving Agents",
+        "Self-hosted by design"
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "Core Capabilities",
+      "title": "Two systems. One compounding advantage.",
+      "subtitle": "Environment RL and self-improving agents work together — each cycle makes your models more accurate, faster, and cheaper.",
+      "rl": {
+        "tag": "Custom RL Environments",
+        "title": "AI that learns from your operation.",
+        "desc": "RL loops trained on your real production data — not simulations. Pricing, scheduling, routing, allocation — agents that compound value every shift and outperform generic models.",
+        "outcomes": [
+          "Decisions trained on real outcomes, not simulations",
+          "Deployed inside your infrastructure",
+          "Compounds value across every episode"
+        ]
+      },
+      "envDesign": {
+        "tag": "Environment Design",
+        "title": "Built around your business logic.",
+        "desc": "Custom simulation environments modeled on your real systems — pricing engines, scheduling layers, allocation pipelines. The agent trains inside your actual operating constraints, not toy problems."
+      },
+      "rewardEng": {
+        "tag": "Reward Engineering",
+        "title": "Optimizes your actual KPIs.",
+        "desc": "Reward functions aligned with what your business cares about — margin, throughput, latency, accuracy. Not generic benchmarks. Every episode drives toward outcomes that compound on the production floor."
+      },
+      "agents": {
+        "tag": "Self-Improving Agents",
+        "title": "Agents that get smarter every week.",
+        "desc": "Most AI agents stop improving on Day 1. Ours don't. They learn from your production traffic, specialize on your workflows, and replace expensive frontier calls — automatically.",
+        "outcomes": [
+          "More accurate every week, no retraining ops",
+          "Up to 40× cheaper per call after distillation",
+          "Zero code changes — the agent just gets better"
+        ]
+      },
+      "distillation": {
+        "tag": "Distillation Pipeline",
+        "statValue": "40×",
+        "statLabel": "cheaper per call after distillation",
+        "desc": "Student models trained on your production traces replace expensive frontier API calls — automatically. Costs drop continuously as the model specializes on your traffic."
+      },
+      "zeroRetrain": {
+        "tag": "Zero Retraining Ops",
+        "title": "The improvement loop runs itself.",
+        "desc": "The feedback cycle operates continuously on your production traffic. No MLOps team, no manual triggers. The agent specializes — and your cost structure follows.",
+        "bullets": [
+          "Continuous improvement, no retraining sprints",
+          "Zero code changes — the agent just gets better",
+          "Compounds on your traffic, not general benchmarks"
+        ]
+      }
+    },
+    "infrastructure": {
+      "eyebrow": "Owned AI Infrastructure",
+      "title": "Your data. Your models. Your servers.",
+      "subtitle": "A full AI stack deployed inside your perimeter — gateway, traces, training, serving. Compliance-ready. Open-source. No data leaves your environment.",
+      "bigCard": {
+        "tag": "Full-stack AI inside your perimeter",
+        "title": "Your data never leaves your environment.",
+        "desc": "A complete AI stack — gateway, tracing, training, serving — deployed inside your own infrastructure. On-premise, private cloud, or air-gapped. No outbound data, ever.",
+        "outcomes": [
+          "On-premise, private cloud, or air-gapped",
+          "LGPD, GDPR, HIPAA, SOC 2 ready",
+          "Open-source — no vendor lock-in, ever"
+        ]
+      },
+      "features": [
+        {
+          "title": "On-premise or private cloud",
+          "desc": "Deploy to AWS, GCP, Azure, or bare metal. You choose where the stack lives."
+        },
+        {
+          "title": "Air-gapped available",
+          "desc": "For regulated environments with strict network isolation. No outbound traffic."
+        },
+        {
+          "title": "Open-source, MIT license",
+          "desc": "Full codebase visibility. Fork it, audit it, extend it. No lock-in."
+        },
+        {
+          "title": "LGPD · GDPR · HIPAA · SOC 2",
+          "desc": "Pre-built compliance postures for each framework. Your team stays in control."
+        }
+      ]
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Built for teams across the enterprise.",
+      "subtitle": "We deploy in every vertical where AI decisions compound over time and cost reduction is structural.",
+      "items": [
+        {
+          "title": "Operations & Logistics",
+          "description": "Routing, scheduling, predictive maintenance."
+        },
+        {
+          "title": "Finance & Risk",
+          "description": "Pricing, credit scoring, fraud detection."
+        },
+        {
+          "title": "Healthcare",
+          "description": "Triage, decision support, clinical summaries."
+        },
+        {
+          "title": "Legal",
+          "description": "Contracts, compliance, knowledge agents."
+        },
+        {
+          "title": "Engineering",
+          "description": "Coding agents, PR review, build intelligence."
+        },
+        {
+          "title": "Customer Experience",
+          "description": "Support, FAQ, lead qualification."
+        },
+        {
+          "title": "Data & Analytics",
+          "description": "SQL, extraction, executive insights."
+        },
+        {
+          "title": "Regulated & Government",
+          "description": "Air-gapped, redacted, compliance-first."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "What we build with your team.",
+      "subtitle": "From strategy to production — every layer of the AI stack, end to end.",
+      "items": [
+        {
+          "title": "AI Strategy & Architecture",
+          "description": "Roadmap, build-vs-buy, ROI for your AI program."
+        },
+        {
+          "title": "Custom RL Environment Design",
+          "description": "Reward signals, policy training, production loops."
+        },
+        {
+          "title": "Self-Learning Agent Development",
+          "description": "End-to-end agents that compound from day one."
+        },
+        {
+          "title": "Custom Model Training",
+          "description": "Distilled student models trained on your traffic."
+        },
+        {
+          "title": "RAG & Knowledge Pipelines",
+          "description": "Retrieval over your docs, tuned for accuracy."
+        },
+        {
+          "title": "Self-Hosted Stack Deployment",
+          "description": "Full AI infrastructure inside your perimeter."
+        },
+        {
+          "title": "LLM Ops & Monitoring",
+          "description": "Drift detection, hallucination scanning, on-call."
+        },
+        {
+          "title": "Compliance & Security",
+          "description": "LGPD, GDPR, HIPAA, SOC 2. Air-gapped configs."
+        },
+        {
+          "title": "Custom Integrations",
+          "description": "ERPs, CRMs, internal APIs, wired into the AI layer."
+        },
+        {
+          "title": "Training & Enablement",
+          "description": "Hands-on sessions for your ML and product teams."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Let's build your enterprise AI Lab.",
+      "subtitle": "One strategy call to map your Environment RL, self-improving agents, and cost-cut roadmap.",
+      "primary": "Start Your AI Lab Program",
+      "footnote": "No prep needed · Executive and technical attendees welcome · leave with a concrete build plan"
+    }
   }
 }

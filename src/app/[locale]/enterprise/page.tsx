@@ -7,13 +7,26 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion/StaggerChildren";
-import { services, pillars, industries } from "@/app/[locale]/enterprise/data";
+import { getDictionary } from "@/i18n/getDictionary";
+import { i18n } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Enterprise - OpenTracy",
-  description:
-    "Your AI Lab for your enterprise. Custom Environment RL and self-improving agents, built to cut costs inside your infrastructure.",
-};
+export function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  return {
+    title: dict.enterprise.meta.title,
+    description: dict.enterprise.meta.description,
+  };
+}
 
 const DEMO_URL = "https://cal.com/opentracy/30min-demo";
 
@@ -215,44 +228,16 @@ const IconShield = () => (
   </svg>
 );
 
-/* ── Domain icon map ── */
-const domainIcons: Record<string, React.ReactElement> = {
-  "Operations & Logistics": <IconGear />,
-  "Finance & Risk": <IconDollar />,
-  Healthcare: <IconHeart />,
-  Legal: <IconScale />,
-  Engineering: <IconCode />,
-  "Customer Experience": <IconSupport />,
-  "Data & Analytics": <IconChart />,
-  "Regulated & Government": <IconShield />,
-};
-
-/* ── Infrastructure features (no mascot images) ── */
-const infraFeatures = [
-  {
-    title: "On-premise or private cloud",
-    desc: "Deploy to AWS, GCP, Azure, or bare metal. You choose where the stack lives.",
-  },
-  {
-    title: "Air-gapped available",
-    desc: "For regulated environments with strict network isolation. No outbound traffic.",
-  },
-  {
-    title: "Open-source, MIT license",
-    desc: "Full codebase visibility. Fork it, audit it, extend it. No lock-in.",
-  },
-  {
-    title: "LGPD · GDPR · HIPAA · SOC 2",
-    desc: "Pre-built compliance postures for each framework. Your team stays in control.",
-  },
-];
-
-/* ── How it works (horizontal bar) ── */
-const howSteps = [
-  { num: "01", text: "Map the AI opportunities in your operation" },
-  { num: "02", text: "Build Environment RL loops and custom agents" },
-  { num: "03", text: "Deploy self-hosted inside your infrastructure" },
-  { num: "04", text: "Quality improves and cost falls every cycle" },
+/* ── Domain icon list (index-based, order matches dictionary items) ── */
+const domainIconsList: React.ReactElement[] = [
+  <IconGear key="0" />,
+  <IconDollar key="1" />,
+  <IconHeart key="2" />,
+  <IconScale key="3" />,
+  <IconCode key="4" />,
+  <IconSupport key="5" />,
+  <IconChart key="6" />,
+  <IconShield key="7" />,
 ];
 
 /* ── Utility icons ── */
@@ -289,8 +274,9 @@ export default async function EnterprisePage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  await params;
-  const infraPillar = pillars[2];
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  const e = dict.enterprise;
 
   return (
     <div className="enterprise-page enterprise-pitch-page">
@@ -301,44 +287,36 @@ export default async function EnterprisePage({
             <FadeIn delay={0} y={16}>
               <span className="badge badge-new inline-flex items-center gap-2">
                 <span className="badge-new-dot" />
-                <span>Enterprise AI Lab</span>
+                <span>{e.hero.badge}</span>
               </span>
             </FadeIn>
             <TextReveal delay={0.08}>
               <h1 className="ep-hero-h1 mt-5">
-                Your AI Lab for
+                {e.hero.title1}
                 <br />
-                Your Enterprise
+                {e.hero.title2}
               </h1>
             </TextReveal>
             <FadeIn delay={0.22} y={8}>
-              <p className="ep-hero-sub mt-5">
-                Custom <strong>Environment Reinforcement Learning</strong> and{" "}
-                <strong>Self-Improving Agents</strong> — built to cut costs and
-                run inside your own infrastructure.
-              </p>
+              <p className="ep-hero-sub mt-5">{e.hero.subtitle}</p>
             </FadeIn>
             <FadeIn delay={0.36} y={10}>
               <div className="ep-hero-actions mt-8">
                 <Button href={DEMO_URL} variant="primary" newTab>
-                  Book Your AI Lab Call
+                  {e.hero.ctaPrimary}
                 </Button>
                 <Button href="#core-delivery" variant="secondary">
-                  See What We Build
+                  {e.hero.ctaSecondary}
                 </Button>
               </div>
             </FadeIn>
             <FadeIn delay={0.46} y={6}>
               <div className="enterprise-hero-trust mt-7">
-                <span className="enterprise-hero-trust-item">
-                  Environment RL
-                </span>
-                <span className="enterprise-hero-trust-item">
-                  Self-Improving Agents
-                </span>
-                <span className="enterprise-hero-trust-item">
-                  Self-hosted by design
-                </span>
+                {e.hero.trust.map((t) => (
+                  <span key={t} className="enterprise-hero-trust-item">
+                    {t}
+                  </span>
+                ))}
               </div>
             </FadeIn>
           </div>
@@ -350,34 +328,22 @@ export default async function EnterprisePage({
         <Container>
           <FadeIn>
             <div className="ep-section-header">
-              <span className="section-eyebrow">Core Capabilities</span>
-              <h2 className="ep-section-title mt-3">
-                Two systems. One compounding advantage.
-              </h2>
-              <p className="ep-section-sub mt-4">
-                Environment RL and self-improving agents work together — each
-                cycle makes your models more accurate, faster, and cheaper.
-              </p>
+              <span className="section-eyebrow">{e.capabilities.eyebrow}</span>
+              <h2 className="ep-section-title mt-3">{e.capabilities.title}</h2>
+              <p className="ep-section-sub mt-4">{e.capabilities.subtitle}</p>
             </div>
           </FadeIn>
 
-          <div className="features-grid mt-12">
+          <div className="features-grid mt-8">
             {/* ─── Custom RL Environments — big card with image ─── */}
             <FadeIn y={20} className="feat-card big">
               <div className="feat-split">
                 <div>
-                  <div className="feat-tag">Custom RL Environments</div>
-                  <h3 className="feat-title">
-                    AI that learns from your operation.
-                  </h3>
-                  <p className="feat-desc">
-                    RL loops trained on your real production data — not
-                    simulations. Pricing, scheduling, routing, allocation —
-                    agents that compound value every shift and outperform
-                    generic models.
-                  </p>
+                  <div className="feat-tag">{e.capabilities.rl.tag}</div>
+                  <h3 className="feat-title">{e.capabilities.rl.title}</h3>
+                  <p className="feat-desc">{e.capabilities.rl.desc}</p>
                   <ul className="ep-check-list mt-5">
-                    {pillars[0].outcomes.map((o) => (
+                    {e.capabilities.rl.outcomes.map((o) => (
                       <li key={o} className="ep-check-item">
                         <span className="ep-check-icon" aria-hidden="true">
                           {checkSvg}
@@ -402,25 +368,15 @@ export default async function EnterprisePage({
 
             {/* ─── RL sub-cards ─── */}
             <FadeIn y={20} className="feat-card">
-              <div className="feat-tag">Environment Design</div>
-              <h3 className="feat-title">Built around your business logic.</h3>
-              <p className="feat-desc">
-                Custom simulation environments modeled on your real systems —
-                pricing engines, scheduling layers, allocation pipelines. The
-                agent trains inside your actual operating constraints, not toy
-                problems.
-              </p>
+              <div className="feat-tag">{e.capabilities.envDesign.tag}</div>
+              <h3 className="feat-title">{e.capabilities.envDesign.title}</h3>
+              <p className="feat-desc">{e.capabilities.envDesign.desc}</p>
             </FadeIn>
 
             <FadeIn y={20} className="feat-card">
-              <div className="feat-tag">Reward Engineering</div>
-              <h3 className="feat-title">Optimizes your actual KPIs.</h3>
-              <p className="feat-desc">
-                Reward functions aligned with what your business cares about —
-                margin, throughput, latency, accuracy. Not generic benchmarks.
-                Every episode drives toward outcomes that compound on the
-                production floor.
-              </p>
+              <div className="feat-tag">{e.capabilities.rewardEng.tag}</div>
+              <h3 className="feat-title">{e.capabilities.rewardEng.title}</h3>
+              <p className="feat-desc">{e.capabilities.rewardEng.desc}</p>
             </FadeIn>
 
             {/* ─── Self-Improving Agents — big card with image ─── */}
@@ -437,18 +393,11 @@ export default async function EnterprisePage({
                   />
                 </div>
                 <div>
-                  <div className="feat-tag">Self-Improving Agents</div>
-                  <h3 className="feat-title">
-                    Agents that get smarter every week.
-                  </h3>
-                  <p className="feat-desc">
-                    Most AI agents stop improving on Day 1. Ours don&apos;t.
-                    They learn from your production traffic, specialize on your
-                    workflows, and replace expensive frontier calls —
-                    automatically.
-                  </p>
+                  <div className="feat-tag">{e.capabilities.agents.tag}</div>
+                  <h3 className="feat-title">{e.capabilities.agents.title}</h3>
+                  <p className="feat-desc">{e.capabilities.agents.desc}</p>
                   <ul className="ep-check-list mt-5">
-                    {pillars[1].outcomes.map((o) => (
+                    {e.capabilities.agents.outcomes.map((o) => (
                       <li key={o} className="ep-check-item">
                         <span className="ep-check-icon" aria-hidden="true">
                           {checkSvg}
@@ -463,45 +412,31 @@ export default async function EnterprisePage({
 
             {/* ─── Agent sub-cards ─── */}
             <FadeIn y={20} className="feat-card">
-              <div className="feat-tag">Distillation Pipeline</div>
-              <div className="ep-stat-value">40×</div>
+              <div className="feat-tag">{e.capabilities.distillation.tag}</div>
+              <div className="ep-stat-value">
+                {e.capabilities.distillation.statValue}
+              </div>
               <p className="ep-stat-label">
-                cheaper per call after distillation
+                {e.capabilities.distillation.statLabel}
               </p>
               <p className="feat-desc mt-4">
-                Student models trained on your production traces replace
-                expensive frontier API calls — automatically. Costs drop
-                continuously as the model specializes on your traffic.
+                {e.capabilities.distillation.desc}
               </p>
             </FadeIn>
 
             <FadeIn y={20} className="feat-card">
-              <div className="feat-tag">Zero Retraining Ops</div>
-              <h3 className="feat-title">The improvement loop runs itself.</h3>
-              <p className="feat-desc">
-                The feedback cycle operates continuously on your production
-                traffic. No MLOps team, no manual triggers. The agent
-                specializes — and your cost structure follows.
-              </p>
+              <div className="feat-tag">{e.capabilities.zeroRetrain.tag}</div>
+              <h3 className="feat-title">{e.capabilities.zeroRetrain.title}</h3>
+              <p className="feat-desc">{e.capabilities.zeroRetrain.desc}</p>
               <ul className="ep-check-list mt-5">
-                <li className="ep-check-item">
-                  <span className="ep-check-icon" aria-hidden="true">
-                    {checkSvg}
-                  </span>
-                  <span>Continuous improvement, no retraining sprints</span>
-                </li>
-                <li className="ep-check-item">
-                  <span className="ep-check-icon" aria-hidden="true">
-                    {checkSvg}
-                  </span>
-                  <span>Zero code changes — the agent just gets better</span>
-                </li>
-                <li className="ep-check-item">
-                  <span className="ep-check-icon" aria-hidden="true">
-                    {checkSvg}
-                  </span>
-                  <span>Compounds on your traffic, not general benchmarks</span>
-                </li>
+                {e.capabilities.zeroRetrain.bullets.map((b) => (
+                  <li key={b} className="ep-check-item">
+                    <span className="ep-check-icon" aria-hidden="true">
+                      {checkSvg}
+                    </span>
+                    <span>{b}</span>
+                  </li>
+                ))}
               </ul>
             </FadeIn>
           </div>
@@ -513,13 +448,17 @@ export default async function EnterprisePage({
         <Container>
           <FadeIn>
             <div className="ep-section-header">
-              <span className="section-eyebrow">{infraPillar.eyebrow}</span>
-              <h2 className="ep-section-title mt-3">{infraPillar.title}</h2>
-              <p className="ep-section-sub mt-4">{infraPillar.blurb}</p>
+              <span className="section-eyebrow">
+                {e.infrastructure.eyebrow}
+              </span>
+              <h2 className="ep-section-title mt-3">
+                {e.infrastructure.title}
+              </h2>
+              <p className="ep-section-sub mt-4">{e.infrastructure.subtitle}</p>
             </div>
           </FadeIn>
 
-          <div className="features-grid mt-12">
+          <div className="features-grid mt-8">
             {/* big card with image */}
             <FadeIn y={20} className="feat-card big">
               <div className="feat-split">
@@ -534,19 +473,13 @@ export default async function EnterprisePage({
                   />
                 </div>
                 <div>
-                  <div className="feat-tag">
-                    Full-stack AI inside your perimeter
-                  </div>
+                  <div className="feat-tag">{e.infrastructure.bigCard.tag}</div>
                   <h3 className="feat-title">
-                    Your data never leaves your environment.
+                    {e.infrastructure.bigCard.title}
                   </h3>
-                  <p className="feat-desc">
-                    A complete AI stack — gateway, tracing, training, serving —
-                    deployed inside your own infrastructure. On-premise, private
-                    cloud, or air-gapped. No outbound data, ever.
-                  </p>
+                  <p className="feat-desc">{e.infrastructure.bigCard.desc}</p>
                   <ul className="ep-check-list mt-5">
-                    {infraPillar.outcomes.map((o) => (
+                    {e.infrastructure.bigCard.outcomes.map((o) => (
                       <li key={o} className="ep-check-item">
                         <span className="ep-check-icon" aria-hidden="true">
                           {checkSvg}
@@ -560,7 +493,7 @@ export default async function EnterprisePage({
             </FadeIn>
 
             {/* 4 infra sub-cards */}
-            {infraFeatures.map((f) => (
+            {e.infrastructure.features.map((f) => (
               <FadeIn key={f.title} y={20} className="feat-card">
                 <h4 className="feat-title" style={{ fontSize: "1.1rem" }}>
                   {f.title}
@@ -577,22 +510,17 @@ export default async function EnterprisePage({
         <Container>
           <FadeIn>
             <div className="ep-section-header">
-              <span className="section-eyebrow">Industries</span>
-              <h2 className="ep-section-title mt-3">
-                Built for teams across the enterprise.
-              </h2>
-              <p className="ep-section-sub mt-4">
-                We deploy in every vertical where AI decisions compound over
-                time and cost reduction is structural.
-              </p>
+              <span className="section-eyebrow">{e.industries.eyebrow}</span>
+              <h2 className="ep-section-title mt-3">{e.industries.title}</h2>
+              <p className="ep-section-sub mt-4">{e.industries.subtitle}</p>
             </div>
           </FadeIn>
-          <StaggerContainer className="ep-domains-grid mt-10">
-            {industries.map((ind) => (
+          <StaggerContainer className="ep-domains-grid mt-8">
+            {e.industries.items.map((ind, i) => (
               <StaggerItem key={ind.title}>
                 <article className="ep-domain-card">
                   <span className="ep-domain-icon">
-                    {domainIcons[ind.title] ?? <IconGear />}
+                    {domainIconsList[i] ?? <IconGear />}
                   </span>
                   <div>
                     <h3 className="ep-domain-title">{ind.title}</h3>
@@ -610,18 +538,13 @@ export default async function EnterprisePage({
         <Container>
           <FadeIn>
             <div className="ep-section-header">
-              <span className="section-eyebrow">Services</span>
-              <h2 className="ep-section-title mt-3">
-                What we build with your team.
-              </h2>
-              <p className="ep-section-sub mt-4">
-                From strategy to production — every layer of the AI stack, end
-                to end.
-              </p>
+              <span className="section-eyebrow">{e.services.eyebrow}</span>
+              <h2 className="ep-section-title mt-3">{e.services.title}</h2>
+              <p className="ep-section-sub mt-4">{e.services.subtitle}</p>
             </div>
           </FadeIn>
-          <div className="ep-services-grid mt-10">
-            {services.map((service) => (
+          <div className="ep-services-grid mt-8">
+            {e.services.items.map((service) => (
               <FadeIn key={service.title}>
                 <article className="ep-service-item">
                   <span className="ep-service-check" aria-hidden="true">
@@ -643,15 +566,10 @@ export default async function EnterprisePage({
         <Container>
           <div className="enterprise-final-cta-inner">
             <TextReveal>
-              <h2 className="enterprise-final-cta-title">
-                Let&apos;s build your enterprise AI Lab.
-              </h2>
+              <h2 className="enterprise-final-cta-title">{e.cta.title}</h2>
             </TextReveal>
             <FadeIn delay={0.12}>
-              <p className="enterprise-final-cta-sub">
-                One strategy call to map your Environment RL, self-improving
-                agents, and cost-cut roadmap.
-              </p>
+              <p className="enterprise-final-cta-sub">{e.cta.subtitle}</p>
             </FadeIn>
             <FadeIn delay={0.26}>
               <div className="enterprise-final-cta-buttons">
@@ -661,16 +579,13 @@ export default async function EnterprisePage({
                   newTab
                   className="sm:min-w-56"
                 >
-                  Start Your AI Lab Program
+                  {e.cta.primary}
                   <span className="ml-1 inline-flex h-4 w-4">{arrowIcon}</span>
                 </Button>
               </div>
             </FadeIn>
             <FadeIn delay={0.38}>
-              <p className="enterprise-final-cta-foot">
-                No prep needed · Executive and technical attendees welcome ·
-                leave with a concrete build plan
-              </p>
+              <p className="enterprise-final-cta-foot">{e.cta.footnote}</p>
             </FadeIn>
           </div>
         </Container>

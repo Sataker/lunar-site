@@ -411,5 +411,200 @@
     "privacy": "Privacidade",
     "terms": "Termos",
     "copyright": "OpenTracy. Licença MIT."
+  },
+  "enterprise": {
+    "meta": {
+      "title": "Enterprise - OpenTracy",
+      "description": "Seu Laboratório de IA para sua empresa. RL de Ambiente personalizado e agentes de autoaperfeiçoamento, criados para reduzir custos dentro da sua infraestrutura."
+    },
+    "hero": {
+      "badge": "Laboratório de IA Empresarial",
+      "title1": "Seu Laboratório de IA para",
+      "title2": "Sua Empresa",
+      "subtitle": "Aprendizado por reforço de ambiente personalizado e agentes de autoaperfeiçoamento — criados para reduzir custos e rodar dentro da sua própria infraestrutura.",
+      "ctaPrimary": "Agende sua Chamada de IA Lab",
+      "ctaSecondary": "Ver O Que Construímos",
+      "trust": [
+        "Environment RL",
+        "Agentes de Autoaperfeiçoamento",
+        "Self-hosted por design"
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "Capacidades Principais",
+      "title": "Dois sistemas. Uma vantagem composta.",
+      "subtitle": "RL de ambiente e agentes de autoaperfeiçoamento trabalham juntos — cada ciclo torna seus modelos mais precisos, rápidos e baratos.",
+      "rl": {
+        "tag": "Ambientes RL Personalizados",
+        "title": "IA que aprende com sua operação.",
+        "desc": "Loops de RL treinados com seus dados reais de produção — não simulações. Precificação, agendamento, roteamento, alocação — agentes que geram valor a cada turno e superam modelos genéricos.",
+        "outcomes": [
+          "Decisões treinadas em resultados reais, não simulações",
+          "Implantado dentro da sua infraestrutura",
+          "Acumula valor em cada episódio"
+        ]
+      },
+      "envDesign": {
+        "tag": "Design de Ambiente",
+        "title": "Construído em torno da sua lógica de negócio.",
+        "desc": "Ambientes de simulação personalizados modelados em seus sistemas reais — motores de precificação, camadas de agendamento, pipelines de alocação. O agente treina dentro das suas restrições operacionais reais, não problemas simplificados."
+      },
+      "rewardEng": {
+        "tag": "Engenharia de Recompensas",
+        "title": "Otimiza seus KPIs reais.",
+        "desc": "Funções de recompensa alinhadas com o que seu negócio valoriza — margem, throughput, latência, precisão. Sem benchmarks genéricos. Cada episódio direciona para resultados que se acumulam no chão de produção."
+      },
+      "agents": {
+        "tag": "Agentes de Autoaperfeiçoamento",
+        "title": "Agentes que ficam mais inteligentes a cada semana.",
+        "desc": "A maioria dos agentes de IA para de melhorar no Dia 1. Os nossos não. Eles aprendem com seu tráfego de produção, se especializam nos seus fluxos de trabalho e substituem chamadas frontier caras — automaticamente.",
+        "outcomes": [
+          "Mais preciso a cada semana, sem operações de retreinamento",
+          "Até 40× mais barato por chamada após destilação",
+          "Zero mudanças de código — o agente simplesmente melhora"
+        ]
+      },
+      "distillation": {
+        "tag": "Pipeline de Destilação",
+        "statValue": "40×",
+        "statLabel": "mais barato por chamada após destilação",
+        "desc": "Modelos estudante treinados nos seus traces de produção substituem chamadas frontier caras — automaticamente. Os custos caem continuamente à medida que o modelo se especializa no seu tráfego."
+      },
+      "zeroRetrain": {
+        "tag": "Zero Operações de Retreinamento",
+        "title": "O loop de melhoria roda sozinho.",
+        "desc": "O ciclo de feedback opera continuamente no seu tráfego de produção. Sem equipe MLOps, sem gatilhos manuais. O agente se especializa — e sua estrutura de custos acompanha.",
+        "bullets": [
+          "Melhoria contínua, sem sprints de retreinamento",
+          "Zero mudanças de código — o agente simplesmente melhora",
+          "Acumula no seu tráfego, não em benchmarks gerais"
+        ]
+      }
+    },
+    "infrastructure": {
+      "eyebrow": "Infraestrutura de IA Própria",
+      "title": "Seus dados. Seus modelos. Seus servidores.",
+      "subtitle": "Um stack de IA completo implantado dentro do seu perímetro — gateway, traces, treinamento, serviço. Pronto para conformidade. Código aberto. Nenhum dado sai do seu ambiente.",
+      "bigCard": {
+        "tag": "IA full-stack dentro do seu perímetro",
+        "title": "Seus dados nunca saem do seu ambiente.",
+        "desc": "Um stack de IA completo — gateway, rastreamento, treinamento, serviço — implantado dentro da sua própria infraestrutura. On-premise, nuvem privada ou air-gapped. Sem dados de saída, nunca.",
+        "outcomes": [
+          "On-premise, nuvem privada ou air-gapped",
+          "Pronto para LGPD, GDPR, HIPAA, SOC 2",
+          "Código aberto — sem vendor lock-in, nunca"
+        ]
+      },
+      "features": [
+        {
+          "title": "On-premise ou nuvem privada",
+          "desc": "Implante na AWS, GCP, Azure ou bare metal. Você escolhe onde o stack vive."
+        },
+        {
+          "title": "Air-gapped disponível",
+          "desc": "Para ambientes regulados com isolamento estrito de rede. Sem tráfego de saída."
+        },
+        {
+          "title": "Código aberto, licença MIT",
+          "desc": "Visibilidade total do código. Faça fork, audite, estenda. Sem lock-in."
+        },
+        {
+          "title": "LGPD · GDPR · HIPAA · SOC 2",
+          "desc": "Posturas de conformidade pré-construídas para cada framework. Seu time mantém o controle."
+        }
+      ]
+    },
+    "industries": {
+      "eyebrow": "Indústrias",
+      "title": "Construído para times em toda a empresa.",
+      "subtitle": "Implantamos em cada vertical onde decisões de IA se acumulam com o tempo e a redução de custos é estrutural.",
+      "items": [
+        {
+          "title": "Operations & Logistics",
+          "description": "Roteamento, agendamento, manutenção preditiva."
+        },
+        {
+          "title": "Finance & Risk",
+          "description": "Precificação, score de crédito, detecção de fraude."
+        },
+        {
+          "title": "Healthcare",
+          "description": "Triagem, suporte a decisões, resumos clínicos."
+        },
+        {
+          "title": "Legal",
+          "description": "Contratos, conformidade, agentes de conhecimento."
+        },
+        {
+          "title": "Engineering",
+          "description": "Agentes de código, revisão de PR, inteligência de build."
+        },
+        {
+          "title": "Customer Experience",
+          "description": "Suporte, FAQ, qualificação de leads."
+        },
+        {
+          "title": "Data & Analytics",
+          "description": "SQL, extração, insights executivos."
+        },
+        {
+          "title": "Regulated & Government",
+          "description": "Air-gapped, redatado, conformidade em primeiro lugar."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Serviços",
+      "title": "O que construímos com seu time.",
+      "subtitle": "Da estratégia à produção — cada camada do stack de IA, do início ao fim.",
+      "items": [
+        {
+          "title": "Estratégia e Arquitetura de IA",
+          "description": "Roadmap, build-vs-buy, ROI para seu programa de IA."
+        },
+        {
+          "title": "Design de Ambiente RL Personalizado",
+          "description": "Sinais de recompensa, treinamento de políticas, loops de produção."
+        },
+        {
+          "title": "Desenvolvimento de Agentes de Aprendizagem Contínua",
+          "description": "Agentes end-to-end que acumulam valor desde o dia um."
+        },
+        {
+          "title": "Treinamento de Modelos Personalizados",
+          "description": "Modelos estudante destilados treinados no seu tráfego."
+        },
+        {
+          "title": "Pipelines RAG e de Conhecimento",
+          "description": "Recuperação sobre seus docs, ajustado para precisão."
+        },
+        {
+          "title": "Implantação de Stack Self-Hosted",
+          "description": "Infraestrutura de IA completa dentro do seu perímetro."
+        },
+        {
+          "title": "LLM Ops e Monitoramento",
+          "description": "Detecção de drift, escaneamento de alucinações, plantão."
+        },
+        {
+          "title": "Conformidade e Segurança",
+          "description": "LGPD, GDPR, HIPAA, SOC 2. Configurações air-gapped."
+        },
+        {
+          "title": "Integrações Personalizadas",
+          "description": "ERPs, CRMs, APIs internas, conectadas à camada de IA."
+        },
+        {
+          "title": "Treinamento e Capacitação",
+          "description": "Sessões práticas para seus times de ML e produto."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Vamos construir seu Laboratório de IA Empresarial.",
+      "subtitle": "Uma chamada de estratégia para mapear seu RL de ambiente, agentes de autoaperfeiçoamento e roteiro de redução de custos.",
+      "primary": "Iniciar seu Programa de IA Lab",
+      "footnote": "Sem preparação prévia · Participantes executivos e técnicos bem-vindos · saia com um plano concreto de construção"
+    }
   }
 }
