@@ -88,8 +88,8 @@ export default function Navbar({
   const navigation: Array<{ name: string; href: string; newTab?: boolean }> = [
     { name: dict.nav.features, href: `/${locale}#features` },
     { name: dict.nav.pricing, href: `/${locale}#pricing` },
-    { name: dict.community.title, href: `/${locale}#community` },
     { name: dict.nav.platform, href: `/${locale}/platform` },
+    { name: "Enterprise", href: `/${locale}/enterprise` },
     { name: dict.nav.blog, href: `/${locale}/blog` },
     {
       name: dict.nav.docs,
@@ -113,7 +113,7 @@ export default function Navbar({
       return;
     }
 
-    const sectionIds = ["features", "pricing", "community"] as const;
+    const sectionIds = ["features", "pricing"] as const;
 
     const updateFromScrollPosition = () => {
       const triggerY = window.scrollY + 160;
@@ -159,7 +159,10 @@ export default function Navbar({
     const [targetPath] = href.split("#");
     const normalizedTarget = normalizePath(targetPath || "/");
 
-    if (normalizedTarget === `/${locale}/platform`) {
+    if (
+      normalizedTarget === `/${locale}/platform` ||
+      normalizedTarget === `/${locale}/enterprise`
+    ) {
       return currentPath === normalizedTarget;
     }
 
