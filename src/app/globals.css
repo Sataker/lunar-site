@@ -3925,9 +3925,21 @@ s .code-block pre {
 
 @media (max-width: 1024px) {
   .ep-feat-media {
-    min-height: 220px;
+    min-height: 0;
+    width: 100%;
+    max-width: 100%;
     aspect-ratio: 16 / 7;
     align-self: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .ep-feat-media {
+    aspect-ratio: 1 / 1;
+  }
+  .ep-feat-media img {
+    object-fit: cover;
+    object-position: center center;
   }
 }
 

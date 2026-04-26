@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Mono, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -72,38 +73,40 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.variable} ${dmMono.variable} ${plusJakartaSans.variable} antialiased`}
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://opentracy.com/#organization",
-                  name: "OpenTracy",
-                  url: "https://opentracy.com",
-                  description:
-                    "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
-                  sameAs: [
-                    "https://github.com/lunar-org-ai/lunar-router",
-                    "https://discord.gg/gDNPhQ347V",
-                  ],
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://opentracy.com/#website",
-                  url: "https://opentracy.com",
-                  name: "OpenTracy",
-                  publisher: {
+        <PostHogProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Organization",
                     "@id": "https://opentracy.com/#organization",
+                    name: "OpenTracy",
+                    url: "https://opentracy.com",
+                    description:
+                      "Open source LLM gateway. Route, observe, evaluate, and optimize AI infrastructure.",
+                    sameAs: [
+                      "https://github.com/lunar-org-ai/lunar-router",
+                      "https://discord.gg/gDNPhQ347V",
+                    ],
                   },
-                },
-              ],
-            }),
-          }}
-        />
-        {children}
+                  {
+                    "@type": "WebSite",
+                    "@id": "https://opentracy.com/#website",
+                    url: "https://opentracy.com",
+                    name: "OpenTracy",
+                    publisher: {
+                      "@id": "https://opentracy.com/#organization",
+                    },
+                  },
+                ],
+              }),
+            }}
+          />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );

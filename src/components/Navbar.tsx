@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import Button from "./Button";
 import type { Locale, Dictionary } from "@/i18n/config";
 import { i18n } from "@/i18n/config";
@@ -27,6 +28,7 @@ export default function Navbar({
   );
   const pathname = usePathname();
   const router = useRouter();
+  const posthog = usePostHog();
 
   useEffect(() => {
     let cancelled = false;
@@ -184,6 +186,10 @@ export default function Navbar({
 
   const handleLocaleSwitch = (targetLocale: Locale) => {
     const targetPath = getLocalePath(targetLocale);
+    posthog?.capture("language_switched", {
+      from_locale: locale,
+      to_locale: targetLocale,
+    });
     setMobileMenuOpen(false);
     router.push(targetPath, { scroll: true });
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -220,6 +226,10 @@ export default function Navbar({
                     onClick={() => {
                       const section = getSectionFromHref(item.href);
                       if (section) setActiveHomeSection(section);
+                      posthog?.capture("nav_link_clicked", {
+                        link_name: item.name,
+                        href: item.href,
+                      });
                     }}
                   >
                     {item.name}
@@ -253,6 +263,12 @@ export default function Navbar({
             <Link
               href="https://github.com/OpenTracy/OpenTracy"
               className="github-stars-badge"
+              onClick={() =>
+                posthog?.capture("github_cta_clicked", {
+                  source: "navbar_stars_badge",
+                  star_count: starCount,
+                })
+              }
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -276,6 +292,11 @@ export default function Navbar({
             <Link
               href="https://github.com/lunar-org-ai/lunar-router"
               className="nav-cta"
+              onClick={() =>
+                posthog?.capture("github_cta_clicked", {
+                  source: "navbar_get_started",
+                })
+              }
             >
               <span>{getStartedLabel}</span>
               <svg
@@ -302,7 +323,11 @@ export default function Navbar({
           <button
             type="button"
             className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-muted hover:text-foreground hover:border-accent/40 transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              const next = !mobileMenuOpen;
+              setMobileMenuOpen(next);
+              posthog?.capture("mobile_menu_toggled", { opened: next });
+            }}
             aria-label={dict.nav.toggleMenu}
           >
             <svg
@@ -401,6 +426,11 @@ export default function Navbar({
                         const section = getSectionFromHref(item.href);
                         if (section) setActiveHomeSection(section);
                         setMobileMenuOpen(false);
+                        posthog?.capture("nav_link_clicked", {
+                          link_name: item.name,
+                          href: item.href,
+                          context: "mobile_menu",
+                        });
                       }}
                     >
                       {item.name}
@@ -435,7 +465,13 @@ export default function Navbar({
                 <Link
                   href="https://github.com/OpenTracy/OpenTracy"
                   className="w-full inline-flex items-center justify-between rounded-xl border border-border/80 bg-background px-3 py-2 text-sm text-muted hover:text-foreground transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    posthog?.capture("github_cta_clicked", {
+                      source: "mobile_menu_stars_badge",
+                      star_count: starCount,
+                    });
+                  }}
                 >
                   <span className="inline-flex items-center gap-2">
                     <svg
@@ -466,7 +502,12 @@ export default function Navbar({
                 <Link
                   href="https://github.com/lunar-org-ai/lunar-router"
                   className="btn btn-primary text-sm w-full justify-center inline-flex items-center gap-2 min-h-11"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    posthog?.capture("github_cta_clicked", {
+                      source: "mobile_menu_get_started",
+                    });
+                  }}
                 >
                   <span>{getStartedLabel}</span>
                   <svg

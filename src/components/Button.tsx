@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePostHog } from "posthog-js/react";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -19,7 +22,16 @@ export default function Button({
   onClick,
   type = "button",
 }: ButtonProps) {
+  const posthog = usePostHog();
   const baseStyles = "btn inline-flex items-center justify-center gap-2";
+
+  function trackCta(label: string) {
+    posthog?.capture("cta_clicked", {
+      label,
+      href: href ?? null,
+      variant,
+    });
+  }
   const variantStyles = {
     primary: "btn-primary",
     secondary: "btn-secondary",
@@ -35,6 +47,7 @@ export default function Button({
         className={combinedClassName}
         target={newTab ? "_blank" : undefined}
         rel={newTab ? "noopener noreferrer" : undefined}
+        onClick={() => trackCta(typeof children === "string" ? children : href)}
       >
         {children}
       </Link>
@@ -42,7 +55,14 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={combinedClassName}>
+    <button
+      type={type}
+      onClick={(e) => {
+        trackCta(typeof children === "string" ? children : type);
+        onClick?.();
+      }}
+      className={combinedClassName}
+    >
       {children}
     </button>
   );

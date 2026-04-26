@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Container from "@/components/Container";
+import BlogList from "@/components/BlogList";
 import { getAllPosts } from "../../../data/posts";
 import { getDictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
@@ -37,36 +37,7 @@ export default async function BlogPage({
             <p className="blog-list-subtitle">{dict.blog.subtitle}</p>
           </header>
 
-          <div className="blog-list">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/${locale}/blog/${post.slug}`}
-                className="blog-list-item-link"
-              >
-                <article className="blog-list-entry">
-                  <time className="blog-list-date">
-                    {new Date(post.date).toLocaleDateString(locale, {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <div className="blog-list-content">
-                    <h2 className="blog-list-entry-title">{post.title}</h2>
-                    <p className="blog-list-entry-summary">{post.summary}</p>
-                    <div className="blog-list-tags">
-                      {post.tags.map((tag) => (
-                        <span key={tag} className="blog-tag">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
+          <BlogList posts={posts} locale={locale} />
         </div>
       </Container>
     </div>
